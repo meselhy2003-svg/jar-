@@ -1,0 +1,264 @@
+.student-dashboard-page {
+  padding-top: 0;
+  padding-bottom: 6rem;
+  background: #FFFFFF;
+}
+
+/* 1. Full-Width Edge-to-Edge Hero Dark Box */
+.student-hero-dark-wrapper {
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
+.student-hero-dark-box {
+  background: linear-gradient(135deg, #1E293B, #0F172A);
+  width: 100%;
+  padding: 5.5rem 0;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+}
+
+.student-hero-dark-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.guarantee-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.student-hero-text h1 {
+  color: #FFFFFF;
+  font-size: 4.2rem;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-subtext {
+  color: #94A3B8;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+.hero-action-row {
+  margin-bottom: 2.5rem;
+}
+
+.upload-cta-btn {
+  padding: 16px 36px !important;
+  font-size: 1.05rem !important;
+  border-radius: 100px !important;
+  box-shadow: 0 8px 24px rgba(0, 168, 232, 0.4) !important;
+}
+
+.social-proof-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar-group {
+  display: flex;
+}
+
+.avatar-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #334155;
+  border: 2px solid #0F172A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -10px;
+  font-size: 0.85rem;
+}
+
+.avatar-dot.a1 { margin-left: 0; }
+
+.proof-text {
+  color: #94A3B8;
+  font-size: 0.9rem;
+}
+
+.proof-text strong {
+  color: #FFFFFF;
+}
+
+/* Hero Graphic Card */
+.student-photo-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+}
+
+.student-photo-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.verified-badge-overlay {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 12px 18px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.check-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.verified-badge-overlay strong {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.verified-badge-overlay span {
+  font-size: 0.75rem;
+  color: #94A3B8;
+}
+
+/* 2. Feature Cards Section */
+.student-features-section {
+  margin-top: 5rem;
+  margin-bottom: 6rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.25rem;
+}
+
+.feature-dark-card {
+  background: #0F172A;
+  color: white;
+  padding: 3.5rem 2.5rem;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform var(--transition-fast);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.15);
+}
+
+.feature-dark-card:hover {
+  transform: translateY(-6px);
+}
+
+.feature-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.feature-dark-card h3 {
+  color: #FFFFFF;
+  font-size: 1.45rem;
+  margin-bottom: 1rem;
+}
+
+.feature-dark-card p {
+  color: #94A3B8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 3. Cyan CTA Box */
+.student-cyan-cta-wrapper {
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+}
+
+.student-cyan-cta-box {
+  background: #00A8E8;
+  border-radius: 28px;
+  padding: 4rem 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0, 168, 232, 0.25);
+}
+
+.cyan-cta-text h2 {
+  color: #FFFFFF;
+  font-size: 2.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.cyan-cta-text p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin: 0;
+  max-width: 550px;
+}
+
+.cyan-cta-actions {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.contact-sales-btn {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.contact-sales-btn:hover {
+  background: rgba(255, 255, 255, 0.4) !important;
+}
+
+@media (max-width: 900px) {
+  .student-hero-dark-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .student-hero-text h1 {
+    font-size: 3rem;
+  }
+
+  .student-cyan-cta-box {
+    flex-direction: column;
+    text-align: center;
+  }
+}

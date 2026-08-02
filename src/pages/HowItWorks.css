@@ -1,0 +1,396 @@
+.how-it-works-page {
+  padding-top: 3.5rem;
+  padding-bottom: 6rem;
+  background: #FFFFFF;
+}
+
+/* 1. Hero Section */
+.hero-works-section {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 7rem;
+}
+
+.badge-smarter {
+  display: inline-block;
+  background: #E0F2FE;
+  color: var(--primary-color);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.75rem;
+}
+
+.hero-works-title {
+  font-size: 4.2rem;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-works-sub {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+.hero-works-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Laptop Graphic Card */
+.mint-laptop-card {
+  background: #E6F4F1;
+  border-radius: 32px;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.04);
+}
+
+.laptop-mockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.laptop-screen {
+  width: 100%;
+  height: 200px;
+  background: #0F172A;
+  border-radius: 14px 14px 0 0;
+  border: 4px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 1.5rem;
+}
+
+.screen-online-box {
+  text-align: center;
+}
+
+.screen-online-box span {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.screen-online-box strong {
+  display: block;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: #38BDF8;
+}
+
+.screen-online-box p {
+  font-size: 0.8rem;
+  color: #94A3B8;
+  margin: 4px 0 0 0;
+}
+
+.laptop-base {
+  width: 115%;
+  height: 14px;
+  background: #CBD5E1;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* 2. Material Explained Section */
+.material-explained-section {
+  margin-bottom: 7rem;
+}
+
+.material-explained-section h2 {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.cyan-underline {
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 100px;
+  margin: 0 auto 4rem;
+}
+
+.explained-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.explained-card {
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cyan-highlight-card {
+  background: var(--primary-color) !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: 0 16px 36px rgba(0, 168, 232, 0.35) !important;
+}
+
+.exp-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #E0F2FE;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.75rem;
+}
+
+.exp-icon-box-white {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.75rem;
+}
+
+.explained-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.cyan-highlight-card h3 {
+  color: white !important;
+}
+
+.explained-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cyan-highlight-card p {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 3. Assignment Dark Section */
+.assignment-dark-section {
+  background: #0F172A;
+  color: white;
+  padding: 6rem 0;
+  margin-bottom: 7rem;
+}
+
+.assignment-dark-header {
+  text-align: left;
+  margin-bottom: 4rem;
+}
+
+.assignment-dark-header h2 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.assignment-dark-header p {
+  color: #38BDF8;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.assignment-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+}
+
+.assignment-step-item {
+  position: relative;
+}
+
+.step-num-faint {
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.1);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.asgn-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.assignment-step-item h3 {
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.assignment-step-item p {
+  color: #94A3B8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 4. Seamless Section */
+.seamless-section {
+  margin-bottom: 7rem;
+}
+
+.seamless-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.seamless-left-mockup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mockup-ui-card {
+  padding: 1.5rem 2rem;
+  border-radius: 18px;
+}
+
+.badge-cyan-sm {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: 0.05em;
+}
+
+.bar-placeholder {
+  height: 10px;
+  background: #E2E8F0;
+  border-radius: 100px;
+  margin-top: 1rem;
+}
+
+.btn-primary-sm {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+  cursor: pointer;
+}
+
+.cyan-card {
+  background: var(--primary-color);
+  color: white;
+}
+
+.seamless-right-text h2 {
+  font-size: 3rem;
+  margin-bottom: 1.25rem;
+}
+
+.seamless-desc {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.seamless-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.seamless-feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.feature-bullet-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #E0F2FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.seamless-feature-list strong {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+/* 5. Cyan Banner CTA */
+.works-cta-section {
+  margin-bottom: 4rem;
+}
+
+.cta-action-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.contact-sales-pill {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: white !important;
+  border: none !important;
+  padding: 16px 32px !important;
+}
+
+.contact-sales-pill:hover {
+  background: rgba(255, 255, 255, 0.4) !important;
+}
+
+@media (max-width: 900px) {
+  .hero-works-section,
+  .seamless-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-works-title {
+    font-size: 3.2rem;
+  }
+}

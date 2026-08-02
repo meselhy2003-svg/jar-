@@ -1,0 +1,67 @@
+.my-assignments-wrapper {
+  background: #F8FAFC;
+  min-height: 100vh;
+}
+
+.my-assignments-container {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+.assignments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.assignment-card {
+  padding: 1.75rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+  background: #FFFFFF;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.submitted-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.assignment-title {
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.department-name {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.enter-assignment-btn {
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.assignments-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dots {
+  color: var(--text-muted);
+  padding: 0 4px;
+}

@@ -1,0 +1,80 @@
+.student-navbar {
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.85rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.student-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.student-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.student-link {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transition-fast);
+}
+
+.student-link:hover,
+.student-link.active {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.student-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bell-btn {
+  background: #F1F5F9;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-pill-btn {
+  background: var(--dark-surface);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-pill-btn:hover {
+  background: var(--dark-surface-card);
+}

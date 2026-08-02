@@ -1,0 +1,141 @@
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  overflow: visible !important;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: visible !important;
+}
+
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  height: 100%;
+  width: 170px;
+  position: relative;
+  overflow: visible !important;
+  z-index: 10;
+}
+
+.nav-logo-link img {
+  height: 90px !important;
+  max-height: 90px !important;
+  width: auto !important;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 6px 0;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-link.active {
+  color: var(--primary-color);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-login-link {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  transition: color var(--transition-fast);
+}
+
+.nav-login-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-bell-btn {
+  background: #F1F5F9;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.nav-bell-btn:hover {
+  background: #E2E8F0;
+}
+
+.my-profile-dark-pill {
+  background: #0F172A;
+  color: white;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background var(--transition-fast);
+}
+
+.my-profile-dark-pill:hover {
+  background: #1E293B;
+  color: white;
+}
+
+.logout-btn-sm {
+  padding: 8px 14px !important;
+  font-size: 0.85rem !important;
+}

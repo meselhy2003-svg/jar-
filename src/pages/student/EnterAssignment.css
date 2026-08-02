@@ -1,0 +1,235 @@
+.enter-assignment-wrapper {
+  background: #F8FAFC;
+  min-height: 100vh;
+}
+
+.enter-assignment-container {
+  padding-top: 1.5rem;
+  padding-bottom: 5rem;
+  max-width: 960px;
+}
+
+.assignment-header-wrap {
+  margin-bottom: 2rem;
+}
+
+.assignment-header-wrap h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Video Player */
+.video-player-card {
+  background: #2D3748;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 480px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.video-screen-mockup {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1A202C, #2D3748);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.play-button-center {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 8px 24px rgba(0, 168, 232, 0.4);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.play-button-center:hover {
+  transform: scale(1.1);
+}
+
+.video-controls-bottom {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.time-code {
+  color: #E2E8F0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.timeline-bar {
+  flex-grow: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  position: relative;
+}
+
+.timeline-fill {
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 100px;
+}
+
+.timeline-knob {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  position: absolute;
+  top: -4px;
+  transform: translateX(-50%);
+}
+
+/* Solved File Section */
+.solved-file-section {
+  margin-bottom: 3rem;
+}
+
+.solved-file-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.solved-file-card {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+}
+
+.file-info-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.pdf-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: #E0F2FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.file-name {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+}
+
+.file-meta {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.download-pdf-btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+}
+
+/* Chat Section */
+.assignment-chat-card {
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+}
+
+.chat-card-header h3 {
+  margin: 0 0 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.chat-messages-container {
+  min-height: 180px;
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.chat-message-row {
+  display: flex;
+}
+
+.chat-message-row.tutor {
+  justify-content: flex-start;
+}
+
+.chat-message-row.student {
+  justify-content: flex-end;
+}
+
+.chat-message-bubble {
+  max-width: 75%;
+  padding: 14px 18px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.chat-message-row.tutor .chat-message-bubble {
+  background: #F1F5F9;
+  color: var(--text-primary);
+}
+
+.chat-message-row.student .chat-message-bubble {
+  background: var(--dark-surface);
+  color: #ffffff;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  background: #F8FAFC;
+  padding: 8px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--border-color);
+}
+
+.chat-input-row input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.chat-send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--dark-surface);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}

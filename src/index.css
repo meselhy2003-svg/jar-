@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #00A8E8; /* Bright Cyan / Sky Blue from Figma */
+  --primary-hover: #0090C5;
+  --primary-light: #E0F2FE;
+  
+  --mint-bg: #E6F4F1; /* Mint background container from Figma screenshots */
+  --mint-accent: #0D9488;
+  
+  --background-color: #F8FAFC; /* Clean Light theme */
+  --surface-color: #FFFFFF;
+  
+  --dark-surface: #0F172A; /* Dark Navy contrast banners & form cards */
+  --dark-surface-card: #1E293B;
+  
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+  --text-light: #F8FAFC;
+  
+  --border-color: #E2E8F0;
+  --glass-border: rgba(255, 255, 255, 0.15);
+  
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 32px rgba(15, 23, 42, 0.12);
+  
+  --transition-fast: 0.2s ease-in-out;
+  --transition-slow: 0.3s ease-in-out;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Cards & Surfaces */
+.card {
+  background: var(--surface-color);
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.dark-card {
+  background: var(--dark-surface);
+  color: var(--text-light);
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.mint-box {
+  background-color: var(--mint-bg);
+  border-radius: 24px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 100px; /* Pill style from Figma */
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 168, 232, 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 168, 232, 0.45);
+}
+
+.btn-secondary {
+  background: #FFFFFF;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+  padding: 12px 28px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: var(--primary-light);
+}
+
+.btn-dark {
+  background: var(--dark-surface);
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-dark:hover {
+  background: var(--dark-surface-card);
+  transform: translateY(-2px);
+}
+
+/* Layout Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}

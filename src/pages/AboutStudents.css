@@ -1,0 +1,325 @@
+.about-students-page {
+  padding-top: 3.5rem;
+  padding-bottom: 6rem;
+  background: #FFFFFF;
+}
+
+/* 1. Hero Section */
+.hero-students-section {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 7rem;
+}
+
+.hero-students-title {
+  font-size: 4.2rem;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-students-sub {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+}
+
+.hero-students-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Right Graphic Mint Container */
+.mint-graphic-card {
+  position: relative;
+  background: #E6F4F1;
+  border-radius: 32px;
+  padding: 3rem 2rem;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.04);
+}
+
+.computer-mockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.computer-screen {
+  width: 240px;
+  height: 170px;
+  background: #FFFFFF;
+  border-radius: 14px;
+  border: 3px solid #CBD5E1;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.doc-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.doc-lines {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.doc-lines .line {
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 100px;
+}
+
+.doc-lines .line.l1 { width: 100%; background: var(--primary-color); }
+.doc-lines .line.l2 { width: 80%; }
+.doc-lines .line.l3 { width: 60%; }
+
+.computer-stand {
+  width: 60px;
+  height: 16px;
+  background: #CBD5E1;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Floating Badges */
+.float-badge {
+  position: absolute;
+  background: #FFFFFF;
+  padding: 12px 18px;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.float-badge.top-right {
+  top: 20px;
+  right: -10px;
+}
+
+.float-badge.bottom-left {
+  bottom: 20px;
+  left: -10px;
+}
+
+.check-badge-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #DCFCE7;
+  color: #15803D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.float-badge strong {
+  display: block;
+  color: var(--text-primary);
+}
+
+.badge-time {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.pdf-badge-icon {
+  font-size: 1.2rem;
+}
+
+/* 2. Challenges Section */
+.challenges-section {
+  margin-bottom: 7rem;
+}
+
+.challenges-section .section-header {
+  max-width: 680px;
+  margin-top: 16rem;
+  margin-bottom: 4rem;
+  text-align: left;
+  margin-left: 0;
+}
+
+.section-tag-cyan {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.section-header h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.challenge-card {
+  padding: 3rem 2.5rem;
+  border-radius: 24px;
+}
+
+.icon-box-peach, .icon-box-pink, .icon-box-blue {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.75rem;
+}
+
+.icon-box-peach { background: #FFEDD5; color: #EA580C; }
+.icon-box-pink { background: #FCE7F3; color: #DB2777; }
+.icon-box-blue { background: #E0F2FE; color: #0284C7; }
+
+.challenge-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+.challenge-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 3. Clarity Section */
+.clarity-section {
+  margin-bottom: 7rem;
+}
+
+.clarity-section .section-header {
+  max-width: 680px;
+  margin-top: 13rem;
+  margin-bottom: 4rem;
+  text-align: left;
+  margin-left: 0;
+}
+
+.clarity-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.clarity-step-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-circle-num {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 168, 232, 0.35);
+}
+
+.clarity-card {
+  padding: 3rem 2.25rem;
+  border-radius: 24px;
+  text-align: center;
+  width: 100%;
+}
+
+.step-icon-cyan {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: #E0F2FE;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin: 0 auto 1.5rem;
+}
+
+.clarity-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+.clarity-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 4. Dark CTA Banner */
+.students-cta-section {
+  margin-bottom: 4rem;
+}
+
+.students-cta-banner {
+  background: linear-gradient(135deg, #1E293B, #0F172A);
+  border-radius: 28px;
+  padding: 4.5rem 3rem;
+  color: white;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.25);
+}
+
+.students-cta-banner h2 {
+  color: #FFFFFF;
+  font-size: 3rem;
+  margin-bottom: 1.25rem;
+}
+
+.students-cta-banner p {
+  color: #94A3B8;
+  font-size: 1.15rem;
+  margin: 0 auto 2.5rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.cta-cyan-pill {
+  padding: 16px 36px !important;
+  font-size: 1.05rem !important;
+}
+
+@media (max-width: 900px) {
+  .hero-students-section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-students-title {
+    font-size: 3.2rem;
+  }
+}
