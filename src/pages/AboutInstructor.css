@@ -10,7 +10,7 @@
   grid-template-columns: 1.1fr 1fr;
   gap: 4rem;
   align-items: center;
-  margin-bottom: 7rem;
+  margin-bottom: 12rem !important;
 }
 
 .badge-network {
@@ -29,7 +29,7 @@
   font-size: 4.2rem;
   line-height: 1.08;
   letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
   color: var(--text-primary);
 }
 
@@ -37,7 +37,7 @@
   font-size: 1.15rem;
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.75rem;
   max-width: 500px;
 }
 
@@ -55,7 +55,7 @@
 
 .instructor-main-photo {
   width: 100%;
-  height: 400px;
+  height: 420px;
   object-fit: cover;
   border-radius: 28px;
   display: block;
@@ -111,22 +111,22 @@
   color: var(--text-secondary);
 }
 
-/* 2. Why Teach Section */
+/* 2. Why Teach Section - Massive Bottom Spacing */
 .why-teach-section {
-  padding-top: 16rem;
-  margin-bottom: 7rem;
+  padding-bottom: 10rem !important;
+  margin-bottom: 8rem !important;
   text-align: left !important;
 }
 
 .why-teach-section h2 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  font-size: 3.2rem;
+  margin-bottom: 0.75rem;
   text-align: left !important;
 }
 
 .section-subtext {
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-bottom: 4rem;
   text-align: left !important;
 }
@@ -134,30 +134,30 @@
 .why-teach-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .why-card {
-  padding: 3rem 2.25rem;
+  padding: 3.5rem 2.5rem;
   border-radius: 24px;
   text-align: left !important;
 }
 
 .why-icon-box {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
   background: #E0F2FE;
   color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
-  margin-bottom: 1.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .why-card h3 {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   margin-bottom: 1rem;
   text-align: left !important;
 }
@@ -170,28 +170,31 @@
   text-align: left !important;
 }
 
-/* 3. How It Works (For Instructor) - Guaranteed 16rem Padding & Strict Left Alignment */
+/* 3. How It Works (For Instructor) - Massive Top & Bottom Spacing */
 .how-instructor-section {
-  padding-top: 16rem;
-  margin-bottom: 7rem;
+  padding-top: 10rem !important;
+  padding-bottom: 10rem !important;
+  margin-top: 8rem !important;
+  margin-bottom: 8rem !important;
   text-align: left !important;
 }
 
 .section-title-wrap {
   text-align: left !important;
   margin-left: 0 !important;
+  margin-bottom: 2rem;
 }
 
 .title-left {
   text-align: left !important;
-  font-size: 3rem;
+  font-size: 3.2rem;
   margin-bottom: 1rem;
 }
 
 .instructor-steps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2.5rem;
+  gap: 3rem;
   margin-top: 4rem;
 }
 
@@ -203,8 +206,8 @@
 }
 
 .step-num-cyan {
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: var(--primary-color);
   color: white;
@@ -213,54 +216,58 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   margin-left: 0 !important;
   margin-right: auto !important;
   box-shadow: 0 6px 18px rgba(0, 168, 232, 0.35);
 }
 
 .instructor-step-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.85rem;
   text-align: left !important;
 }
 
 .instructor-step-item p {
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin: 0;
   text-align: left !important;
 }
 
 /* 4. Manage Sessions Dark Section */
 .manage-section {
-  margin-bottom: 7rem;
+  padding-top: 10rem !important;
+  padding-bottom: 10rem !important;
+  margin-top: 8rem !important;
+  margin-bottom: 8rem !important;
 }
 
 .manage-dark-banner {
   background: linear-gradient(135deg, #1E293B, #0F172A);
   border-radius: 28px;
-  padding: 4.5rem 3.5rem;
+  padding: 5rem 4rem;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  gap: 3.5rem;
+  gap: 4rem;
   align-items: center;
   color: white;
   box-shadow: 0 24px 48px rgba(15, 23, 42, 0.25);
+  margin-bottom: 0;
 }
 
 .manage-left-text h2 {
   color: #FFFFFF;
-  font-size: 2.8rem;
-  margin-bottom: 1.25rem;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .manage-left-text p {
   color: #94A3B8;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
 }
 
 .check-feature-list {
@@ -269,23 +276,23 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
   color: #E2E8F0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 .check-box-icon {
   color: var(--primary-color);
-  margin-right: 8px;
-  font-size: 1.1rem;
+  margin-right: 10px;
+  font-size: 1.15rem;
 }
 
 /* Mockup Panel Box */
 .mockup-panel-box {
   background: #1E293B;
-  border-radius: 20px;
-  padding: 2rem;
+  border-radius: 24px;
+  padding: 2.25rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -293,7 +300,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -301,7 +308,7 @@
 .badge-new-cyan {
   background: var(--primary-color);
   color: white;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 800;
@@ -310,13 +317,13 @@
 .panel-requests-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .request-item-row {
   background: rgba(255, 255, 255, 0.05);
-  padding: 12px 16px;
-  border-radius: 12px;
+  padding: 14px 18px;
+  border-radius: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -325,21 +332,21 @@
 .req-item-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .req-doc-icon {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .req-item-left strong {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: white;
 }
 
 .req-item-left span {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: #94A3B8;
 }
 
@@ -347,42 +354,47 @@
   background: var(--primary-color);
   color: white;
   border: none;
-  padding: 6px 16px;
+  padding: 8px 18px;
   border-radius: 8px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
 }
 
 /* 5. Cyan Banner CTA */
 .instructor-cta-section {
-  margin-bottom: 4rem;
+  padding-top: 10rem !important;
+  padding-bottom: 8rem !important;
+  margin-top: 8rem !important;
+  margin-bottom: 8rem !important;
 }
 
 .cyan-cta-banner {
   background: #00A8E8;
   border-radius: 28px;
-  padding: 4.5rem 3rem;
+  padding: 5rem 3.5rem;
   color: white;
+  box-shadow: 0 20px 40px rgba(0, 168, 232, 0.25);
 }
 
 .cyan-cta-banner h2 {
   color: #FFFFFF;
-  font-size: 3rem;
-  margin-bottom: 1.25rem;
+  font-size: 3.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .cyan-cta-banner p {
-  font-size: 1.15rem;
-  margin: 0 auto 2.5rem;
-  max-width: 650px;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  margin: 0 auto 3rem;
+  max-width: 680px;
+  line-height: 1.65;
   opacity: 0.95;
 }
 
 .cta-dark-btn {
-  padding: 16px 36px !important;
-  font-size: 1.05rem !important;
+  padding: 18px 40px !important;
+  font-size: 1.1rem !important;
+  border-radius: 100px !important;
 }
 
 @media (max-width: 900px) {
@@ -394,5 +406,15 @@
 
   .hero-instructor-title {
     font-size: 3.2rem;
+  }
+
+  .why-teach-section,
+  .how-instructor-section,
+  .manage-section,
+  .instructor-cta-section {
+    margin-bottom: 6rem !important;
+    margin-top: 6rem !important;
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
   }
 }

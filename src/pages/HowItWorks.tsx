@@ -28,20 +28,13 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        {/* Right Laptop Mint Graphic */}
+        {/* Right Hero Image */}
         <div className="hero-works-right">
-          <div className="mint-laptop-card">
-            <div className="laptop-mockup">
-              <div className="laptop-screen">
-                <div className="screen-online-box">
-                  <span>💻</span>
-                  <strong>ONLINE LEARNING</strong>
-                  <p>1-on-1 Interactive Video</p>
-                </div>
-              </div>
-              <div className="laptop-base"></div>
-            </div>
-          </div>
+          <img 
+            src="/how-it-works-hero.png" 
+            alt="How JAR Academy Works - Online Learning" 
+            className="hero-works-main-photo"
+          />
         </div>
       </section>
 
