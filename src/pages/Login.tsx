@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
@@ -12,15 +12,14 @@ const Login = ({ isInstructor = false }: LoginProps) => {
   const [password, setPassword] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const from = location.state?.from?.pathname || '/';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const role = isInstructor ? 'instructor' : email.toLowerCase().includes('admin') ? 'admin' : 'student';
     login(email, role as any);
-    navigate(from, { replace: true });
+
+    const targetPath = role === 'instructor' ? '/instructor/dashboard' : role === 'admin' ? '/admin' : '/student/dashboard';
+    navigate(targetPath, { replace: true });
   };
 
   return (

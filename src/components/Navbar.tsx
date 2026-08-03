@@ -17,10 +17,14 @@ const Navbar = () => {
     navigate('/');
   };
 
+  const logoTarget = isAuthenticated 
+    ? (user?.role === 'instructor' ? '/instructor/dashboard' : '/student/dashboard')
+    : '/';
+
   return (
     <header className="navbar">
       <div className="container nav-container">
-        <Link to="/" className="nav-logo-link">
+        <Link to={logoTarget} className="nav-logo-link" title="JAR ACADEMY Dashboard">
           <JarAcademyLogo height={48} />
         </Link>
         
