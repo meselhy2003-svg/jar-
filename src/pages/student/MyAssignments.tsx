@@ -1,94 +1,126 @@
-import { Link } from 'react-router-dom';
-import StudentHeader from '../../components/StudentHeader';
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import './MyAssignments.css';
 
-const ASSIGNMENTS_DATA = [
+interface AssignmentItem {
+  id: string;
+  title: string;
+  department: string;
+  submittedDate: string;
+  status: 'COMPLETED' | 'PROCESSING';
+}
+
+const ASSIGNMENTS_DATA: AssignmentItem[] = [
   {
     id: 'calc-hw-1',
     title: 'Calculus Homework',
     department: 'Mathematics Department',
     submittedDate: 'March 12',
-    status: 'COMPLETED',
-    statusType: 'completed'
+    status: 'COMPLETED'
   },
   {
     id: 'physics-hw-3',
     title: 'Physics Assignment 3',
     department: 'Theoretical Physics 101',
     submittedDate: 'March 10',
-    status: 'PROCESSING',
-    statusType: 'processing'
+    status: 'PROCESSING'
   },
   {
     id: 'chem-lab-2',
     title: 'Organic Chemistry Lab',
     department: 'Advanced Chemistry',
     submittedDate: 'March 05',
-    status: 'PROCESSING',
-    statusType: 'processing'
+    status: 'PROCESSING'
   },
   {
     id: 'history-essay',
     title: 'World History Essay',
     department: 'Humanities & Arts',
     submittedDate: 'February 28',
-    status: 'PROCESSING',
-    statusType: 'processing'
+    status: 'PROCESSING'
   },
   {
     id: 'algo-intro',
     title: 'Intro to Algorithms',
     department: 'Computer Science',
     submittedDate: 'February 24',
-    status: 'PROCESSING',
-    statusType: 'processing'
+    status: 'PROCESSING'
   }
 ];
 
 const MyAssignments = () => {
+  const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+
   return (
-    <div className="my-assignments-wrapper">
-      <StudentHeader />
+    <div className="my-assignments-page container animate-fade-in">
+      {/* Top Header Controls */}
+      <div className="assignments-header-wrapper">
+        <button onClick={() => navigate('/student/dashboard')} className="back-link-btn">
+          &larr; Back
+        </button>
 
-      <main className="container my-assignments-container animate-fade-in">
-        <div className="my-assignments-top">
-          <Link to="/student/dashboard" className="back-link">← Back</Link>
-          <h1 className="page-title">My Assignments</h1>
-          <p className="page-subtitle">View and manage your completed assignments.</p>
-        </div>
+        <h1 className="assignments-main-title">My Assignments</h1>
+        <p className="assignments-subtitle">View and manage your completed assignments.</p>
+      </div>
 
-        {/* Assignments List */}
-        <div className="assignments-list">
-          {ASSIGNMENTS_DATA.map((item) => (
-            <div className="assignment-card card" key={item.id}>
-              <div className="assignment-card-left">
-                <div className="status-row">
-                  <span className={`status-pill ${item.statusType}`}>{item.status}</span>
-                  <span className="submitted-date">Submitted on: {item.submittedDate}</span>
-                </div>
-                <h3 className="assignment-title">{item.title}</h3>
-                <p className="department-name">🏫 {item.department}</p>
+      {/* Assignments List */}
+      <div className="assignments-list-container">
+        {ASSIGNMENTS_DATA.map((item) => (
+          <div key={item.id} className="my-assignment-card card">
+            <div className="assignment-card-left">
+              <div className="status-submitted-row">
+                <span className={`asgn-status-pill ${item.status.toLowerCase()}`}>
+                  {item.status}
+                </span>
+                <span className="submitted-date-text">
+                  Submitted on: {item.submittedDate}
+                </span>
               </div>
 
-              <div className="assignment-card-right">
-                <Link to={`/my-assignments/${item.id}`} className="btn-dark enter-assignment-btn">
-                  Enter Assignment
-                </Link>
-              </div>
+              <h2 className="assignment-item-title">{item.title}</h2>
+              
+              <p className="department-tag">
+                🏷️ {item.department}
+              </p>
             </div>
-          ))}
-        </div>
 
-        {/* Pagination */}
-        <div className="assignments-pagination">
-          <button className="page-btn">&lt;</button>
-          <button className="page-btn active">1</button>
-          <button className="page-btn">2</button>
-          <button className="page-btn">3</button>
-          <span className="dots">..</span>
-          <button className="page-btn">&gt;</button>
-        </div>
-      </main>
+            <div className="assignment-card-right">
+              <Link 
+                to={`/my-assignments/${item.id}`} 
+                className={`btn-dark enter-assignment-btn ${item.status === 'PROCESSING' ? 'btn-slate' : ''}`}
+              >
+                Enter Assignment
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Pagination Row */}
+      <div className="assignments-pagination-row">
+        <button className="pg-arrow-btn">&lt;</button>
+        <button 
+          className={`pg-num-btn ${currentPage === 1 ? 'active' : ''}`}
+          onClick={() => setCurrentPage(1)}
+        >
+          1
+        </button>
+        <button 
+          className={`pg-num-btn ${currentPage === 2 ? 'active' : ''}`}
+          onClick={() => setCurrentPage(2)}
+        >
+          2
+        </button>
+        <button 
+          className={`pg-num-btn ${currentPage === 3 ? 'active' : ''}`}
+          onClick={() => setCurrentPage(3)}
+        >
+          3
+        </button>
+        <span className="pg-dots">..</span>
+        <button className="pg-arrow-btn">&gt;</button>
+      </div>
     </div>
   );
 };

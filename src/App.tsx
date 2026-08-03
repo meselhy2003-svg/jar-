@@ -74,6 +74,11 @@ function App() {
 
               <Route path="/courses/:courseId/lesson/:lessonId" element={<CoursePlayer />} />
               
+              {/* My Assignments Routes */}
+              <Route path="/my-assignments" element={<MyAssignments />} />
+              <Route path="/my-assignments/:assignmentId" element={<EnterAssignment />} />
+              <Route path="/assignments" element={<MyAssignments />} />
+
               {/* Portals & Legal */}
               <Route path="/student/dashboard" element={<StudentDashboard />} />
               <Route path="/session-room/:sessionId" element={<SessionRoom />} />
@@ -81,10 +86,6 @@ function App() {
               <Route path="/terms" element={<Legal />} />
               <Route path="/privacy" element={<Legal />} />
             </Route>
-
-            {/* Logged-In Student Dedicated Assignments */}
-            <Route path="/my-assignments" element={<MyAssignments />} />
-            <Route path="/my-assignments/:assignmentId" element={<EnterAssignment />} />
 
             {/* Admin Dashboard Routes */}
             <Route 

@@ -33,7 +33,7 @@ const Navbar = () => {
               <Link to="/courses" className={`nav-link ${isActive('/courses')}`}>
                 📖 My Courses
               </Link>
-              <Link to="/student/dashboard" className={`nav-link ${isActive('/student/dashboard')}`}>
+              <Link to="/my-assignments" className={`nav-link ${isActive('/my-assignments')}`}>
                 📋 My Assignments
               </Link>
               <Link to="/orders" className={`nav-link ${isActive('/orders')}`}>
