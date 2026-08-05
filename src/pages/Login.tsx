@@ -2,24 +2,46 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Login.css';
+import { instructorLogin, studentLogin, type UserRole } from '../api/auth';
 
 interface LoginProps {
   isInstructor?: boolean;
 }
 
 const Login = ({ isInstructor = false }: LoginProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
+  const { setAuthUser } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const role = isInstructor ? 'instructor' : email.toLowerCase().includes('admin') ? 'admin' : 'student';
-    login(email, role as any);
+    setIsLoading(true);
+    setError(null);
 
-    const targetPath = role === 'instructor' ? '/instructor/dashboard' : role === 'admin' ? '/admin' : '/student/dashboard';
-    navigate(targetPath, { replace: true });
+    try {
+      const payload = { email, password };
+      const response = isInstructor
+        ? await instructorLogin(payload)
+        : await studentLogin(payload);
+
+      const user = response.data;
+      setAuthUser(user);
+
+      const role = user.role as UserRole;
+      const redirectMap: Record<UserRole, string> = {
+        student: '/student/dashboard',
+        instructor: '/instructor/dashboard',
+        admin: '/admin',
+      };
+      navigate(redirectMap[role] ?? '/', { replace: true });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An unexpected error occurred.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -28,12 +50,12 @@ const Login = ({ isInstructor = false }: LoginProps) => {
         {/* Left Illustration Box */}
         <div className="auth-illustration-side mint-box">
           <div className="illustration-content text-center">
-            <img 
-              src={isInstructor 
+            <img
+              src={isInstructor
                 ? "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop"
                 : "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop"
               }
-              alt="Auth Illustration" 
+              alt="Auth Illustration"
               className="auth-img"
             />
             <h3>{isInstructor ? "Instructor Portal" : "Student Portal"}</h3>
@@ -47,32 +69,32 @@ const Login = ({ isInstructor = false }: LoginProps) => {
             <h2>{isInstructor ? "Instructor Login" : "Student Login"}</h2>
             <p style={{ color: 'var(--text-muted)' }}>Enter your credentials to access your account.</p>
           </div>
-          
+
           <form className="auth-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="email">Email Address</label>
-              <input 
-                type="email" 
-                id="email" 
+              <input
+                type="email"
+                id="email"
                 placeholder={isInstructor ? "instructor@jaracademy.com" : "student@jaracademy.com (or admin@...)"}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input 
-                type="password" 
-                id="password" 
+              <input
+                type="password"
+                id="password"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
-            
+
             <div className="form-options">
               <label className="checkbox-container">
                 <input type="checkbox" />
@@ -80,10 +102,10 @@ const Login = ({ isInstructor = false }: LoginProps) => {
               </label>
               <a href="#" className="forgot-password">Forgot Password?</a>
             </div>
-            
+
             <button type="submit" className="btn-primary auth-submit">Log In</button>
           </form>
-          
+
           <div className="auth-footer">
             <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
           </div>

@@ -1,0 +1,24 @@
+{
+    "name": "JAR Academy",
+    "values": [
+        {
+            "key": "baseUrl",
+            "value": "https://smart-explanation-plaform-production-1bd6.up.railway.app",
+            "type": "default",
+            "enabled": true
+        },
+        {
+            "key": "token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGE3MWI2ODFlMjU1MmQ4YjMyNjYwNSIsImlhdCI6MTc3NTkyNDg2NiwiZXhwIjoxNzc2NTI5NjY2fQ.RHL1VBHpOAyldTJUD33lcaXrAtGynruMaAIqril57WM",
+            "type": "default",
+            "enabled": true
+        },
+        {
+            "key": "vercel_URL",
+            "value": "https://smart-explanation-plaform.vercel.app",
+            "type": "default",
+            "enabled": true
+        }
+    ],
+    "_postman_variable_scope": "environment"
+}
