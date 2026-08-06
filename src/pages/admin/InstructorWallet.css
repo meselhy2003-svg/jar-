@@ -1,0 +1,361 @@
+.instructor-wallet-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.wallet-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wallet-main-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+}
+
+.wallet-breadcrumb {
+  font-size: 0.9rem;
+  color: #64748B;
+}
+
+.financial-stats-pills-row {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.fin-pill {
+  padding: 1rem 1.5rem;
+  border-radius: 18px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+}
+
+.fin-lbl {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  margin-bottom: 2px;
+}
+
+.fin-val {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #0F172A;
+}
+
+.gold-txt { color: #D97706 !important; }
+
+/* Segmented Tabs */
+.wallet-tabs-container {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.wallet-tabs-pill-wrap {
+  display: flex;
+  background: #E0F2FE;
+  padding: 4px;
+  border-radius: 100px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0284C7;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn.active {
+  background: #FFFFFF;
+  color: #0284C7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+}
+
+/* Date Filter Banner (Screenshot 4) */
+.date-filter-banner {
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.date-inputs-flex {
+  display: flex;
+  gap: 2rem;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-group label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #64748B;
+}
+
+.filter-group input {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  color: #0F172A;
+  outline: none;
+}
+
+.apply-filters-btn {
+  padding: 10px 24px !important;
+  font-size: 0.9rem !important;
+  font-weight: 800 !important;
+  border-radius: 12px !important;
+}
+
+/* Transfers Table Card (Screenshot 4) */
+.transfers-table-card {
+  padding: 0;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+}
+
+.transfers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transfers-table th {
+  background: #F8FAFC;
+  color: #64748B;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 16px 24px;
+  text-align: left;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.transfers-table td {
+  padding: 20px 24px;
+  border-bottom: 1px solid #F1F5F9;
+  font-size: 0.92rem;
+  color: #0F172A;
+}
+
+.sub-id {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  margin-top: 2px;
+}
+
+.dot-red { color: #EF4444; }
+.dot-blue { color: #0284C7; }
+
+.status-badge-green {
+  background: #DCFCE7;
+  color: #16A34A;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.view-details-link {
+  color: #0284C7;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.table-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background: #F8FAFC;
+}
+
+.rows-count {
+  font-size: 0.82rem;
+  color: #64748B;
+}
+
+.table-pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.p-arrow { color: #94A3B8; cursor: pointer; }
+
+.p-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #64748B;
+  cursor: pointer;
+}
+
+.p-num.active {
+  background: #0284C7;
+  color: white;
+}
+
+/* Pending Requests List (Screenshot 5) */
+.pending-requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pending-card {
+  padding: 2.25rem 2.5rem;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+}
+
+.pending-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  gap: 2rem;
+}
+
+.p-lbl {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  margin-bottom: 4px;
+}
+
+.p-val-sm {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.p-val-lg {
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.method-logo-box {
+  width: 80px;
+  height: 48px;
+  border: 1px solid #0F172A;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.method-logo-box.vodafone {
+  background: #E11D48;
+  border-color: #E11D48;
+}
+
+.voda-text {
+  color: white;
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.method-logo-box.instapay {
+  background: #FFFFFF;
+  border-color: #0F172A;
+}
+
+.inst-text {
+  color: #6366F1;
+  font-weight: 900;
+  font-size: 0.82rem;
+}
+
+.status-orange-pill {
+  background: #FFEDD5;
+  color: #C2410C;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  display: inline-block;
+}
+
+.receipt-upload-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dashed-receipt-boxes-row {
+  display: flex;
+  gap: 12px;
+}
+
+.receipt-dash-box {
+  flex: 1;
+  border: 1.5px dashed #CBD5E1;
+  border-radius: 14px;
+  padding: 18px 10px;
+  text-align: center;
+  background: #F8FAFC;
+  cursor: pointer;
+}
+
+.receipt-dash-box span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #64748B;
+}
+
+.action-buttons-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.approve-transfer-btn {
+  width: 100%;
+  padding: 12px !important;
+  font-size: 0.9rem !important;
+  font-weight: 800 !important;
+  border-radius: 12px !important;
+}
+
+.reject-request-btn {
+  width: 100%;
+  padding: 12px !important;
+  font-size: 0.9rem !important;
+  font-weight: 800 !important;
+  border-radius: 12px !important;
+  border: 1px solid #FECDD3 !important;
+  color: #E11D48 !important;
+  background: #FFFFFF !important;
+}

@@ -1,0 +1,97 @@
+.register-student-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.register-student-center-wrap {
+  max-width: 680px;
+  width: 100%;
+}
+
+.register-student-dark-card {
+  background: #2C3A4E;
+  color: white;
+  padding: 2.75rem 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+}
+
+.card-head-center h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 4px 0;
+}
+
+.card-head-center p {
+  font-size: 0.85rem;
+  color: #94A3B8;
+  margin-bottom: 2rem;
+}
+
+.register-student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.register-student-dark-card label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.register-student-dark-card input[type="text"],
+.register-student-dark-card input[type="email"],
+.register-student-dark-card input[type="password"],
+.register-student-dark-card select {
+  width: 100%;
+  background: #FFFFFF;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  color: #0F172A;
+  outline: none;
+}
+
+.input-with-ico {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-ico .inp-ic {
+  position: absolute;
+  left: 14px;
+  font-size: 1.05rem;
+}
+
+.input-with-ico input {
+  padding-left: 42px !important;
+}
+
+.phone-code-input-flex {
+  display: flex;
+  gap: 10px;
+}
+
+.terms-checkbox-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.terms-txt {
+  font-size: 0.78rem;
+  color: #CBD5E1;
+  line-height: 1.4;
+}
+
+.blue-link {
+  color: #38BDF8;
+  cursor: pointer;
+}

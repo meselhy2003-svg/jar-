@@ -1,0 +1,489 @@
+.instructor-profile-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.profile-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-main-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+}
+
+.profile-breadcrumb {
+  font-size: 0.9rem;
+  color: #64748B;
+}
+
+.crumb-link {
+  color: #0284C7;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.crumb-active {
+  color: #0284C7;
+  font-weight: 700;
+}
+
+.header-action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-inst-btn {
+  background: #E0F2FE !important;
+  color: #0284C7 !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+}
+
+.suspend-inst-btn {
+  border: 1px solid #FED7AA !important;
+  color: #C2410C !important;
+  background: #FFF7ED !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+}
+
+.delete-inst-btn {
+  border: 1px solid #FECDD3 !important;
+  color: #E11D48 !important;
+  background: #FFF1F2 !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+}
+
+/* Profile Overview Grid */
+.profile-columns-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.75rem;
+}
+
+.profile-identity-card {
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-relative-wrap {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.profile-avatar-large {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #38BDF8;
+}
+
+.online-green-dot {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #22C55E;
+  border: 3px solid #FFFFFF;
+}
+
+.inst-profile-name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+}
+
+.inst-profile-role {
+  font-size: 0.9rem;
+  color: #64748B;
+  margin: 0 0 1.5rem 0;
+}
+
+.inst-badges-box {
+  display: flex;
+  background: #F0F9FF;
+  border-radius: 16px;
+  padding: 10px 20px;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.b-lbl {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #64748B;
+}
+
+.b-val {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.yellow-txt { color: #D97706; }
+
+.member-degrees-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+}
+
+.meta-lbl {
+  display: block;
+  font-size: 0.72rem;
+  color: #94A3B8;
+  margin-bottom: 2px;
+}
+
+.meta-val {
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.degree-pill {
+  background: #E0F2FE;
+  color: #0284C7;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.open-wallet-btn {
+  width: 100%;
+  padding: 12px !important;
+  background: #E0F2FE !important;
+  color: #0284C7 !important;
+  font-weight: 800 !important;
+  border-radius: 12px !important;
+}
+
+/* Academic & Contact Info Card */
+.academic-contact-card {
+  padding: 2.25rem 2.5rem;
+  border-radius: 24px;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.academic-contact-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 1.75rem 0;
+  padding-left: 10px;
+  border-left: 4px solid #0284C7;
+}
+
+.info-fields-grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.field-lbl {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  margin-bottom: 4px;
+}
+
+.field-val {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.can-teach-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.can-teach-pill {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 14px 20px;
+  color: #0F172A;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+/* Activity Filter Bar */
+.activity-filter-bar {
+  padding: 1.25rem 2rem;
+  border-radius: 20px;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-left-inputs {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.filter-cal-icon {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.date-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.date-input-group label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #64748B;
+}
+
+.date-input-group select {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.update-stats-btn {
+  background: none !important;
+  color: #0284C7 !important;
+  font-weight: 800 !important;
+  font-size: 0.88rem !important;
+}
+
+/* 4 Metric Cards Grid */
+.four-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-box-card {
+  padding: 1.75rem 2rem;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid #0284C7;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.stat-ico {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.blue-ico { background: #E0F2FE; }
+.cyan-ico { background: #E0F2FE; }
+.orange-ico { background: #FFEDD5; }
+.sparkle-ico { background: #F0F9FF; }
+
+.stat-pct {
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.green-pct { color: #16A34A; }
+.grey-pct { color: #64748B; }
+.orange-pct { color: #EA580C; }
+
+.stat-ttl {
+  font-size: 0.82rem;
+  color: #64748B;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0F172A;
+  margin: 0;
+}
+
+/* Monthly Teaching Chart & Recent Activity */
+.chart-activity-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.monthly-chart-card {
+  padding: 2.25rem;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+
+.card-header-flex h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+}
+
+.chart-sub-label {
+  font-size: 0.82rem;
+  color: #64748B;
+}
+
+.months-bar-chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 180px;
+  margin-top: 2rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.m-bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  justify-content: flex-end;
+  width: 32px;
+}
+
+.m-bar {
+  width: 20px;
+  background: #E0F2FE;
+  border-radius: 6px 6px 0 0;
+}
+
+.m-bar.high-bar {
+  background: #0284C7;
+}
+
+.m-bar-col span {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #64748B;
+}
+
+.inst-recent-activity-card {
+  padding: 2.25rem 2rem;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+}
+
+.inst-recent-activity-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 1.5rem 0;
+}
+
+.inst-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.timeline-event {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.event-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.cyan-bg { background: #BAE6FD; color: #0284C7; }
+.blue-bg { background: #E0F2FE; color: #0284C7; }
+.orange-bg { background: #FFEDD5; color: #EA580C; }
+.purple-bg { background: #F3E8FF; color: #9333EA; }
+
+.event-type {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #94A3B8;
+}
+
+.timeline-event strong {
+  display: block;
+  font-size: 0.9rem;
+  color: #0F172A;
+  margin: 2px 0;
+}
+
+.event-meta {
+  font-size: 0.75rem;
+  color: #64748B;
+  margin: 0;
+}
