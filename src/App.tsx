@@ -14,6 +14,7 @@ import HowItWorks from './pages/HowItWorks';
 import Contact from './pages/Contact';
 import GetStarted from './pages/GetStarted';
 import Login from './pages/Login';
+import ForgotPassword from './pages/ForgotPassword';
 import SignUp from './pages/SignUp';
 import StudentOrders from './pages/StudentOrders';
 import BookSession from './pages/BookSession';
@@ -60,6 +61,7 @@ function App() {
               <Route path="/get-started" element={<GetStarted />} />
               <Route path="/login" element={<Login />} />
               <Route path="/instructor-login" element={<Login isInstructor={true} />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/my-orders" element={<StudentOrders />} />
               <Route path="/orders" element={<StudentOrders />} />
