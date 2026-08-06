@@ -104,7 +104,7 @@ const AdminLogin = () => {
           </form>
 
           <div className="admin-login-footer text-center">
-            <span onClick={() => navigate('/login')} className="back-link">
+            <span onClick={() => navigate('/')} className="back-link">
               &larr; Switch to Student / Instructor Portal Login
             </span>
           </div>
