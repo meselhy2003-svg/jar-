@@ -1,22 +1,28 @@
+import { useEffect, useState } from "react";
 import "./OfferConfirmed.css";
 
 const OfferConfirmed = () => {
+  const [showToast, setShowToast] = useState(true);
+
+useEffect(() => {
+    const timer = setTimeout(() => {
+        setShowToast(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+}, []);
   return (
-   <div className="offer-confirmed-page">
-
-    <div className="offer-toast">
-
-        <div className="offer-toast-icon">
-            ✓
-        </div>
-
-        <div className="offer-toast-text">
+    <div className="offer-confirmed-page">
+      {showToast && (
+        <div className="offer-toast">
+          <div className="offer-toast-icon">✓</div>
+          <div className="offer-toast-text">
             The offer confirmed. The offer has been moved to offers successfully.
+          </div>
         </div>
+      )}
 
-    </div>
-
-    <div className="offer-success-section">
+      <div className="offer-success-section">
 
         <div className="offer-success-icon">
             ✓
@@ -70,6 +76,7 @@ const OfferConfirmed = () => {
 </div>
 
 </div>
+
   );
 };
 
