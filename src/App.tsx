@@ -27,7 +27,15 @@ import SessionRoom from './pages/student/SessionRoom';
 import MyAssignments from './pages/student/MyAssignments';
 import EnterAssignment from './pages/student/EnterAssignment';
 import InstructorDashboard from './pages/instructor/InstructorDashboard';
+import AvailableTasks from './pages/instructor/AvailableTasks';
+import TrialTasks from './pages/instructor/TrialTasks';
+import TrialSubmission from './pages/instructor/TrialSubmission';
+import TrialSuccess from './pages/instructor/TrialSuccess';
+import AssignmentTasks from './pages/instructor/AssignmentTasks';
+import AssignmentConfirmed from './pages/instructor/AssignmentConfirmed';
+import ExplainTasks from './pages/instructor/ExplainTasks';
 import CoursePlayer from './pages/CoursePlayer';
+import OfferConfirmed from './pages/instructor/OfferConfirmed';
 
 // Admin Pages
 import AdminLayout from './layouts/AdminLayout';
@@ -64,7 +72,7 @@ function App() {
               <Route path="/my-orders" element={<StudentOrders />} />
               <Route path="/orders" element={<StudentOrders />} />
               <Route path="/book-session" element={<BookSession />} />
-              
+
               {/* Courses & Course Details */}
               <Route path="/courses" element={<Courses />} />
               <Route path="/course/:id" element={<CourseDetail />} />
@@ -73,7 +81,7 @@ function App() {
               <Route path="/my-courses/:id" element={<CourseDetail />} />
 
               <Route path="/courses/:courseId/lesson/:lessonId" element={<CoursePlayer />} />
-              
+
               {/* My Assignments Routes */}
               <Route path="/my-assignments" element={<MyAssignments />} />
               <Route path="/my-assignments/:assignmentId" element={<EnterAssignment />} />
@@ -83,13 +91,25 @@ function App() {
               <Route path="/student/dashboard" element={<StudentDashboard />} />
               <Route path="/session-room/:sessionId" element={<SessionRoom />} />
               <Route path="/instructor/dashboard" element={<InstructorDashboard />} />
+              <Route path="/instructor/tasks" element={<AvailableTasks />} />
+              <Route path="/available-tasks" element={<AvailableTasks />} />
+              <Route path="/instructor/trial-tasks" element={<TrialTasks />} />
+              <Route path="/trial-tasks" element={<TrialTasks />} />
+              <Route path="/instructor/trial-submission" element={<TrialSubmission />} />
+              <Route path="/instructor/trial-submission/:id" element={<TrialSubmission />} />
+              <Route path="/instructor/trial-success" element={<TrialSuccess />} />
+              <Route path="/instructor/assignment-tasks" element={<AssignmentTasks />} />
+              <Route path="/instructor/assignment-confirmed" element={<AssignmentConfirmed />} />
+              <Route path="/instructor/explain-tasks" element={<ExplainTasks />} />
+              <Route path="/assignment-tasks" element={<AssignmentTasks />} />
+              <Route path="/instructor/offer-confirmed" element={<OfferConfirmed />} />
               <Route path="/terms" element={<Legal />} />
               <Route path="/privacy" element={<Legal />} />
             </Route>
 
             {/* Admin Dashboard Routes */}
-            <Route 
-              path="/admin" 
+            <Route
+              path="/admin"
               element={
                 <ProtectedRoute requireAdmin={true}>
                   <AdminLayout />
@@ -107,3 +127,4 @@ function App() {
 }
 
 export default App;
+

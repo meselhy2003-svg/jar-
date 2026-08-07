@@ -1,0 +1,293 @@
+/* Assignment Tasks Page Styles */
+.assignment-tasks-page {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 140px);
+  padding: 2.5rem 0 4rem;
+  font-family: var(--font-family, 'Inter', sans-serif);
+}
+
+.assignment-tasks-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Back Link */
+.assignment-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.assignment-back-link:hover {
+  color: #0f172a;
+}
+
+/* Header */
+.assignment-header {
+  margin-bottom: 2.5rem;
+}
+
+.assignment-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.assignment-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Cards Stack */
+.assignment-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.assignment-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.assignment-card:hover {
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+  border-color: #cbd5e1;
+}
+
+/* Top Row: Student Profile & Badge */
+.assignment-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.student-profile-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.student-avatar-circle {
+  width: 44px;
+  height: 44px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.student-name-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-name-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px 0;
+}
+
+.student-role-sub {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.assignment-badge {
+  background-color: #e0f2fe;
+  color: #0284c7;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 6px 16px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+
+/* Subject Row & Budget / Deadline */
+.assignment-subject-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.subject-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.subject-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.subject-title-text {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.budget-deadline-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.budget-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.budget-amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #00a8e8;
+  line-height: 1;
+}
+
+.deadline-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Description */
+.assignment-description-text {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 1.75rem 0;
+}
+
+/* Footer Row: Resource File Box & Confirm Button */
+.assignment-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.resource-chip-box {
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pdf-icon-mini {
+  width: 36px;
+  height: 36px;
+  background-color: #fee2e2;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc2626;
+  flex-shrink: 0;
+}
+
+.chip-file-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.chip-file-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px 0;
+}
+
+.chip-file-sub {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.chip-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.chip-icon-btn {
+  background: transparent;
+  border: none;
+  color: #0284c7;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.chip-icon-btn:hover {
+  background-color: #dbeafe;
+}
+
+.btn-confirm-assignment {
+  background-color: #101928;
+  color: #ffffff;
+  border: none;
+  padding: 12px 36px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(16, 25, 40, 0.12);
+}
+
+.btn-confirm-assignment:hover {
+  background-color: #1e293b;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 25, 40, 0.2);
+}

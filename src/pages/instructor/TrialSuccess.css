@@ -1,0 +1,215 @@
+/* Trial Success Page Styles */
+.trial-success-page {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 140px);
+  padding: 2.5rem 0 4rem;
+  font-family: var(--font-family, 'Inter', sans-serif);
+  position: relative;
+}
+
+.trial-success-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Toast Notification (Top Right) */
+.toast-notification {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background-color: #101928;
+  color: #ffffff;
+  padding: 14px 22px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+  z-index: 100;
+  max-width: 480px;
+  animation: slideInToast 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInToast {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-check-icon {
+  width: 26px;
+  height: 26px;
+  background-color: #0284c7;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.toast-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+  color: #f8fafc;
+}
+
+/* Back Link */
+.success-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: color 0.2s ease;
+}
+
+.success-back-link:hover {
+  color: #0f172a;
+}
+
+/* Center Hero Content */
+.success-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.success-icon-badge {
+  width: 72px;
+  height: 72px;
+  background-color: #e0f2fe;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.15);
+}
+
+.check-icon-inner {
+  width: 44px;
+  height: 44px;
+  background-color: #38bdf8;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.success-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+}
+
+.success-subtitle {
+  font-size: 1.15rem;
+  color: #475569;
+  max-width: 520px;
+  line-height: 1.5;
+  margin: 0 0 2.5rem 0;
+}
+
+/* Center Light Blue Card Box */
+.success-info-card {
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 20px;
+  padding: 2.25rem;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  margin-bottom: 2rem;
+}
+
+.info-row-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 1.75rem;
+  text-align: left;
+}
+
+.info-circle-icon {
+  width: 36px;
+  height: 36px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0284c7;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.info-notice-text {
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.btn-go-offers {
+  width: 100%;
+  background-color: #101928;
+  color: #ffffff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 18px rgba(16, 25, 40, 0.18);
+  text-decoration: none;
+}
+
+.btn-go-offers:hover {
+  background-color: #1e293b;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(16, 25, 40, 0.25);
+  color: #ffffff;
+}
+
+/* Footer Status Badges */
+.success-status-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 0.5rem;
+}
+
+.status-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
