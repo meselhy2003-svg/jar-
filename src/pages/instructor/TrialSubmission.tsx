@@ -53,7 +53,7 @@ const TrialSubmission: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showFilePreviewModal, setShowFilePreviewModal] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitSuccess] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
