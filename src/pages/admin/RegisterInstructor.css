@@ -1,0 +1,309 @@
+.register-instructor-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.register-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.25rem;
+}
+
+.register-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.instructor-photo-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 440px;
+}
+
+.inst-hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quote-overlay-box {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.quote-overlay-box p {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+}
+
+.quote-overlay-box span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #0284C7;
+}
+
+.value-props-two-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.value-prop-card {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.v-icon {
+  font-size: 1.4rem;
+  color: #0284C7;
+}
+
+.value-prop-card strong {
+  font-size: 0.95rem;
+  color: #0F172A;
+}
+
+.value-prop-card p {
+  font-size: 0.78rem;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Right Dark Navy Form */
+.register-dark-card {
+  background: #2C3A4E;
+  color: white;
+  padding: 2.75rem 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.register-dark-card label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.register-dark-card input[type="text"],
+.register-dark-card input[type="email"],
+.register-dark-card input[type="password"],
+.register-dark-card select,
+.register-dark-card textarea {
+  width: 100%;
+  background: #FFFFFF;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  color: #0F172A;
+  outline: none;
+}
+
+.ctrl-note {
+  font-size: 0.7rem;
+  color: #94A3B8;
+  margin-top: 4px;
+  display: block;
+}
+
+.white-txt { color: #FFFFFF !important; }
+
+.create-account-btn {
+  width: 100%;
+  padding: 14px !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  border-radius: 12px !important;
+  margin-top: 1rem;
+}
+
+/* Account Created Successfully View (Screenshot 3) */
+.margin-auto { margin-left: auto; margin-right: auto; }
+
+.created-cards-two-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.credentials-card {
+  padding: 2.25rem;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-top: 4px solid #0284C7;
+}
+
+.card-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+}
+
+.card-head-row h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+}
+
+.secure-badge {
+  background: #E0F2FE;
+  color: #0284C7;
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.cred-input-field label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  margin-bottom: 6px;
+}
+
+.input-icon-flex {
+  display: flex;
+  align-items: center;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  border-radius: 14px;
+  padding: 10px 16px;
+  gap: 10px;
+}
+
+.input-icon-flex input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.ic { font-size: 1.1rem; }
+.copy-ic { color: #0284C7; cursor: pointer; }
+
+.warning-note-box {
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  gap: 12px;
+  margin-top: 1.75rem;
+}
+
+.warn-ic { font-size: 1.2rem; }
+
+.warning-note-box p {
+  color: #B45309;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.instructor-summary-card {
+  padding: 2.25rem;
+  border-radius: 24px;
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.instructor-summary-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 1.5rem 0;
+}
+
+.summary-avatar-name-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #DBEAFE;
+  margin-bottom: 1.5rem;
+}
+
+.sum-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0284C7;
+}
+
+.summary-avatar-name-row h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+}
+
+.status-green-pill {
+  color: #16A34A;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.summary-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sum-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.s-lbl {
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+.s-val {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0F172A;
+}

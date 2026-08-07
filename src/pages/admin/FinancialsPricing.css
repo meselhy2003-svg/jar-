@@ -1,0 +1,295 @@
+.financials-pricing-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.countries-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.countries-cards-three-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.country-pricing-card {
+  padding: 2.25rem 2rem;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.country-head-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.flag-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.c-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 2px 0;
+}
+
+.c-curr {
+  font-size: 0.85rem;
+  color: #0284C7;
+  font-weight: 700;
+}
+
+.pricing-sub-box {
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pricing-sub-box.student-bg {
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+}
+
+.pricing-sub-box.instructor-bg {
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+}
+
+.box-role-lbl {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #64748B;
+}
+
+.rates-two-cols {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rate-lbl {
+  display: block;
+  font-size: 0.72rem;
+  color: #94A3B8;
+  margin-bottom: 2px;
+}
+
+.rate-val {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #0F172A;
+}
+
+.c-card-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+.c-icon-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.c-icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.c-details-link {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0284C7;
+  cursor: pointer;
+}
+
+/* Dashed Add New Region Tile (Screenshot 4) */
+.add-region-dashed-card {
+  border: 2px dashed #CBD5E1;
+  background: #F8FAFC;
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  cursor: pointer;
+  max-width: 380px;
+  transition: all var(--transition-fast);
+}
+
+.add-region-dashed-card:hover {
+  border-color: #38BDF8;
+  background: #F0F9FF;
+}
+
+.plus-round-ico {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #E0F2FE;
+  color: #0284C7;
+  font-size: 1.5rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.add-region-dashed-card strong {
+  font-size: 1.15rem;
+  color: #0F172A;
+}
+
+.add-region-dashed-card p {
+  font-size: 0.82rem;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Add Country Pricing Form (Screenshot 5) */
+.pricing-form-card {
+  padding: 2.25rem 2.5rem;
+  border-radius: 24px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+}
+
+.form-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-card-title-row.justify-between {
+  justify-content: space-between;
+}
+
+.title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-ico {
+  font-size: 1.3rem;
+}
+
+.form-card-title-row h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+}
+
+.info-banner-pill {
+  background: #EFF6FF;
+  color: #0284C7;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+.form-fields-two-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.pricing-form-card label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 6px;
+}
+
+.pricing-form-card input[type="text"] {
+  width: 100%;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  color: #0F172A;
+  outline: none;
+}
+
+.prefix-input-wrap,
+.suffix-input-wrap {
+  display: flex;
+  align-items: center;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 0 16px;
+}
+
+.prefix-input-wrap input,
+.suffix-input-wrap input {
+  border: none !important;
+  background: transparent !important;
+  padding: 12px 0 !important;
+}
+
+.prefix-input-wrap span,
+.suffix-input-wrap span {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #94A3B8;
+}
+
+.pricing-boxes-two-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.pricing-input-box {
+  padding: 1.75rem 2rem;
+  border-radius: 20px;
+}
+
+.pricing-input-box.student-box {
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+}
+
+.pricing-input-box.instructor-box {
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+}
+
+.box-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 1.25rem;
+}

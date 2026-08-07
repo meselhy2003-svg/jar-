@@ -1,0 +1,57 @@
+.edit-student-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+}
+
+.dark-upload-card {
+  background: #2C3A4E;
+  color: white;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.upload-circle-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #38BDF8;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-upload-card strong {
+  font-size: 1.1rem;
+}
+
+.file-types-supported {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  letter-spacing: 0.05em;
+}
+
+.select-file-btn {
+  padding: 10px 24px !important;
+  font-size: 0.88rem !important;
+  font-weight: 800 !important;
+  border-radius: 10px !important;
+  margin-top: 4px;
+}
+
+.cancel-outline-btn {
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+  background: #FFFFFF !important;
+  padding: 12px 28px !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+}

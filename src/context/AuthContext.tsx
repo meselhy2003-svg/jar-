@@ -1,30 +1,32 @@
 import { createContext, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
-
-type UserRole = 'student' | 'instructor' | 'admin';
-
-interface User {
-  name: string;
-  email: string;
-  role: UserRole;
-}
+import type { AuthUser, UserRole } from '../api/auth';
 
 interface AuthContextType {
-  user: User | null;
+  user: AuthUser | null;
   isAuthenticated: boolean;
-  login: (email: string, role?: UserRole) => void;
+  setAuthUser: (user: AuthUser) => void;
   logout: () => void;
+  login: (email: string, role?: UserRole) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
+
+  const setAuthUser = (userData: AuthUser) => {
+    setUser(userData);
+  };
+
 
   const login = (email: string, role: UserRole = 'student') => {
-    // Mock login logic
-    const name = email.split('@')[0];
-    setUser({ name, email, role });
+    setUser({
+      _id: '',
+      fullName: email.split('@')[0],
+      email,
+      role,
+    });
   };
 
   const logout = () => {
@@ -36,6 +38,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       value={{
         user,
         isAuthenticated: !!user,
+        setAuthUser,
         login,
         logout,
       }}
