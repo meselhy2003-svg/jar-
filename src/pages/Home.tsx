@@ -83,7 +83,11 @@ const Home = () => {
           <div className="step-mastery-card card">
             <span className="big-step-num">01</span>
             <div className="step-icon-wrapper">
-              <span>☁️</span>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0284C7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                <path d="M12 12v9" />
+                <path d="m16 16-4-4-4 4" />
+              </svg>
             </div>
             <h3>Upload Content</h3>
             <p>
@@ -95,7 +99,10 @@ const Home = () => {
           <div className="step-mastery-card card">
             <span className="big-step-num">02</span>
             <div className="step-icon-wrapper">
-              <span>🛡️</span>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0284C7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                <path d="m9 12 2 2 4-4" />
+              </svg>
             </div>
             <h3>Expert Review</h3>
             <p>
@@ -107,7 +114,12 @@ const Home = () => {
           <div className="step-mastery-card card">
             <span className="big-step-num">03</span>
             <div className="step-icon-wrapper">
-              <span>🚀</span>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0284C7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+              </svg>
             </div>
             <h3>Instant Mastery</h3>
             <p>
