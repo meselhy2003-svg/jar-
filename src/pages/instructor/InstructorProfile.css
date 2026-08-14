@@ -1,0 +1,242 @@
+/* =========================================
+   Instructor Profile Page Styles
+   ========================================= */
+.instructor-profile-page {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 140px);
+  padding: 2rem 0 6rem;
+  font-family: var(--font-family, 'Inter', sans-serif);
+}
+
+.instructor-profile-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Back Button */
+.inst-prof-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 0.92rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.inst-prof-back-btn:hover {
+  color: #0f172a;
+  transform: translateX(-4px);
+}
+
+/* Header */
+.inst-prof-header {
+  margin-bottom: 2.25rem;
+}
+
+.inst-prof-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.4rem 0;
+  letter-spacing: -0.02em;
+}
+
+.inst-prof-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Card 1: User Profile Card */
+.inst-prof-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.2s ease;
+}
+.inst-prof-card:hover {
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.inst-prof-user-left {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.inst-prof-avatar-circle {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.inst-prof-name {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+}
+
+.inst-prof-email,
+.inst-prof-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0 0 0.35rem 0;
+}
+
+.inst-prof-email svg,
+.inst-prof-location svg {
+  color: #94a3b8;
+}
+
+/* Edit Profile Button */
+.inst-prof-edit-btn {
+  background: #ffffff;
+  border: 1.5px solid #1e293b;
+  color: #0f172a;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.inst-prof-edit-btn:hover {
+  background: #1e293b;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Card 2: My Wallet Card */
+.inst-prof-wallet-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  transition: box-shadow 0.2s ease;
+}
+.inst-prof-wallet-card:hover {
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.inst-prof-wallet-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+/* Balance Box */
+.inst-prof-balance-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.inst-prof-balance-left {
+  flex: 1;
+}
+
+.inst-prof-balance-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.inst-prof-amount-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 0.4rem;
+}
+
+.inst-prof-amount {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.inst-prof-currency {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.inst-prof-balance-sub {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Withdraw Button */
+.inst-prof-withdraw-btn {
+  background: #52b6df;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 36px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(82, 182, 223, 0.35);
+}
+.inst-prof-withdraw-btn:hover {
+  background: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.45);
+}
+
+@media (max-width: 650px) {
+  .inst-prof-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .inst-prof-edit-btn {
+    width: 100%;
+  }
+  .inst-prof-balance-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .inst-prof-withdraw-btn {
+    width: 100%;
+  }
+}

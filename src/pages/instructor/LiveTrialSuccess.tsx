@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './TrialSuccess.css';
 
-const TrialSuccess: React.FC = () => {
+const LiveTrialSuccess: React.FC = () => {
   const navigate = useNavigate();
   const [showToast, setShowToast] = useState(true);
 
@@ -15,7 +15,7 @@ const TrialSuccess: React.FC = () => {
 
   return (
     <div className="trial-success-page">
-      {/* Toast Notification (Top Right) */}
+      {/* Toast Notification */}
       {showToast && (
         <div className="toast-notification">
           <div className="toast-check-icon">
@@ -31,13 +31,17 @@ const TrialSuccess: React.FC = () => {
 
       <div className="trial-success-container">
         {/* Back Link */}
-        <Link to="/instructor/trial-tasks" className="success-back-link">
+        <button
+          className="success-back-link"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          onClick={() => navigate('/instructor/live-explain-tasks')}
+        >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
           Back
-        </Link>
+        </button>
 
         {/* Hero Section */}
         <div className="success-hero-content">
@@ -51,12 +55,14 @@ const TrialSuccess: React.FC = () => {
           </div>
 
           {/* Title & Subtitle */}
-          <h1 className="success-title">Trial Submitted Successfully</h1>
+          <h1 className="success-title">
+            Trial For live explaintion<br />Submitted Successfully
+          </h1>
           <p className="success-subtitle">
             Your trial video has been uploaded and is now waiting for student approval.
           </p>
 
-          {/* Center Light Blue Box */}
+          {/* Info Card */}
           <div className="success-info-card">
             <div className="info-row-box">
               <div className="info-circle-icon">
@@ -104,4 +110,4 @@ const TrialSuccess: React.FC = () => {
   );
 };
 
-export default TrialSuccess;
+export default LiveTrialSuccess;

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useInstructor } from '../../context/InstructorContext';
 import './TrialSubmission.css';
 
 interface TrialTask {
@@ -48,6 +49,7 @@ const TrialSubmission: React.FC = () => {
   // Retrieve task from router state or fallback to lookup by id
   const passedTask = location.state?.task as TrialTask | undefined;
   const task: TrialTask = passedTask || (id && mockTasksMap[id]) || mockTasksMap['1'];
+  const fromLive = location.state?.fromLive as boolean | undefined;
 
   // State for video upload
   const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
@@ -76,6 +78,8 @@ const TrialSubmission: React.FC = () => {
     e.preventDefault();
   };
 
+  const { submitNewOffer } = useInstructor();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedVideo) {
@@ -83,9 +87,17 @@ const TrialSubmission: React.FC = () => {
       return;
     }
     setIsSubmitting(true);
+    submitNewOffer({
+      category: fromLive ? 'explain-live' : 'trial',
+      studentName: task.studentName,
+      subject: task.subject,
+      description: task.description,
+      deadline: task.deadline,
+      filename: task.filename,
+    });
     setTimeout(() => {
       setIsSubmitting(false);
-      navigate('/instructor/trial-success');
+      navigate(fromLive ? '/instructor/live-trial-success' : '/instructor/trial-success');
     }, 600);
   };
 

@@ -89,6 +89,7 @@
 
 .nav-bell-btn {
   background: #F1F5F9;
+  color: #475569;
   border: none;
   width: 38px;
   height: 38px;
@@ -96,13 +97,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  text-decoration: none;
   cursor: pointer;
-  transition: background var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
 .nav-bell-btn:hover {
   background: #E2E8F0;
+  color: #0F172A;
+}
+
+.nav-bell-btn.active {
+  background: #52B6DF;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(82, 182, 223, 0.35);
 }
 
 .my-profile-dark-pill {
@@ -122,6 +130,12 @@
 .my-profile-dark-pill:hover {
   background: #1E293B;
   color: white;
+}
+
+.my-profile-dark-pill.active {
+  background: #52B6DF !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(82, 182, 223, 0.35);
 }
 
 .logout-btn-sm {

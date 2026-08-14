@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useInstructor } from '../../context/InstructorContext';
 import './AssignmentTasks.css';
 
 interface AssignmentTask {
@@ -60,8 +61,19 @@ const AssignmentTasks: React.FC = () => {
     setSelectedAssignment(task);
   };
 
+  const { submitNewOffer } = useInstructor();
+
   const handleFinalConfirm = () => {
     if (selectedAssignment) {
+      submitNewOffer({
+        category: 'assignment',
+        studentName: selectedAssignment.studentName,
+        subject: selectedAssignment.subject,
+        description: selectedAssignment.description,
+        deadline: selectedAssignment.deadline,
+        filename: selectedAssignment.filename,
+        budget: selectedAssignment.budget,
+      });
       setConfirmedIds((prev) => [...prev, selectedAssignment.id]);
       setSelectedAssignment(null);
       navigate('/instructor/assignment-confirmed', {
@@ -163,8 +175,8 @@ const AssignmentTasks: React.FC = () => {
                       <span className="chip-file-sub">{task.fileMeta}</span>
                     </div>
                     <div className="chip-actions">
-                      <button 
-                        className="chip-icon-btn" 
+                      <button
+                        className="chip-icon-btn"
                         title="View File"
                         onClick={() => setPreviewFile(task)}
                       >
@@ -173,8 +185,8 @@ const AssignmentTasks: React.FC = () => {
                           <circle cx="12" cy="12" r="3"></circle>
                         </svg>
                       </button>
-                      <button 
-                        className="chip-icon-btn" 
+                      <button
+                        className="chip-icon-btn"
                         title="Download File"
                         onClick={() => handleDownload(task.filename)}
                       >
@@ -188,7 +200,7 @@ const AssignmentTasks: React.FC = () => {
                   </div>
 
                   {/* Confirm Button */}
-                  <button 
+                  <button
                     className="btn-confirm-assignment"
                     style={{ backgroundColor: isConfirmed ? '#16a34a' : '#101928' }}
                     onClick={() => handleConfirmClick(task)}

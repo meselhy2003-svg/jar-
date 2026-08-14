@@ -1,0 +1,152 @@
+/* ── My Projects Page ── */
+.my-projects-page {
+  padding: 1.5rem 0 16rem 0;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Back link */
+.mp-back-container {
+  margin-bottom: 2rem;
+}
+
+.mp-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mp-back-link:hover {
+  color: #0f172a;
+  transform: translateX(-4px);
+}
+
+/* Header */
+.mp-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mp-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.mp-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Two-card grid */
+.mp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Card */
+.mp-card {
+  background: #182332;
+  border-radius: 20px;
+  padding: 3rem 2.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+}
+
+.mp-card:hover {
+  transform: translateY(-8px);
+  background: #1e2d42;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.35);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+/* Icon circle */
+.mp-icon-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #cfeef9;
+  color: #0f5b7a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.mp-card:hover .mp-icon-circle {
+  transform: scale(1.12) rotate(4deg);
+  background: #b6e5f6;
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+}
+
+/* Card title */
+.mp-card-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+/* Card description */
+.mp-card-description {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  flex: 1;
+}
+
+/* Action button */
+.mp-action-btn {
+  width: 85%;
+  background: #52b6df;
+  color: #0f172a;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(82, 182, 223, 0.3);
+}
+
+.mp-action-btn:hover {
+  background: #38bdf8;
+  transform: scale(1.04);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.45);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .mp-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .mp-title {
+    font-size: 2.2rem;
+  }
+}

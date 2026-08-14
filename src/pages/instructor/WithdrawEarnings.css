@@ -1,0 +1,458 @@
+/* =========================================
+   Withdraw Earnings Page Styles
+   ========================================= */
+.withdraw-page {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 140px);
+  padding: 2rem 0 5rem;
+  font-family: var(--font-family, 'Inter', sans-serif);
+}
+
+.withdraw-container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Back Button */
+.withdraw-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 0.92rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.withdraw-back-btn:hover {
+  color: #0f172a;
+  transform: translateX(-4px);
+}
+
+/* Page Header */
+.withdraw-header {
+  margin-bottom: 2rem;
+}
+
+.withdraw-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.35rem 0;
+  letter-spacing: -0.02em;
+}
+
+.withdraw-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* 2-Column Grid */
+.withdraw-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.75rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 860px) {
+  .withdraw-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left Column */
+.withdraw-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Available Funds Card */
+.withdraw-funds-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+.funds-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.funds-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.06em;
+}
+
+.funds-amount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.funds-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #e0f2fe;
+  color: #0284c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form Card */
+.withdraw-form-card {
+  background: #ebf3fc;
+  border: 1px solid #dceaf7;
+  border-radius: 18px;
+  padding: 1.75rem 2rem;
+}
+
+.form-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Payout Methods Row */
+.payout-methods-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.payout-method-option {
+  position: relative;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payout-method-option:hover {
+  border-color: #94a3b8;
+  transform: translateY(-2px);
+}
+
+.payout-method-option.active {
+  border-color: #0f172a;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.method-check-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.method-logo-circle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.ip-logo .ip-text {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #7c3aed;
+  font-style: italic;
+  letter-spacing: -0.04em;
+}
+
+.method-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.method-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.method-desc {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* Input Form */
+.withdraw-input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.withdraw-fields-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 550px) {
+  .withdraw-fields-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.withdraw-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.withdraw-input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.withdraw-input-group input {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.withdraw-input-group input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.withdraw-submit-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 20px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.2s;
+}
+.withdraw-submit-btn:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+}
+.withdraw-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Right Column: Receipt Section */
+.receipt-section-card {
+  background: #ebf3fc;
+  border: 1px solid #dceaf7;
+  border-radius: 18px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.receipt-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+/* Empty Box */
+.receipt-empty-box {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 14px;
+  padding: 2.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.receipt-empty-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+}
+
+.receipt-empty-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+  margin: 0 0 0.25rem 0;
+}
+
+.receipt-empty-subtitle {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Download Box */
+.receipt-download-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.receipt-file-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.receipt-doc-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #e0f2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.receipt-file-name {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.receipt-file-status {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.04em;
+}
+
+.receipt-download-btn {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.receipt-download-btn:hover {
+  background: #bae6fd;
+  color: #0369a1;
+  transform: translateY(-1px);
+}
+
+/* Dark Status Banner */
+.receipt-status-banner {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.status-check-circle {
+  margin-top: 2px;
+}
+
+.status-text strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.status-text p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Footer Note */
+.withdraw-footer-note {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.withdraw-support-link {
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.withdraw-support-link:hover {
+  color: #0284c7;
+}

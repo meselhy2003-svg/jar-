@@ -182,15 +182,15 @@ const ExplainTasks: React.FC = () => {
             onClick={() => setActiveTab('video')}
           >
             Explanation by video
+            <span className="tab-check">✓</span>
+            
           </button>
           <button
-            className={`explain-task-tab ${activeTab === 'live' ? 'active' : ''}`}
-            type="button"
-            aria-pressed={activeTab === 'live'}
-            onClick={() => setActiveTab('live')}
-          >
-            Explanation by live
-          </button>
+    className="live-explain-tab"
+    onClick={() => navigate("/instructor/live-explain-tasks")}
+>
+    Explanation by live
+</button>
         </div>
 
         <div className="explain-tasks-content">

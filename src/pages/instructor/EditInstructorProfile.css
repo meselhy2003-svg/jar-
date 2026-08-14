@@ -1,0 +1,294 @@
+/* =========================================
+   Edit Instructor Profile Styles
+   ========================================= */
+.edit-inst-profile-page {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 140px);
+  padding: 2rem 0 6rem;
+  font-family: var(--font-family, 'Inter', sans-serif);
+}
+
+.edit-inst-profile-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Back Button */
+.edit-inst-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 0.92rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.edit-inst-back-btn:hover {
+  color: #0f172a;
+  transform: translateX(-4px);
+}
+
+/* Header */
+.edit-inst-header {
+  margin-bottom: 2.25rem;
+}
+
+.edit-inst-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.4rem 0;
+  letter-spacing: -0.02em;
+}
+
+.edit-inst-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Top Photo Card */
+.edit-inst-photo-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.edit-inst-avatar-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0.85rem;
+}
+
+.edit-inst-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.edit-inst-camera-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+.edit-inst-camera-badge:hover {
+  background: #f1f5f9;
+  transform: scale(1.08);
+}
+
+.edit-inst-change-photo-btn {
+  background: none;
+  border: none;
+  color: #0284c7;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.edit-inst-change-photo-btn:hover {
+  color: #0369a1;
+  text-decoration: underline;
+}
+
+/* Form Styles */
+.edit-inst-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Section Cards */
+.edit-inst-section-card {
+  background: #ebf3fc;
+  border: 1px solid #dceaf7;
+  border-radius: 18px;
+  padding: 1.75rem 2rem;
+}
+
+.edit-inst-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1.25rem 0;
+}
+.edit-inst-section-title svg {
+  color: #0284c7;
+}
+
+/* Fields Grid */
+.edit-inst-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 650px) {
+  .edit-inst-fields-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.edit-inst-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edit-inst-field.full-width {
+  margin-top: 1.25rem;
+}
+
+.edit-inst-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.edit-inst-field input,
+.edit-inst-field select {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-inst-field input:focus,
+.edit-inst-field select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.edit-inst-caption {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Radio buttons row */
+.edit-inst-radio-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 8px;
+}
+
+.edit-inst-radio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #0f172a;
+  cursor: pointer;
+}
+
+.edit-inst-radio-label input[type='radio'] {
+  accent-color: #0284c7;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Password Eye Button */
+.input-relative {
+  position: relative;
+}
+
+.input-relative input {
+  padding-right: 42px;
+}
+
+.edit-inst-eye-btn {
+  position: absolute;
+  right: 12px;
+  bottom: 11px;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+.edit-inst-eye-btn:hover {
+  color: #0f172a;
+}
+
+/* Action Buttons */
+.edit-inst-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.edit-inst-cancel-btn {
+  background: none;
+  border: none;
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 16px;
+  transition: color 0.2s;
+}
+.edit-inst-cancel-btn:hover {
+  color: #0f172a;
+}
+
+.edit-inst-save-btn {
+  background: #52b6df;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 32px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(82, 182, 223, 0.35);
+}
+.edit-inst-save-btn:hover {
+  background: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(56, 189, 248, 0.45);
+}

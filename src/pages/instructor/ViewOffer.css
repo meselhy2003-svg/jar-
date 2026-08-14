@@ -1,0 +1,695 @@
+/* ===========================
+   View Offer Page
+   =========================== */
+.view-offer-page {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 140px);
+  padding: 2rem 0 6rem;
+  font-family: var(--font-family, 'Inter', sans-serif);
+}
+
+.view-offer-container {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Back Button */
+.view-offer-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 0.92rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 0.75rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.view-offer-back-btn:hover {
+  color: #0f172a;
+  transform: translateX(-4px);
+}
+
+/* Page Title */
+.view-offer-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Status Badge */
+.view-offer-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 18px;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+.badge-pending  { background: #fee2e2; color: #b91c1c; }
+.badge-approved { background: #4ade80; color: #064e3b; }
+
+/* ===========================
+   Top Two-Column Grid
+   =========================== */
+.view-offer-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+@media (max-width: 800px) {
+  .view-offer-top-grid { grid-template-columns: 1fr; }
+}
+
+.view-offer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Generic Card */
+.vo-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+/* Card title with icon */
+.vo-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1.1rem 0;
+}
+
+/* Two-col labels */
+.vo-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.vo-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.vo-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.vo-description-group {
+  margin-bottom: 0.9rem;
+}
+
+.vo-description {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 4px 0 0 0;
+}
+
+/* Deadline badge */
+.vo-deadline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #dc2626;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ===========================
+   Resources — Pending (single file)
+   =========================== */
+.vo-file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.vo-file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vo-pdf-icon {
+  width: 38px;
+  height: 38px;
+  background: #fee2e2;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc2626;
+  flex-shrink: 0;
+}
+
+.vo-file-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px 0;
+}
+
+.vo-file-meta {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.vo-file-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.vo-btn-view-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.vo-btn-view-file:hover { background: #bae6fd; }
+
+.vo-btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #1e293b;
+  color: #ffffff;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.vo-btn-download:hover { background: #0f172a; }
+
+/* ===========================
+   Resources — Approved (multiple PDFs)
+   =========================== */
+.vo-resources-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.vo-pdf-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.vo-pdf-chip:hover { background: #e2e8f0; }
+
+.vo-view-more-btn {
+  background: none;
+  border: none;
+  color: #0284c7;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 6px;
+  transition: color 0.2s;
+}
+.vo-view-more-btn:hover { color: #0369a1; }
+
+/* ===========================
+   Trial Video (Right Column)
+   =========================== */
+.vo-video-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.vo-video-subtitle {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0 0 1rem 0;
+}
+
+.vo-video-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(145deg, #475569, #1e293b);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.vo-play-btn {
+  width: 52px;
+  height: 52px;
+  background: rgba(56, 189, 248, 0.85);
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+}
+.vo-play-btn:hover {
+  background: #38bdf8;
+  transform: scale(1.08);
+}
+
+.vo-video-time {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.vo-video-notice {
+  background: #f0f9ff;
+  border: 1px solid #e0f2fe;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #334155;
+}
+.vo-video-notice svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #0284c7;
+}
+.vo-video-notice p {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ===========================
+   Chat Section (Approved only)
+   =========================== */
+.vo-chat-section {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+
+.vo-chat-header {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: center;
+  padding: 0.9rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin: 0;
+}
+
+.vo-chat-messages {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 220px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.vo-chat-separator {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  margin: 0.25rem auto;
+  background: #f8fafc;
+  padding: 4px 14px;
+  border-radius: 100px;
+  border: 1px solid #e2e8f0;
+  width: fit-content;
+}
+
+.vo-chat-bubble-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.row-left  { align-items: flex-start; }
+.row-right { align-items: flex-end; }
+
+.vo-chat-bubble {
+  max-width: 65%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.bubble-student {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-bottom-left-radius: 4px;
+}
+.bubble-instructor {
+  background: #182332;
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+}
+
+.vo-chat-time {
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+/* Chat Input */
+.vo-chat-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.vo-chat-attach-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+  padding: 0;
+}
+.vo-chat-attach-btn:hover { color: #0f172a; }
+
+.vo-chat-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.88rem;
+  color: #0f172a;
+  background: transparent;
+}
+.vo-chat-input::placeholder { color: #94a3b8; }
+
+.vo-chat-send-btn {
+  width: 34px;
+  height: 34px;
+  background: #182332;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.vo-chat-send-btn:hover {
+  background: #0f172a;
+  transform: scale(1.06);
+}
+
+/* ===========================
+   Bottom Grid: Proposal & Session Confirmation
+   =========================== */
+.vo-bottom-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  align-items: stretch;
+}
+@media (max-width: 850px) {
+  .vo-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left: Proposal Card */
+.vo-proposal-section {
+  background: #eef4fa;
+  border-radius: 14px;
+  border: 1px solid #dbe6f2;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.vo-proposal-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1.25rem 0;
+}
+
+.vo-field-group {
+  margin-bottom: 1rem;
+}
+
+.vo-proposal-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.vo-input-with-unit {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.vo-number-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: transparent;
+  width: 100%;
+}
+
+.vo-unit-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.vo-summary-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #dceaf7;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+}
+
+.vo-summary-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.vo-summary-value {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.vo-rate-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin: 4px 0 1.25rem 0;
+}
+
+.vo-confirm-offer-btn {
+  width: 100%;
+  margin-top: auto;
+  background: #182332;
+  color: #ffffff;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.vo-confirm-offer-btn:hover {
+  background: #0f172a;
+  transform: translateY(-2px);
+}
+
+/* Right: Confirmation of the session */
+.vo-session-confirm-card {
+  background: #182332;
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.vo-session-confirm-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1.25rem 0;
+}
+
+.vo-offer-summary-box {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.vo-offer-summary-head {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+}
+
+.vo-session-fields-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+@media (max-width: 600px) {
+  .vo-session-fields-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vo-session-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vo-session-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.vo-session-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #253344;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.vo-session-calendar-icon {
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.vo-session-date-input,
+.vo-session-time-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 500;
+  font-family: inherit;
+  color-scheme: dark;
+}
+
+.vo-session-btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.vo-cyan-confirm-btn {
+  background: #52b6df;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 60px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 14px rgba(82, 182, 223, 0.35);
+}
+.vo-cyan-confirm-btn:hover {
+  background: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.45);
+}

@@ -1,0 +1,350 @@
+/* =========================================
+   Explain Offers Page
+   ========================================= */
+.explain-offers-page {
+  background-color: #f8fafc;
+  min-height: calc(100vh - 140px);
+  padding: 2rem 0 5rem;
+  font-family: var(--font-family, 'Inter', sans-serif);
+}
+
+.explain-offers-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Back link */
+.eo-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.eo-back-link:hover { color: #0f172a; transform: translateX(-4px); }
+
+/* Page title */
+.eo-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 1.25rem 0;
+}
+
+/* =========================================
+   Tabs
+   ========================================= */
+.eo-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background: #ffffff;
+}
+
+.eo-tab {
+  position: relative;
+  padding: 13px 18px;
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.eo-tab:first-child { border-right: 1.5px solid #e2e8f0; }
+.eo-tab--active { color: #0f172a; background: #f8fafc; }
+
+/* Active dot */
+.eo-tab-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   Cards list
+   ========================================= */
+.eo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* =========================================
+   VIDEO TAB Cards
+   ========================================= */
+.eo-video-card {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  padding: 1.4rem 1.5rem 1.1rem;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+.eo-video-card:hover { box-shadow: 0 8px 24px rgba(15,23,42,0.08); }
+
+/* Status badge (absolute top-right on video cards) */
+.eo-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 100px;
+  text-transform: lowercase;
+}
+.eo-badge--pending  { background: #fef3c7; color: #92400e; }
+.eo-badge--approved { background: #d1fae5; color: #065f46; }
+
+/* On video cards, badge floats top-right */
+.eo-video-card > .eo-badge {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.25rem;
+}
+
+/* Student row */
+.eo-student-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.75rem;
+}
+
+.eo-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.eo-student-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 2px 0;
+}
+
+.eo-posted-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Offer title */
+.eo-offer-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.9rem 0;
+}
+
+/* Materials label */
+.eo-materials-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+}
+
+/* PDF chips row */
+.eo-pdf-chips-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 0.85rem;
+}
+
+.eo-pdf-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.eo-pdf-chip:hover { background: #e2e8f0; }
+
+.eo-view-more {
+  background: none;
+  border: none;
+  color: #0284c7;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.2s;
+}
+.eo-view-more:hover { color: #0369a1; }
+
+/* Deadline */
+.eo-deadline-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #dc2626;
+  margin: 0 0 1rem 0;
+}
+
+/* CTA button row */
+.eo-cta-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.eo-go-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, opacity 0.2s;
+}
+.eo-go-btn--active {
+  background: #1e293b;
+  color: #ffffff;
+}
+.eo-go-btn--active:hover { background: #0f172a; transform: translateY(-1px); }
+.eo-go-btn--pending {
+  background: #e2e8f0;
+  color: #94a3b8;
+  cursor: default;
+}
+
+/* =========================================
+   LIVE TAB Cards  (TrialOffers style)
+   ========================================= */
+.eo-live-card {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+  transition: box-shadow 0.2s;
+}
+.eo-live-card:hover { box-shadow: 0 8px 24px rgba(15,23,42,0.08); }
+
+/* Header: badge left, deadline right */
+.eo-live-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.eo-live-deadline { text-align: right; }
+
+.eo-live-deadline-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.eo-live-deadline-value {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.eo-live-student {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.35rem 0;
+}
+
+.eo-live-subject {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.45rem 0;
+}
+
+.eo-live-description {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 1.1rem 0;
+}
+
+/* Footer */
+.eo-live-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.eo-live-attachment {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 6px 13px;
+  border-radius: 9px;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.eo-live-view-btn {
+  background: #1e293b;
+  color: #ffffff;
+  border: none;
+  padding: 9px 26px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.eo-live-view-btn:hover { background: #0f172a; transform: translateY(-1px); }
+
+@media (max-width: 600px) {
+  .eo-live-footer { flex-direction: column; align-items: flex-start; }
+  .eo-live-view-btn { width: 100%; }
+}

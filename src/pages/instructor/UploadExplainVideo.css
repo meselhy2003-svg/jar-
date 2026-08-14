@@ -1,0 +1,421 @@
+/* ══════════════════════════════════
+   Upload Explain Video Page
+   ══════════════════════════════════ */
+
+.uev-page {
+  background: #f8fafc;
+  min-height: calc(100vh - 80px);
+  padding: 2rem 0 5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.uev-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ── Back Link ── */
+.uev-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+}
+.uev-back:hover { color: #0f172a; }
+
+/* ── Header ── */
+.uev-header {
+  margin-bottom: 2rem;
+}
+.uev-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+.uev-subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ── Task Summary Card ── */
+.uev-task-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  margin-bottom: 2rem;
+}
+
+/* User Row */
+.uev-user-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+.uev-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  color: #0369a1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.uev-user-meta {
+  display: flex;
+  flex-direction: column;
+}
+.uev-user-name {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+.uev-user-time {
+  font-size: 0.75rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+/* Task Title */
+.uev-task-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 1rem;
+}
+
+/* Materials */
+.uev-materials-section {
+  margin-bottom: 1.5rem;
+}
+.uev-materials-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.uev-materials-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.uev-mat-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.uev-mat-pill:hover {
+  background: #e2e8f0;
+}
+.uev-dl-icon {
+  margin-left: 4px;
+  color: #94a3b8;
+}
+
+/* Deadline */
+.uev-deadline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #dc2626;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+  width: 100%;
+}
+
+/* ── Upload Grid ── */
+.uev-upload-grid {
+  display: grid;
+  grid-template-columns: 320px 240px;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+/* Dark Box */
+.uev-upload-box-dark {
+  background: #111827;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.uev-upload-icon-circle {
+  width: 50px;
+  height: 50px;
+  background: #374151;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  margin-bottom: 1rem;
+}
+
+.uev-upload-title {
+  color: #f3f4f6;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.uev-upload-sub {
+  color: #38bdf8;
+  font-size: 0.7rem;
+  margin: 0 0 1.2rem;
+}
+
+.uev-lesson-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  outline: none;
+  font-family: inherit;
+  color: #1f2937;
+}
+.uev-lesson-input::placeholder {
+  color: #9ca3af;
+}
+
+.uev-browse-btn {
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.uev-browse-btn:hover {
+  background: #7dd3fc;
+}
+
+/* Light Box */
+.uev-upload-box-light {
+  background: #dbeafe;
+  border: 1px dashed #bfdbfe;
+  border-radius: 12px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.uev-add-icon-circle {
+  color: #1e293b;
+}
+
+.uev-add-lesson-btn {
+  background: #38bdf8;
+  color: #fff;
+  border: none;
+  padding: 6px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* ── Confirm Button ── */
+.uev-confirm-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.uev-confirm-btn {
+  background: #111827;
+  color: #fff;
+  border: none;
+  padding: 12px 60px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.2);
+}
+.uev-confirm-btn:hover {
+  background: #1f2937;
+}
+
+/* ── Chat ── */
+.uev-chat {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.uev-chat-header {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+  background: #fafbfc;
+}
+
+.uev-chat-body {
+  min-height: 200px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.uev-chat-empty {
+  flex: 1;
+}
+
+.uev-chat-divider {
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+  padding: 4px 0;
+  position: relative;
+}
+.uev-chat-divider::before,
+.uev-chat-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 28%;
+  height: 1px;
+  background: #e2e8f0;
+}
+.uev-chat-divider::before { left: 0; }
+.uev-chat-divider::after { right: 0; }
+
+.uev-msg-wrap {
+  display: flex;
+  flex-direction: column;
+  max-width: 72%;
+}
+.uev-msg-left { align-self: flex-start; }
+.uev-msg-right { align-self: flex-end; align-items: flex-end; }
+
+.uev-bubble {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.83rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+.uev-bubble-light {
+  background: #f1f5f9;
+  color: #1e293b;
+  border-bottom-left-radius: 4px;
+}
+.uev-bubble-dark {
+  background: #1e293b;
+  color: #f8fafc;
+  border-bottom-right-radius: 4px;
+}
+
+.uev-msg-time {
+  font-size: 0.67rem;
+  color: #94a3b8;
+  margin-top: 4px;
+  padding: 0 2px;
+}
+
+.uev-chat-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.uev-emoji-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  transition: color 0.2s;
+}
+.uev-emoji-btn:hover { color: #475569; }
+
+.uev-chat-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.85rem;
+  color: #1e293b;
+  background: transparent;
+  font-family: inherit;
+}
+.uev-chat-input::placeholder { color: #94a3b8; }
+
+.uev-send-btn {
+  width: 34px;
+  height: 34px;
+  background: #1e293b;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.15s;
+}
+.uev-send-btn:hover {
+  background: #334155;
+  transform: scale(1.05);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .uev-upload-grid {
+    grid-template-columns: 1fr;
+  }
+}
