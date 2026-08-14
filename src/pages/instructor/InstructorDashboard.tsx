@@ -112,31 +112,31 @@ const InstructorDashboard = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="how-it-works-section">
+      <section className="inst-how-it-works-section">
         <div className="container">
           <h2 className="section-title">How It Works (For Instructor)</h2>
           <div style={{ height: '2.5rem' }}></div>
 
-          <div className="steps-grid">
-            <div className="step-card">
-              <div className="step-number">1</div>
-              <h4 className="step-title">Create your instructor profile</h4>
-              <p className="step-text">Showcase your expertise and academic background.</p>
+          <div className="inst-steps-grid">
+            <div className="inst-step-card">
+              <div className="inst-step-number">1</div>
+              <h4 className="inst-step-title">Create your instructor profile</h4>
+              <p className="inst-step-text">Showcase your expertise and academic background.</p>
             </div>
-            <div className="step-card">
-              <div className="step-number">2</div>
-              <h4 className="step-title">Students upload material</h4>
-              <p className="step-text">Review assignments or difficult topics students need help with.</p>
+            <div className="inst-step-card">
+              <div className="inst-step-number">2</div>
+              <h4 className="inst-step-title">Students upload material</h4>
+              <p className="inst-step-text">Review assignments or difficult topics students need help with.</p>
             </div>
-            <div className="step-card">
-              <div className="step-number">3</div>
-              <h4 className="step-title">Accept and explain</h4>
-              <p className="step-text">Accept requests and provide a clear, detailed explanation.</p>
+            <div className="inst-step-card">
+              <div className="inst-step-number">3</div>
+              <h4 className="inst-step-title">Accept and explain</h4>
+              <p className="inst-step-text">Accept requests and provide a clear, detailed explanation.</p>
             </div>
-            <div className="step-card">
-              <div className="step-number">4</div>
-              <h4 className="step-title">Earn for each session</h4>
-              <p className="step-text">Receive payments directly to your account per session.</p>
+            <div className="inst-step-card">
+              <div className="inst-step-number">4</div>
+              <h4 className="inst-step-title">Earn for each session</h4>
+              <p className="inst-step-text">Receive payments directly to your account per session.</p>
             </div>
           </div>
         </div>

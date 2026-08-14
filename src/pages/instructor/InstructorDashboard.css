@@ -263,66 +263,96 @@
   line-height: 1.6;
 }
 
-.how-it-works-section {
+.inst-how-it-works-section {
   padding: 5rem 0;
-  background-color: #F8FAFC;
+  background-color: #FFFFFF;
 }
 
-.steps-grid {
+.inst-how-it-works-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.inst-steps-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
+  max-width: 1120px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.step-card {
-  transition: transform 0.3s ease;
-  padding: 1rem;
-  border-radius: 16px;
+@media (max-width: 960px) {
+  .inst-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 }
 
-.step-card:hover {
+@media (max-width: 580px) {
+  .inst-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.inst-step-card {
+  transition: transform 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inst-step-card:hover {
   transform: translateY(-6px);
 }
 
-.step-number {
-  width: 52px;
-  height: 52px;
+.inst-step-number {
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  min-height: 54px;
   background: #52B6DF;
-  color: white;
+  color: #FFFFFF;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 800;
   margin: 0 auto 1.5rem;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 6px 16px rgba(82, 182, 223, 0.3);
+  box-shadow: 0 6px 16px rgba(82, 182, 223, 0.4);
+  transition: all 0.3s ease;
 }
 
-.step-card:hover .step-number {
-  transform: scale(1.2) rotate(-8deg);
+.inst-step-card:hover .inst-step-number {
+  transform: scale(1.1);
   background: #0284C7;
-  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45);
 }
 
-.step-title {
+.inst-step-title {
   font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   color: #0F172A;
   transition: color 0.3s ease;
+  line-height: 1.35;
 }
 
-.step-card:hover .step-title {
+.inst-step-card:hover .inst-step-title {
   color: #0284C7;
 }
 
-.step-text {
+.inst-step-text {
   color: #64748B;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  max-width: 240px;
+  margin: 0 auto;
 }
 
 .manage-sessions-section {
