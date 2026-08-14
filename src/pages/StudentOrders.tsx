@@ -4,6 +4,7 @@ import './StudentOrders.css';
 
 type OrderFlowStep = 
   | 'orders_categories'             // Batch 1 Pic 1: 3 Dark Category Cards (Trial, Assignment, Explain)
+  | 'explain_type_selection'        // Explains Orders: 2 Dark Cards (Video Order vs Live Order)
   | 'orders_list'                   // Batch 1 Pic 2 & Batch 2 Pic 3: Trial Requests & Offers
   | 'explain_orders_list'           // Batch 5 Pic 2 & Batch 6 Pic 1 & Batch 8 Pic 2: Explain Requests & Offers
   | 'instructor_offers'             // Batch 5 Pic 3 & Batch 6 Pic 2: Instructor Offers (Ahmed.K 150 SAR, Omar.K 250 SAR, Sarah.M 200 SAR)
@@ -70,6 +71,8 @@ const StudentOrders = () => {
     }
   ]);
 
+  const [explainFilter, setExplainFilter] = useState<'all' | 'video' | 'live'>('all');
+
   const handleSendChatMessage = (e: React.FormEvent) => {
     e.preventDefault();
     if (!chatInput.trim()) return;
@@ -91,7 +94,7 @@ const StudentOrders = () => {
     if (category === 'Assignment') {
       setStep('assignment_orders_list');
     } else if (category === 'Explain') {
-      setStep('explain_orders_list');
+      setStep('explain_type_selection');
     } else {
       setStep('orders_list');
     }
@@ -192,9 +195,9 @@ const StudentOrders = () => {
       )}
 
       {/* -------------------------------------------------------------
-          BATCH 5 PIC 2 & BATCH 6 PIC 1 & BATCH 8 PIC 2: Explain Orders Requests List Screen
+          EXPLAINS ORDERS TYPE SELECTION SCREEN: 2 Dark Cards (Video vs Live)
          ------------------------------------------------------------- */}
-      {step === 'explain_orders_list' && (
+      {step === 'explain_type_selection' && (
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => setStep('orders_categories')} className="back-link-btn">
@@ -202,89 +205,175 @@ const StudentOrders = () => {
             </button>
           </div>
 
+          <div className="flow-title-wrap text-center" style={{ marginBottom: '3.5rem' }}>
+            <h1 className="flow-main-title" style={{ fontSize: '3rem', lineHeight: '1.1' }}>
+              Explains<br />Orders
+            </h1>
+            <p className="flow-subtitle" style={{ marginTop: '0.5rem' }}>
+              Choose the type of orders you want to see it.
+            </p>
+          </div>
+
+          <div className="flow-cards-two-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2.5rem', maxWidth: '760px', margin: '0 auto 4rem auto' }}>
+            {/* Card 1: (explantion by video) */}
+            <div className="flow-dark-choice-card rect-orders-card" style={{ padding: '3.5rem 2rem' }}>
+              <div className="dark-card-icon-box cyan-square" style={{ width: '64px', height: '64px', borderRadius: '16px', background: '#182C3D', color: '#56B8E6', marginBottom: '2rem' }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#56B8E6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="4" />
+                  <polygon points="10 8 16 12 10 16 10 8" />
+                </svg>
+              </div>
+              <h2 style={{ color: '#FFFFFF', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 2.5rem 0' }}>
+                (explantion by video)
+              </h2>
+              <button 
+                onClick={() => {
+                  setExplainFilter('video');
+                  setStep('explain_orders_list');
+                }} 
+                className="btn-primary choice-rect-btn"
+                style={{ width: '100%', padding: '0.9rem 1rem', background: '#56B8E6', color: '#0F172A', fontWeight: 700, borderRadius: '8px', border: 'none', cursor: 'pointer' }}
+              >
+                video order
+              </button>
+            </div>
+
+            {/* Card 2: (explantion by live ) */}
+            <div className="flow-dark-choice-card rect-orders-card" style={{ padding: '3.5rem 2rem' }}>
+              <div className="dark-card-icon-box cyan-square" style={{ width: '64px', height: '64px', borderRadius: '16px', background: '#182C3D', color: '#56B8E6', marginBottom: '2rem' }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#56B8E6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="4" />
+                  <polygon points="10 8 16 12 10 16 10 8" />
+                </svg>
+              </div>
+              <h2 style={{ color: '#FFFFFF', fontSize: '1.4rem', fontWeight: 700, margin: '0 0 2.5rem 0' }}>
+                (explantion by live )
+              </h2>
+              <button 
+                onClick={() => {
+                  setExplainFilter('live');
+                  setActiveSegment('request');
+                  setStep('explain_orders_list');
+                }} 
+                className="btn-primary choice-rect-btn"
+                style={{ width: '100%', padding: '0.9rem 1rem', background: '#56B8E6', color: '#0F172A', fontWeight: 700, borderRadius: '8px', border: 'none', cursor: 'pointer' }}
+              >
+                live order
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* -------------------------------------------------------------
+          BATCH 5 PIC 2 & BATCH 6 PIC 1 & BATCH 8 PIC 2: Explain Orders Requests List Screen
+         ------------------------------------------------------------- */}
+      {step === 'explain_orders_list' && (
+        <div className="flow-step-container">
+          <div className="flow-header-nav">
+            <button onClick={() => setStep('explain_type_selection')} className="back-link-btn">
+              &larr; Back
+            </button>
+          </div>
+
           <div className="flow-title-wrap">
-            <h1 className="flow-main-title text-left">My Orders</h1>
+            <div className="title-with-pill-row">
+              <h1 className="flow-main-title text-left">My Orders</h1>
+              {explainFilter !== 'all' && (
+                <span className="active-category-pill" style={{ textTransform: 'uppercase' }}>
+                  {explainFilter === 'video' ? 'Explanation by Video' : 'Explanation by Live'}
+                </span>
+              )}
+            </div>
             <p className="flow-subtitle text-left">
               Track the status of your requests, assignments, and subscriptions.
             </p>
           </div>
 
-          {/* 2 Segmented Cards (Request vs Offers) */}
-          <div className="segmented-tabs-row">
-            <div 
-              className={`segment-box ${activeSegment === 'request' ? 'active' : ''}`}
-              onClick={() => setActiveSegment('request')}
-            >
-              {activeSegment === 'request' && <span className="blue-check-badge">✓</span>}
-              <h3 className="req-title">Request</h3>
-              <p>The orders you have requested.</p>
-            </div>
+          {/* 2 Segmented Cards (Request vs Offers) - FOR LIVE / ALL ONLY */}
+          {explainFilter !== 'video' && (
+            <div className="segmented-tabs-row">
+              <div 
+                className={`segment-box ${activeSegment === 'request' ? 'active' : ''}`}
+                onClick={() => setActiveSegment('request')}
+              >
+                {activeSegment === 'request' && <span className="blue-check-badge">✓</span>}
+                <h3 className="req-title">Request</h3>
+                <p>The orders you have requested.</p>
+              </div>
 
-            <div 
-              className={`segment-box ${activeSegment === 'offers' ? 'active' : ''}`}
-              onClick={() => setActiveSegment('offers')}
-            >
-              {activeSegment === 'offers' && <span className="blue-check-badge">✓</span>}
-              <h3 className="off-title">Offers</h3>
-              <p>The instructor offer you have selected(FOR LIVE ONLY ).</p>
+              <div 
+                className={`segment-box ${activeSegment === 'offers' ? 'active' : ''}`}
+                onClick={() => setActiveSegment('offers')}
+              >
+                {activeSegment === 'offers' && <span className="blue-check-badge">✓</span>}
+                <h3 className="off-title">Offers</h3>
+                <p>The instructor offer you have selected(FOR LIVE ONLY ).</p>
+              </div>
             </div>
-          </div>
+          )}
 
-          {activeSegment === 'request' ? (
+          {explainFilter === 'video' || activeSegment === 'request' ? (
             <div className="orders-items-list">
-              {/* Item 1: Java Programming */}
-              <div className="order-item-card card">
-                <div className="order-item-left">
-                  <div className="order-meta-row">
-                    <span className="order-date-text">ORDER DATE: OCT 20, 2026</span>
-                    <span className="order-approved-badge">• Approved</span>
+              {/* Item 1: Java Programming (Video Order) */}
+              {(explainFilter === 'all' || explainFilter === 'video') && (
+                <div className="order-item-card card">
+                  <div className="order-item-left">
+                    <div className="order-meta-row">
+                      <span className="order-date-text">ORDER DATE: OCT 20, 2026</span>
+                      <span className="order-approved-badge">• Approved</span>
+                    </div>
+                    <h2>Java Programming</h2>
+                    <p className="order-status-sub">Java Programming | Status: Approved</p>
                   </div>
-                  <h2>Hourly Explanation (explantion by video) - Java Programming</h2>
-                  <p className="order-status-sub">Java Programming | Status: Approved</p>
+                  <button 
+                    onClick={() => setStep('instructor_offers')} 
+                    className="btn-dark enter-order-dark-btn"
+                  >
+                    Enter Order
+                  </button>
                 </div>
-                <button 
-                  onClick={() => setStep('instructor_offers')} 
-                  className="btn-dark enter-order-dark-btn"
-                >
-                  Enter Order
-                </button>
-              </div>
+              )}
 
-              {/* Item 2: DATA BASE */}
-              <div className="order-item-card card">
-                <div className="order-item-left">
-                  <div className="order-meta-row">
-                    <span className="order-date-text">ORDER DATE: OCT 16, 2026</span>
-                    <span className="order-approved-badge">• Approved</span>
+              {/* Item 2: DATA BASE (Live Order) */}
+              {(explainFilter === 'all' || explainFilter === 'live') && (
+                <div className="order-item-card card">
+                  <div className="order-item-left">
+                    <div className="order-meta-row">
+                      <span className="order-date-text">ORDER DATE: OCT 16, 2026</span>
+                      <span className="order-approved-badge">• Approved</span>
+                    </div>
+                    <h2>DATA BASE</h2>
+                    <p className="order-status-sub">DATA BASE | Status: Approved</p>
                   </div>
-                  <h2>Hourly Explanation (explantion by Live) - DATA BASE</h2>
-                  <p className="order-status-sub">DATA BASE | Status: Approved</p>
+                  <button 
+                    onClick={() => setStep('hourly_trial_submissions_live')} 
+                    className="btn-dark enter-order-dark-btn"
+                  >
+                    Enter Order
+                  </button>
                 </div>
-                <button 
-                  onClick={() => setStep('hourly_trial_submissions_live')} 
-                  className="btn-dark enter-order-dark-btn"
-                >
-                  Enter Order
-                </button>
-              </div>
+              )}
 
-              {/* Item 3: Mathematics */}
-              <div className="order-item-card card">
-                <div className="order-item-left">
-                  <div className="order-meta-row">
-                    <span className="order-date-text">ORDER DATE: OCT 15, 2026</span>
-                    <span className="order-approved-badge">• Approved</span>
+              {/* Item 3: Mathematics (Subscription Order) */}
+              {explainFilter === 'all' && (
+                <div className="order-item-card card">
+                  <div className="order-item-left">
+                    <div className="order-meta-row">
+                      <span className="order-date-text">ORDER DATE: OCT 15, 2026</span>
+                      <span className="order-approved-badge">• Approved</span>
+                    </div>
+                    <h2>packaging Subscription - Mathematics</h2>
+                    <p className="order-status-sub">Mathematics | Status: Active</p>
                   </div>
-                  <h2>packaging Subscription - Mathematics</h2>
-                  <p className="order-status-sub">Mathematics | Status: Active</p>
+                  <button 
+                    onClick={() => setStep('confirm_order_subscription_math')} 
+                    className="btn-dark enter-order-dark-btn"
+                  >
+                    Enter Order
+                  </button>
                 </div>
-                <button 
-                  onClick={() => setStep('confirm_order_subscription_math')} 
-                  className="btn-dark enter-order-dark-btn"
-                >
-                  Enter Order
-                </button>
-              </div>
+              )}
             </div>
           ) : (
             /* Offers Tab Selected (Batch 8 Pic 2) */
@@ -295,7 +384,7 @@ const StudentOrders = () => {
                     <span className="order-date-text">ORDER DATE: OCT 16, 2026</span>
                     <span className="order-approved-badge">• Approved</span>
                   </div>
-                  <h2>Hourly Explanation (explantion by Live) - DATA BASE</h2>
+                  <h2>DATA BASE</h2>
                   <p className="order-status-sub">DATA BASE | Status: Approved</p>
                 </div>
                 <button 

@@ -47,12 +47,228 @@
   margin-bottom: 2.75rem;
 }
 
+.hero-action-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
 .upload-cta-btn {
   padding: 16px 38px !important;
   font-size: 1.05rem !important;
   font-weight: 800 !important;
   border-radius: 100px !important;
   box-shadow: 0 10px 24px rgba(0, 168, 232, 0.3) !important;
+}
+
+.watch-video-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  padding: 14px 24px;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.watch-video-hero-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #00A8E8;
+  transform: translateY(-2px);
+}
+
+.play-icon-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #00A8E8;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  padding-left: 2px;
+}
+
+.hero-play-button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.student-photo-card:hover .hero-play-button-overlay {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.big-play-btn-pulse {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(0, 168, 232, 0.9);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  padding-left: 4px;
+  box-shadow: 0 0 0 12px rgba(0, 168, 232, 0.25);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 168, 232, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(0, 168, 232, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 168, 232, 0);
+  }
+}
+
+.play-overlay-label {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 3. Embedded "How to Use This Website" Video Section */
+.website-guide-video-section {
+  margin-top: 5rem;
+}
+
+.guide-video-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 28px;
+  padding: 3.5rem 3rem;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.04);
+}
+
+.guide-tag {
+  color: #00A8E8;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.guide-video-header h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0F172A;
+  margin-bottom: 0.75rem;
+}
+
+.guide-video-header p {
+  color: #64748B;
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin: 0 auto 3rem auto;
+}
+
+.guide-video-player-box {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12);
+  border: 4px solid #0F172A;
+  background: #000;
+}
+
+.dashboard-explainer-video {
+  width: 100%;
+  display: block;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+/* 4. Fullscreen Interactive Video Modal */
+.video-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.video-modal-container {
+  background: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.close-video-modal-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.close-video-modal-btn:hover {
+  background: #EF4444;
+}
+
+.video-modal-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-modal-header h3 {
+  color: white;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.video-modal-body {
+  background: #000;
+}
+
+.modal-video-element {
+  width: 100%;
+  max-height: 520px;
+  display: block;
 }
 
 .social-proof-row {
