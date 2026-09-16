@@ -34,12 +34,38 @@
   --transition-slow: 0.3s ease-in-out;
 }
 
-html[lang="en"], html.ltr {
+html[lang="en"], html.ltr, html[dir="ltr"], [dir="ltr"] {
   --font-family: var(--font-family-en);
 }
 
-html[lang="ar"], html.rtl {
+html[lang="ar"], html.rtl, html[dir="rtl"], [dir="rtl"] {
   --font-family: var(--font-family-ar);
+}
+
+body, button, input, select, textarea, optgroup, a {
+  font-family: var(--font-family);
+}
+
+/* Guarantee font inheritance for all button variants */
+button, input, select, textarea,
+.btn-primary, .btn-secondary, .btn-dark, 
+.watch-video-hero-btn, .logout-btn-sm, .my-profile-dark-pill {
+  font-family: inherit;
+}
+
+html[dir="rtl"] body,
+html[dir="rtl"] button,
+html[dir="rtl"] input,
+html[dir="rtl"] select,
+html[dir="rtl"] textarea,
+html[dir="rtl"] a,
+html[dir="rtl"] .btn-primary,
+html[dir="rtl"] .btn-secondary,
+html[dir="rtl"] .btn-dark,
+html[dir="rtl"] .watch-video-hero-btn,
+html[dir="rtl"] .logout-btn-sm,
+html[dir="rtl"] .my-profile-dark-pill {
+  font-family: 'Cairo', 'Inter', system-ui, -apple-system, sans-serif !important;
 }
 
 body {

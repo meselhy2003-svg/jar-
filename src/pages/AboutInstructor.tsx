@@ -40,15 +40,15 @@ const AboutInstructor = () => {
             {/* Top Right Floating Badge */}
             <div className="float-badge-instructor top-right">
               <span className="badge-check-icon">✓</span>
-              <span>New Assignment Uploaded!</span>
+              <span>{t('badge.newAssignment', 'New Assignment Uploaded!')}</span>
             </div>
 
             {/* Bottom Left Floating Badge */}
             <div className="float-badge-instructor bottom-left">
               <span className="badge-live-dot">🎥</span>
               <div>
-                <strong>Live Session Started</strong>
-                <span className="sub-tag">Interaction active now</span>
+                <strong>{t('badge.liveSessionStarted', 'Live Session Started')}</strong>
+                <span className="sub-tag">{t('badge.interactionActive', 'Interaction active now')}</span>
               </div>
             </div>
           </div>

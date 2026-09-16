@@ -149,6 +149,14 @@ html.rtl .avatar-circle.a1 {
   transform: rotate(10deg);
 }
 
+.grad-cap-icon-img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  transform: rotate(10deg);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+}
+
 /* Floating Cards */
 .floating-card {
   position: absolute;

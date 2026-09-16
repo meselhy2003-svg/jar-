@@ -53,7 +53,7 @@ const Home = () => {
           <div className="graphic-3d-container">
             {/* Main Blue Card */}
             <div className="main-3d-card">
-              <span className="grad-cap-icon">🎓</span>
+              <img src="/Icon (16).png" alt="Graduation Cap" className="grad-cap-icon-img" />
             </div>
 
             {/* Top Right Floating Card */}
@@ -62,7 +62,7 @@ const Home = () => {
                 <img src="/pdf-icon.png" alt="PDF" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
               </div>
               <div className="float-text">
-                <strong>Lecture_Notes.pdf</strong>
+                <strong>{t('badge.lectureNotes', 'Lecture_Notes.pdf')}</strong>
                 <div className="float-progress-bar">
                   <div className="float-progress-fill" style={{ width: '95%' }}></div>
                 </div>
@@ -74,8 +74,8 @@ const Home = () => {
             <div className="floating-card bottom-left-float card">
               <div className="float-icon-bg blue-bg">▶</div>
               <div>
-                <strong>Live Session</strong>
-                <span className="status-ongoing-tag">ON GOING</span>
+                <strong>{t('badge.liveSession', 'Live Session')}</strong>
+                <span className="status-ongoing-tag">{t('badge.onGoing', 'ON GOING')}</span>
               </div>
             </div>
           </div>

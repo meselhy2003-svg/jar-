@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import './StudentOrders.css';
 
 type OrderFlowStep = 
@@ -36,6 +37,7 @@ interface ChatMessage {
 
 const StudentOrders = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [step, setStep] = useState<OrderFlowStep>('orders_categories');
   const [selectedCategory, setSelectedCategory] = useState<'Trial' | 'Assignment' | 'Explain'>('Trial');
   const [activeSegment, setActiveSegment] = useState<'request' | 'offers'>('request');
@@ -137,14 +139,14 @@ const StudentOrders = () => {
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => navigate('/student/dashboard')} className="back-link-btn">
-              &larr; Back
+              {t('orders.back', '← Back')}
             </button>
           </div>
 
           <div className="flow-title-wrap text-center">
-            <h1 className="flow-main-title">My Orders</h1>
+            <h1 className="flow-main-title">{t('orders.myOrders', 'My Orders')}</h1>
             <p className="flow-subtitle">
-              Choose the type of orders you want to see it.
+              {t('orders.chooseType', 'Choose the type of orders you want to see it.')}
             </p>
           </div>
 
@@ -154,12 +156,12 @@ const StudentOrders = () => {
               <div className="dark-card-icon-box cyan-square">
                 <span className="card-icon-symbol">☑</span>
               </div>
-              <h2>Trial</h2>
+              <h2>{t('orders.trial', 'Trial')}</h2>
               <button 
                 onClick={() => handleCategoryClick('Trial')} 
                 className="btn-primary choice-rect-btn"
               >
-                Explain
+                {t('orders.explainBtn', 'Explain')}
               </button>
             </div>
 
@@ -170,12 +172,12 @@ const StudentOrders = () => {
                   <img src="/pdf-icon.png" alt="PDF" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
                 </span>
               </div>
-              <h2>Assignment</h2>
+              <h2>{t('orders.assignment', 'Assignment')}</h2>
               <button 
                 onClick={() => handleCategoryClick('Assignment')} 
                 className="btn-primary choice-rect-btn"
               >
-                Assignments
+                {t('orders.assignmentsBtn', 'Assignments')}
               </button>
             </div>
 
@@ -186,12 +188,12 @@ const StudentOrders = () => {
                   <img src="/student-dash-icons/Icon (14).png" alt="Explain" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
                 </span>
               </div>
-              <h2>Explain</h2>
+              <h2>{t('orders.explain', 'Explain')}</h2>
               <button 
                 onClick={() => handleCategoryClick('Explain')} 
                 className="btn-primary choice-rect-btn"
               >
-                Explain
+                {t('orders.explainBtn', 'Explain')}
               </button>
             </div>
           </div>
@@ -1016,51 +1018,51 @@ const StudentOrders = () => {
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => setStep('orders_categories')} className="back-link-btn">
-              &larr; Back
+              {t('orders.back', '← Back')}
             </button>
           </div>
 
           <div className="flow-title-wrap">
-            <h1 className="flow-main-title text-left">My Orders</h1>
+            <h1 className="flow-main-title text-left">{t('assignments.myAssignments', 'My Assignments')}</h1>
             <p className="flow-subtitle text-left">
-              Track the status of your requests, assignments, and subscriptions.
+              {t('assignments.subtitle', 'View and manage your completed assignments.')}
             </p>
           </div>
 
           <div className="orders-items-list">
-            {/* Item 1: Approved Assignment (Batch 4 Pic 2) */}
+            {/* Item 1: Approved Assignment */}
             <div className="order-item-card card">
               <div className="order-item-left">
                 <div className="order-meta-row">
-                  <span className="order-date-text">ORDER DATE: OCT 21, 2026</span>
-                  <span className="order-approved-badge">Approved</span>
+                  <span className="order-date-text">{t('assignments.submittedOn', 'Submitted on:')} OCT 21, 2026</span>
+                  <span className="order-approved-badge">{t('common.completed', 'COMPLETED')}</span>
                 </div>
-                <h2>Assignment Solution Request - Data Structures Homework</h2>
-                <p className="order-status-sub">Data Structures Homework | Status: Completed</p>
+                <h2>{t('assignments.calculusHw', 'Calculus Homework')}</h2>
+                <p className="order-status-sub">{t('assignments.mathDept', 'Mathematics Department')}</p>
               </div>
               <button 
                 onClick={() => setStep('assignment_order_details')} 
                 className="btn-dark enter-order-dark-btn"
               >
-                Enter Order
+                {t('assignments.enterAssignment', 'Enter Assignment')}
               </button>
             </div>
 
-            {/* Item 2: Pending Assignment (Batch 4 Pic 2) */}
+            {/* Item 2: Pending Assignment */}
             <div className="order-item-card card">
               <div className="order-item-left">
                 <div className="order-meta-row">
-                  <span className="order-date-text">ORDER DATE: OCT 23, 2026</span>
-                  <span className="order-pending-badge">pending</span>
+                  <span className="order-date-text">{t('assignments.submittedOn', 'Submitted on:')} OCT 23, 2026</span>
+                  <span className="order-pending-badge">{t('common.pending', 'PROCESSING')}</span>
                 </div>
-                <h2>Assignment Solution Request - MATH Homework</h2>
-                <p className="order-status-sub">Math Homework | Status: PENDING</p>
+                <h2>{t('assignments.physicsAsg', 'Physics Assignment 3')}</h2>
+                <p className="order-status-sub">{t('assignments.physicsDept', 'Theoretical Physics 101')}</p>
               </div>
               <button 
                 onClick={() => setStep('assignment_order_details')} 
                 className="btn-outline enter-order-gray-btn"
               >
-                Enter Order
+                {t('assignments.enterAssignment', 'Enter Assignment')}
               </button>
             </div>
           </div>

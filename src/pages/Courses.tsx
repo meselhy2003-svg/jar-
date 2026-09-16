@@ -1,79 +1,91 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import './Courses.css';
 
 interface CourseItem {
   id: string;
-  title: string;
+  titleKey: string;
+  defaultTitle: string;
   icon: string;
   status: 'COMPLETED' | 'PROCESSING';
-  description: string;
-  type: string;
-  plan: string;
+  typeKey: string;
+  defaultType: string;
+  planKey: string;
+  defaultPlan: string;
   modules: number;
 }
 
 const COURSES_DATA: CourseItem[] = [
   {
     id: 'math-101',
-    title: 'Mathematics',
+    titleKey: 'courses.math',
+    defaultTitle: 'Mathematics',
     icon: '➗',
     status: 'COMPLETED',
-    description: 'Lecture materials and explanations for this course.',
-    type: 'explanation by video',
-    plan: 'Hourly Plan',
+    typeKey: 'courses.typeVideo',
+    defaultType: 'explanation by video',
+    planKey: 'courses.hourlyPlan',
+    defaultPlan: 'Hourly Plan',
     modules: 12
   },
   {
     id: 'physics-101',
-    title: 'Physics',
+    titleKey: 'courses.physics',
+    defaultTitle: 'Physics',
     icon: '🔬',
     status: 'COMPLETED',
-    description: 'Lecture materials and explanations for this course.',
-    type: 'explanation by live',
-    plan: 'Hourly Plan',
+    typeKey: 'courses.typeLive',
+    defaultType: 'explanation by live',
+    planKey: 'courses.hourlyPlan',
+    defaultPlan: 'Hourly Plan',
     modules: 8
   },
   {
     id: 'java-101',
-    title: 'Java Programming',
+    titleKey: 'courses.java',
+    defaultTitle: 'Java Programming',
     icon: '💻',
     status: 'PROCESSING',
-    description: 'Lecture materials and explanations for this course.',
-    type: 'explanation by video',
-    plan: 'Packaging Plan',
+    typeKey: 'courses.typeVideo',
+    defaultType: 'explanation by video',
+    planKey: 'courses.packagePlan',
+    defaultPlan: 'Packaging Plan',
     modules: 15
   },
   {
     id: 'ds-101',
-    title: 'Data Structures',
+    titleKey: 'courses.ds',
+    defaultTitle: 'Data Structures',
     icon: '📊',
     status: 'PROCESSING',
-    description: 'Lecture materials and explanations for this course.',
-    type: 'explanation by video',
-    plan: 'Packaging Plan',
+    typeKey: 'courses.typeVideo',
+    defaultType: 'explanation by video',
+    planKey: 'courses.packagePlan',
+    defaultPlan: 'Packaging Plan',
     modules: 10
   }
 ];
 
 const Courses = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   return (
     <div className="my-courses-page container animate-fade-in">
       {/* Top Header Row */}
       <div className="courses-header-wrapper">
         <button onClick={() => navigate('/student/dashboard')} className="back-link-btn">
-          &larr; Back
+          {t('orders.back', '← Back')}
         </button>
 
         <div className="courses-title-row">
           <div>
-            <h1 className="courses-main-title">My Courses</h1>
-            <p className="courses-subtitle">Choose a course to continue studying.</p>
+            <h1 className="courses-main-title">{t('courses.myCourses', 'My Courses')}</h1>
+            <p className="courses-subtitle">{t('courses.subtitle', 'Choose a course to continue studying.')}</p>
           </div>
 
           <div className="semester-pill">
-            🗓️ Semester: Spring 2026
+            🗓️ {t('courses.semester', 'Semester: Spring 2026')}
           </div>
         </div>
       </div>
@@ -89,23 +101,23 @@ const Courses = () => {
 
               <div className="course-info">
                 <div className="course-title-status-row">
-                  <h2>{course.title}</h2>
+                  <h2>{t(course.titleKey, course.defaultTitle)}</h2>
                   <span className={`status-pill ${course.status.toLowerCase()}`}>
-                    {course.status}
+                    {course.status === 'COMPLETED' ? t('common.completed', 'COMPLETED') : t('common.pending', 'PROCESSING')}
                   </span>
                 </div>
 
-                <p className="course-desc">{course.description}</p>
+                <p className="course-desc">{t('courses.desc', 'Lecture materials and explanations for this course.')}</p>
                 
                 <p className="course-meta">
-                  Type : {course.type} {course.plan} &bull; 📖 {course.modules} Modules
+                  {t(course.typeKey, `Type : ${course.defaultType}`)} • {t(course.planKey, course.defaultPlan)} &bull; 📖 {course.modules} {t('courses.modules', 'Modules')}
                 </p>
               </div>
             </div>
 
             <div className="course-card-right">
               <Link to={`/course/${course.id}`} className="btn-dark enter-course-btn">
-                Enter Course
+                {t('courses.enterCourse', 'Enter Course')}
               </Link>
             </div>
           </div>

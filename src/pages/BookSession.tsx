@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import './BookSession.css';
 
 type FlowStep = 
@@ -18,6 +19,7 @@ type FlowStep =
 
 const BookSession = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [step, setStep] = useState<FlowStep>('start_choice');
   const [showToast, setShowToast] = useState(true);
 
@@ -66,7 +68,7 @@ const BookSession = () => {
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => navigate('/student/dashboard')} className="back-link-btn">
-              &larr; Back
+              {t('orders.back', '← Back')}
             </button>
           </div>
 

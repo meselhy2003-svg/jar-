@@ -41,8 +41,8 @@ const AboutStudents = () => {
             <div className="float-badge top-right">
               <span className="check-badge-icon">✓</span>
               <div>
-                <strong>Explanation Ready</strong>
-                <span className="badge-time">5 minutes ago</span>
+                <strong>{t('badge.explanationReady', 'Explanation Ready')}</strong>
+                <span className="badge-time">{t('badge.5minsAgo', '5 minutes ago')}</span>
               </div>
             </div>
 
@@ -51,7 +51,7 @@ const AboutStudents = () => {
               <span className="pdf-badge-icon">
                 <img src="/pdf-icon.png" alt="PDF" style={{ width: '1.2em', height: '1.2em', objectFit: 'contain', verticalAlign: 'middle' }} />
               </span>
-              <strong>Lecture_Notes.pdf</strong>
+              <strong>{t('badge.lectureNotes', 'Lecture_Notes.pdf')}</strong>
             </div>
           </div>
         </div>

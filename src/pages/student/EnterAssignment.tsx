@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import StudentHeader from '../../components/StudentHeader';
+import { useLanguage } from '../../context/LanguageContext';
 import './EnterAssignment.css';
 
 const EnterAssignment = () => {
+  const { t } = useLanguage();
   const [chatMessages, setChatMessages] = useState([
     {
       sender: 'tutor',
@@ -32,7 +34,7 @@ const EnterAssignment = () => {
       <StudentHeader />
 
       <main className="container enter-assignment-container animate-fade-in">
-        <Link to="/my-assignments" className="back-link">← Back</Link>
+        <Link to="/my-assignments" className="back-link">{t('orders.back', '← Back')}</Link>
 
         <div className="assignment-header-wrap">
           <h1>Assignment Explanation</h1>

@@ -54,8 +54,8 @@ const Contact = () => {
                 <img src="/contact-icons/Vector.png" alt="Live Chat" className="chat-img-icon" />
               </span>
               <div>
-                <strong className="badge-small-title">LIVE CHAT</strong>
-                <span className="badge-resp-time">Avg. Response 5m</span>
+                <strong className="badge-small-title">{t('badge.liveChat', 'LIVE CHAT')}</strong>
+                <span className="badge-resp-time">{t('badge.avgResponse5m', 'Avg. Response 5m')}</span>
               </div>
             </div>
           </div>
