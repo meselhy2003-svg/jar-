@@ -175,22 +175,14 @@ const TrialSubmission: React.FC = () => {
             {/* Resources Box */}
             <div className="resources-box">
               <h2 className="card-section-title" style={{ marginBottom: '1.25rem' }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                </svg>
+                <img src="/pdf-icon.png" alt="PDF" style={{ width: '20px', height: '20px', objectFit: 'contain', verticalAlign: 'middle', marginInlineEnd: '8px' }} />
                 Resources
               </h2>
 
               <div className="resource-file-card">
                 <div className="file-info-left">
                   <div className="pdf-icon-wrapper">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                      <polyline points="14 2 14 8 20 8"></polyline>
-                    </svg>
+                    <img src="/pdf-icon.png" alt="PDF" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
                   </div>
                   <div className="file-details">
                     <h4 className="file-name">{task.filename}</h4>
@@ -332,10 +324,7 @@ const TrialSubmission: React.FC = () => {
             </div>
 
             <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', margin: '20px 0', minHeight: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0284c7" strokeWidth="1.5" style={{ marginBottom: '12px' }}>
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-              </svg>
+              <img src="/pdf-icon.png" alt="PDF" style={{ width: '48px', height: '48px', objectFit: 'contain', marginBottom: '12px' }} />
               <h4 style={{ margin: '0 0 8px 0', color: '#0f172a' }}>{task.filename}</h4>
               <p style={{ margin: 0, color: '#64748b', fontSize: '0.9rem', textAlign: 'center' }}>
                 Student: <strong>{task.studentName}</strong> &bull; Subject: <strong>{task.subject}</strong>

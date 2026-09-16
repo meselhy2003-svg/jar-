@@ -278,7 +278,10 @@ const InstructorWallet = () => {
                           <span>🖼️ UPLOAD IMAGE</span>
                         </div>
                         <div className="receipt-dash-box" onClick={handleUploadReceipt}>
-                          <span>📄 UPLOAD PDF</span>
+                          <span>
+                            <img src="/pdf-icon.png" alt="PDF" style={{ width: '1em', height: '1em', verticalAlign: 'middle', marginInlineEnd: '6px' }} />
+                            UPLOAD PDF
+                          </span>
                         </div>
                       </div>
 

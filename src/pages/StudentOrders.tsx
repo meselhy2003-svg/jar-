@@ -166,7 +166,9 @@ const StudentOrders = () => {
             {/* Category 2: Assignment */}
             <div className="flow-dark-choice-card rect-orders-card">
               <div className="dark-card-icon-box cyan-circle">
-                <span className="card-icon-symbol">📄</span>
+                <span className="card-icon-symbol">
+                  <img src="/pdf-icon.png" alt="PDF" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+                </span>
               </div>
               <h2>Assignment</h2>
               <button 
@@ -180,7 +182,9 @@ const StudentOrders = () => {
             {/* Category 3: Explain */}
             <div className="flow-dark-choice-card rect-orders-card">
               <div className="dark-card-icon-box cyan-circle">
-                <span className="card-icon-symbol">🎓</span>
+                <span className="card-icon-symbol">
+                  <img src="/student-dash-icons/Icon (14).png" alt="Explain" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+                </span>
               </div>
               <h2>Explain</h2>
               <button 
@@ -676,7 +680,9 @@ const StudentOrders = () => {
                 <h3>Upload Your Materials</h3>
 
                 <div className="dashed-upload-dropzone" onClick={handleFileUpload}>
-                  <div className="upload-circle-ico">☁️</div>
+                  <div className="upload-circle-ico">
+                    <img src="/pdf-icon.png" alt="Upload" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+                  </div>
                   <strong className="dropzone-main-text">
                     {uploadedFileName ? `Attached: ${uploadedFileName}` : 'Click or drag and drop to upload'}
                   </strong>
@@ -1121,7 +1127,9 @@ const StudentOrders = () => {
                 <span className="asg-lbl">UPLOADED FILES</span>
                 <div className="attached-file-dark-box">
                   <div className="file-info-left">
-                    <span className="file-doc-ico">📄</span>
+                    <span className="file-doc-ico">
+                      <img src="/pdf-icon.png" alt="PDF" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+                    </span>
                     <div>
                       <strong>assignment.pdf</strong>
                       <span className="file-size-txt">2.4 MB</span>
@@ -1501,7 +1509,9 @@ const StudentOrders = () => {
                 <h3>Upload Your Materials</h3>
 
                 <div className="dashed-upload-dropzone" onClick={handleFileUpload}>
-                  <div className="upload-circle-ico">☁️</div>
+                  <div className="upload-circle-ico">
+                    <img src="/pdf-icon.png" alt="Upload" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+                  </div>
                   <strong className="dropzone-main-text">
                     {uploadedFileName ? `Attached: ${uploadedFileName}` : 'Click or drag and drop to upload'}
                   </strong>

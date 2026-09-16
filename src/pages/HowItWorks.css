@@ -203,6 +203,10 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 2.5rem 2rem;
   border-radius: 24px;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .step-num-faint {
@@ -212,6 +216,13 @@
   font-size: 1.8rem;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.1);
+  user-select: none;
+}
+
+html[lang="ar"] .step-num-faint,
+html.rtl .step-num-faint {
+  right: auto;
+  left: 1.5rem;
 }
 
 .asgn-icon-circle {
@@ -227,10 +238,17 @@
   margin-bottom: 1.5rem;
 }
 
+html[lang="ar"] .asgn-icon-circle,
+html.rtl .asgn-icon-circle {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .assignment-step-item h3 {
   color: #FFFFFF;
   font-size: 1.3rem;
   margin-bottom: 0.75rem;
+  text-align: start;
 }
 
 .assignment-step-item p {
@@ -238,6 +256,7 @@
   font-size: 0.9rem;
   line-height: 1.6;
   margin: 0;
+  text-align: start;
 }
 
 /* 4. Seamless Platform Experience */

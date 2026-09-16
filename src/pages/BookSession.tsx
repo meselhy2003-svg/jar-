@@ -101,7 +101,9 @@ const BookSession = () => {
             {/* Card 2: Direct Booking */}
             <div className="flow-dark-choice-card">
               <div className="dark-card-icon-box">
-                <span className="card-icon-symbol">📄</span>
+                <span className="card-icon-symbol">
+                  <img src="/pdf-icon.png" alt="PDF" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+                </span>
               </div>
               <h2>Direct Booking</h2>
               <p>
@@ -143,7 +145,9 @@ const BookSession = () => {
           <div className="flow-form-card-container">
             <form onSubmit={handleTrialSubmit} className="subject-request-form">
               <div className="form-card-header">
-                <span className="header-doc-icon">📄</span>
+                <span className="header-doc-icon">
+                  <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain', verticalAlign: 'middle' }} />
+                </span>
                 <h2>Subject Request</h2>
               </div>
 
@@ -151,7 +155,9 @@ const BookSession = () => {
               <div className="materials-upload-group">
                 <label className="input-group-label">MATERIALS</label>
                 <div className="dashed-dropzone">
-                  <span className="drop-cloud-icon">☁️</span>
+                  <span className="drop-cloud-icon">
+                    <img src="/pdf-icon.png" alt="Upload" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                  </span>
                   <strong>Drag-and-drop area for files</strong>
                   <span className="drop-subtext">Upload PDF, DOC/DOCX, or Images</span>
 
@@ -625,7 +631,9 @@ const BookSession = () => {
           <div className="flow-form-card-container">
             <form onSubmit={handleTrialSubmit} className="subject-request-form">
               <div className="form-card-header">
-                <span className="header-doc-icon">📄</span>
+                <span className="header-doc-icon">
+                  <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain', verticalAlign: 'middle' }} />
+                </span>
                 <h2>Subject Request</h2>
               </div>
 
@@ -633,7 +641,9 @@ const BookSession = () => {
               <div className="materials-upload-group">
                 <label className="input-group-label">MATERIALS</label>
                 <div className="dashed-dropzone">
-                  <span className="drop-cloud-icon">☁️</span>
+                  <span className="drop-cloud-icon">
+                    <img src="/pdf-icon.png" alt="Upload" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                  </span>
                   <strong>Drag-and-drop area for files</strong>
                   <span className="drop-subtext">Upload PDF, DOC/DOCX, or Images</span>
 
@@ -723,7 +733,9 @@ const BookSession = () => {
           <div className="flow-form-card-container">
             <form onSubmit={handleLectureSubmit} className="subject-request-form">
               <div className="form-card-header">
-                <span className="header-doc-icon">📄</span>
+                <span className="header-doc-icon">
+                  <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain', verticalAlign: 'middle' }} />
+                </span>
                 <h2>Subject Request</h2>
               </div>
 
@@ -731,7 +743,9 @@ const BookSession = () => {
               <div className="materials-upload-group">
                 <label className="input-group-label">LECTURE FILES</label>
                 <div className="dashed-dropzone">
-                  <span className="drop-cloud-icon">☁️</span>
+                  <span className="drop-cloud-icon">
+                    <img src="/pdf-icon.png" alt="Upload" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                  </span>
                   <strong>Drag-and-drop area for files</strong>
                   <span className="drop-subtext">Upload PDF, DOC/DOCX, or Images</span>
 

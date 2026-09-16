@@ -1,29 +1,32 @@
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import './HowItWorks.css';
 
 const HowItWorks = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="how-it-works-page animate-fade-in">
       {/* Hero Section */}
       <section className="hero-works-section container">
         <div className="hero-works-left">
-          <span className="badge-smarter">SMARTER LEARNING</span>
+          <span className="badge-smarter">{t('how.badge', 'SMARTER LEARNING')}</span>
           
           <h1 className="hero-works-title">
-            How JAR<br />
-            Academy <span className="highlight-cyan">Works</span>
+            {t('how.title1', 'How JAR Academy Works')}<br />
+            <span className="highlight-cyan">{t('how.title2', 'Simple & Clear')}</span>
           </h1>
           
           <p className="hero-works-sub">
-            A simple way to understand your lectures and complete your assignments with expert instructors. We bridge the gap between classroom teaching and individual success.
+            {t('how.sub', 'A simple way to understand your lectures and complete your assignments with expert instructors.')}
           </p>
           
           <div className="hero-works-btns">
             <Link to="/get-started" className="btn-primary">
-              Get Started Now
+              {t('home.getStarted', 'Get Started Now')}
             </Link>
             <a href="#video-demo" className="btn-secondary">
-              📺 Watch Demo
+              📺 {t('home.watchDemo', 'Watch Demo')}
             </a>
           </div>
         </div>
@@ -31,8 +34,8 @@ const HowItWorks = () => {
         {/* Right Hero Image */}
         <div className="hero-works-right">
           <img 
-            src="/how-it-works-hero.png" 
-            alt="How JAR Academy Works - Online Learning" 
+            src="/Online Learning Collaboration.png" 
+            alt="Online Learning Collaboration" 
             className="hero-works-main-photo"
           />
         </div>
@@ -40,36 +43,38 @@ const HowItWorks = () => {
 
       {/* Section 2: Get Your Material Explained */}
       <section className="material-explained-section container text-center">
-        <h2>Get Your Material Explained</h2>
+        <h2>{t('how.materialTitle', 'Get Your Material Explained')}</h2>
         <div className="cyan-underline"></div>
 
         <div className="explained-cards-grid">
           {/* 1. Navigate */}
           <div className="explained-card card">
             <div className="exp-icon-box">🅰️</div>
-            <h3>1. Navigate</h3>
-            <p>Go to the explanation section on our platform dashboard.</p>
+            <h3>{t('how.navigateTitle', '1. Navigate')}</h3>
+            <p>{t('how.navigateSub', 'Go to the explanation section on our platform dashboard.')}</p>
           </div>
 
           {/* 2. Choose Plan */}
           <div className="explained-card card">
             <div className="exp-icon-box">💳</div>
-            <h3>2. Choose Plan</h3>
-            <p>Select from flexible hourly, monthly, or term-based plans that fit your budget.</p>
+            <h3>{t('how.choosePlanTitle', '2. Choose Plan')}</h3>
+            <p>{t('how.choosePlanSub', 'Select from flexible hourly, monthly, or term-based plans.')}</p>
           </div>
 
           {/* 3. Upload */}
           <div className="explained-card card">
-            <div className="exp-icon-box">📄</div>
-            <h3>3. Upload</h3>
-            <p>Request a trial or upload your PDF, lecture notes, or specific topics directly.</p>
+            <div className="exp-icon-box">
+              <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
+            </div>
+            <h3>{t('how.uploadTitle', '3. Upload')}</h3>
+            <p>{t('how.uploadSub', 'Request a trial or upload your PDF, lecture notes, or specific topics directly.')}</p>
           </div>
 
           {/* 4. Connect (Cyan Card) */}
           <div className="explained-card cyan-highlight-card">
             <div className="exp-icon-box-white">👥</div>
-            <h3>4. Connect</h3>
-            <p>Instantly connect with an expert instructor and start your personalized session.</p>
+            <h3>{t('how.connectTitle', '4. Connect')}</h3>
+            <p>{t('how.connectSub', 'Instantly connect with an expert instructor and start your personalized session.')}</p>
           </div>
         </div>
       </section>
@@ -78,37 +83,37 @@ const HowItWorks = () => {
       <section className="assignment-dark-section">
         <div className="container">
           <div className="assignment-dark-header">
-            <h2>Get Help With Your Assignment</h2>
-            <p>Fast, reliable, and expert-reviewed solutions.</p>
+            <h2>{t('how.assignmentTitle', 'Get Help With Your Assignment')}</h2>
+            <p>{t('how.assignmentSub', 'Fast, reliable, and expert-reviewed solutions.')}</p>
           </div>
 
           <div className="assignment-steps-grid">
             <div className="assignment-step-item">
               <span className="step-num-faint">01</span>
               <div className="asgn-icon-circle">☁️</div>
-              <h3>Upload</h3>
-              <p>Securely upload your assignment files to our encrypted portal.</p>
+              <h3>{t('how.asgnStep1Title', 'Upload')}</h3>
+              <p>{t('how.asgnStep1Sub', 'Securely upload your assignment files to our encrypted portal.')}</p>
             </div>
 
             <div className="assignment-step-item">
               <span className="step-num-faint">02</span>
               <div className="asgn-icon-circle">📝</div>
-              <h3>Describe</h3>
-              <p>Add details and set your price offer for the task requirements.</p>
+              <h3>{t('how.asgnStep2Title', 'Describe')}</h3>
+              <p>{t('how.asgnStep2Sub', 'Add details and set your price offer for the task requirements.')}</p>
             </div>
 
             <div className="assignment-step-item">
               <span className="step-num-faint">03</span>
               <div className="asgn-icon-circle">🔄</div>
-              <h3>Review</h3>
-              <p>Qualified instructors review and accept your specific request.</p>
+              <h3>{t('how.asgnStep3Title', 'Review')}</h3>
+              <p>{t('how.asgnStep3Sub', 'Qualified instructors review and accept your specific request.')}</p>
             </div>
 
             <div className="assignment-step-item">
               <span className="step-num-faint">04</span>
               <div className="asgn-icon-circle">✅</div>
-              <h3>Complete</h3>
-              <p>Receive your high-quality solution directly in your account.</p>
+              <h3>{t('how.asgnStep4Title', 'Complete')}</h3>
+              <p>{t('how.asgnStep4Sub', 'Receive your high-quality solution directly in your account.')}</p>
             </div>
           </div>
         </div>
@@ -137,31 +142,10 @@ const HowItWorks = () => {
 
           {/* Right Text Content */}
           <div className="seamless-right-text">
-            <h2>Seamless Platform <span className="highlight-cyan">Experience</span></h2>
+            <h2>{t('how.seamlessTitle', 'Seamless Platform Experience')}</h2>
             <p className="seamless-desc">
-              Our interface is designed for speed and clarity. From the moment you upload a file to the second you receive your expert feedback, every step is optimized for your learning journey.
+              {t('how.seamlessSub', 'Our interface is designed for speed and clarity. Optimized for your learning journey.')}
             </p>
-
-            <ul className="seamless-feature-list">
-              <li>
-                <span className="feature-bullet-icon">🪄</span>
-                <div>
-                  <strong>AI-Powered Matching for Instructors</strong>
-                </div>
-              </li>
-              <li>
-                <span className="feature-bullet-icon">🛡️</span>
-                <div>
-                  <strong>Secure File Encrypted Transfers</strong>
-                </div>
-              </li>
-              <li>
-                <span className="feature-bullet-icon">🔔</span>
-                <div>
-                  <strong>Real-Time Program Notifications</strong>
-                </div>
-              </li>
-            </ul>
           </div>
         </div>
       </section>
@@ -169,16 +153,16 @@ const HowItWorks = () => {
       {/* Section 5: Cyan Banner CTA */}
       <section className="works-cta-section container">
         <div className="cyan-cta-banner text-center">
-          <h2>Start Learning Smarter Today</h2>
+          <h2>{t('students.ctaTitle', 'Start Learning Today')}</h2>
           <p>
-            Join thousands of students who have improved their grades and understanding with JAR Academy's expert guidance.
+            {t('home.ctaSub', "Join thousands of students who have improved their grades with JAR Academy's expert guidance.")}
           </p>
           <div className="cta-action-row">
             <Link to="/get-started" className="btn-dark cta-dark-btn">
-              Get Started
+              {t('nav.getStarted', 'Get Started')}
             </Link>
             <Link to="/contact" className="btn-secondary contact-sales-pill">
-              Contact Sales
+              {t('nav.contact', 'Contact Sales')}
             </Link>
           </div>
         </div>

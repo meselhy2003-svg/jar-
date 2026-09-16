@@ -1,38 +1,50 @@
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import './Home.css';
 
 const Home = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="landing-page animate-fade-in">
       {/* Hero Section */}
       <section className="hero-landing-section container">
         <div className="hero-landing-left">
-          <span className="badge-edtech">&lt; THE FUTURE OF EDTECH</span>
+          <span className="badge-edtech">{t('home.badge', '< THE FUTURE OF EDTECH')}</span>
           
           <h1 className="landing-title">
-            Upload Anything.<br />
-            <span className="highlight-cyan">Understand Everything.</span>
+            {t('home.title1', 'Upload Anything.')}<br />
+            <span className="highlight-cyan">{t('home.title2', 'Understand Everything.')}</span>
           </h1>
           
           <p className="landing-subtitle">
-            Upload your lecture, assignment, or topic and get it explained by expert instructors via live sessions or recorded video.
+            {t('home.sub', 'Upload your lecture, assignment, or topic and get it explained by expert instructors via live sessions or recorded video.')}
           </p>
           
           <div className="landing-actions">
             <Link to="/get-started" className="btn-primary landing-btn-primary">
-              Get Started Now &rarr;
+              {t('home.getStarted', 'Get Started Now →')}
             </Link>
             <Link to="/how-it-works" className="btn-secondary landing-btn-secondary">
-              Watch Demo
+              {t('home.watchDemo', 'Watch Demo')}
             </Link>
           </div>
 
           <div className="landing-social-proof">
             <div className="landing-avatar-stack">
-              <span className="avatar-circle a1">🎓</span>
-              <span className="avatar-circle a2">👩‍🎓</span>
+              <span className="avatar-circle a1">
+                <img src="/contact-icons/team1.png" alt="Student 1" className="social-proof-avatar-img" />
+              </span>
+              <span className="avatar-circle a2">
+                <img src="/contact-icons/team2.png" alt="Student 2" className="social-proof-avatar-img" />
+              </span>
+              <span className="avatar-circle a3">
+                <img src="/contact-icons/team3.png" alt="Student 3" className="social-proof-avatar-img" />
+              </span>
             </div>
-            <span className="proof-label">Joined by <strong>10,000+</strong> students this month</span>
+            <span className="proof-label">
+              {t('home.socialProof', 'Joined by')} <strong>{t('home.studentsThisMonth', '10,000+ students this month')}</strong>
+            </span>
           </div>
         </div>
 
@@ -46,7 +58,9 @@ const Home = () => {
 
             {/* Top Right Floating Card */}
             <div className="floating-card top-right-float card">
-              <div className="float-icon-bg green-bg">📄</div>
+              <div className="float-icon-bg green-bg">
+                <img src="/pdf-icon.png" alt="PDF" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+              </div>
               <div className="float-text">
                 <strong>Lecture_Notes.pdf</strong>
                 <div className="float-progress-bar">
@@ -71,10 +85,10 @@ const Home = () => {
       {/* Process Section: Three Simple Steps to Mastery */}
       <section className="process-section container">
         <div className="process-header">
-          <span className="process-tag">PROCESS</span>
-          <h2>Three Simple Steps to Mastery</h2>
+          <span className="process-tag">{t('home.processTag', 'PROCESS')}</span>
+          <h2>{t('home.processTitle', 'Three Simple Steps to Mastery')}</h2>
           <p className="process-sub">
-            Our streamlined process connects you with expert knowledge instantly through our high-end digital platform.
+            {t('home.processSub', 'Our streamlined process connects you with expert knowledge instantly through our high-end digital platform.')}
           </p>
         </div>
 
@@ -89,9 +103,9 @@ const Home = () => {
                 <path d="m16 16-4-4-4 4" />
               </svg>
             </div>
-            <h3>Upload Content</h3>
+            <h3>{t('home.step1Title', 'Upload Content')}</h3>
             <p>
-              Simply upload your lecture notes, assignments, or any complex topic to our secure platform. We support all major formats.
+              {t('home.step1Sub', 'Simply upload your lecture notes, assignments, or any complex topic to our secure platform.')}
             </p>
           </div>
 
@@ -104,9 +118,9 @@ const Home = () => {
                 <path d="m9 12 2 2 4-4" />
               </svg>
             </div>
-            <h3>Expert Review</h3>
+            <h3>{t('home.step2Title', 'Expert Review')}</h3>
             <p>
-              Our network of top-tier instructors reviews your specific request to prepare a custom, high-impact explanation tailored to your learning style.
+              {t('home.step2Sub', 'Our network of top-tier instructors reviews your specific request to prepare a custom, high-impact explanation.')}
             </p>
           </div>
 
@@ -121,9 +135,9 @@ const Home = () => {
                 <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
               </svg>
             </div>
-            <h3>Instant Mastery</h3>
+            <h3>{t('home.step3Title', 'Instant Mastery')}</h3>
             <p>
-              Receive your explanation through a high-definition recorded video or a live 1-on-1 session with interactive whiteboards.
+              {t('home.step3Sub', 'Receive your explanation through a high-definition recorded video or a live 1-on-1 session.')}
             </p>
           </div>
         </div>
@@ -132,16 +146,16 @@ const Home = () => {
       {/* Dark CTA Banner Section */}
       <section className="landing-cta-section container">
         <div className="dark-landing-banner">
-          <h2>Ready to transform your learning experience?</h2>
+          <h2>{t('home.ctaTitle', 'Ready to transform your learning experience?')}</h2>
           <p>
-            Join JAR ACADEMY today and get expert help on any topic. Start your journey towards academic excellence.
+            {t('home.ctaSub', 'Join JAR ACADEMY today and get expert help on any topic. Start your journey towards academic excellence.')}
           </p>
           <div className="banner-actions">
             <Link to="/get-started" className="btn-primary cta-cyan-btn">
-              Get Started Now
+              {t('home.getStarted', 'Get Started Now')}
             </Link>
             <Link to="/contact" className="btn-secondary cta-advisor-btn">
-              Speak to an Advisor
+              {t('home.speakAdvisor', 'Speak to an Advisor')}
             </Link>
           </div>
         </div>

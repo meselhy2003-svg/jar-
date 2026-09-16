@@ -55,11 +55,21 @@
 }
 
 .upload-cta-btn {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
   padding: 16px 38px !important;
   font-size: 1.05rem !important;
   font-weight: 800 !important;
   border-radius: 100px !important;
-  box-shadow: 0 10px 24px rgba(0, 168, 232, 0.3) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.25s ease !important;
+}
+
+.upload-cta-btn:hover {
+  background: #F8FAFC !important;
+  color: #00A8E8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25) !important;
 }
 
 .watch-video-hero-btn {
@@ -293,6 +303,14 @@
   justify-content: center;
   margin-left: -8px;
   font-size: 0.85rem;
+  overflow: hidden;
+}
+
+.social-proof-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .avatar-dot.a1 { margin-left: 0; }

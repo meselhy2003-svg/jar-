@@ -58,11 +58,11 @@ const EnterAssignment = () => {
 
         {/* 2. Solved Assignment File Download Card */}
         <div className="solved-file-section">
-          <h3>📄 Solved Assignment File</h3>
+          <h3><img src="/pdf-icon.png" alt="PDF" style={{ width: '1.1em', height: '1.1em', verticalAlign: 'middle', marginInlineEnd: '6px' }} /> Solved Assignment File</h3>
           <div className="card solved-file-card">
             <div className="file-info-left">
               <div className="pdf-icon-box">
-                <span>📄</span>
+                <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
               </div>
               <div>
                 <h4 className="file-name">Solved Assignment - Calculus Homework</h4>

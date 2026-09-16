@@ -53,19 +53,37 @@
 }
 
 .avatar-dot {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: #E0F2FE;
   border: 2px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: -10px;
-  font-size: 0.9rem;
+  margin-left: -12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.1);
+}
+
+html[lang="ar"] .avatar-dot,
+html.rtl .avatar-dot {
+  margin-left: 0;
+  margin-right: -12px;
+}
+
+html[lang="ar"] .avatar-dot.s1,
+html.rtl .avatar-dot.s1 {
+  margin-right: 0;
 }
 
 .avatar-dot.s1 { margin-left: 0; }
+
+.avatar-img-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .support-team-status strong {
   display: block;
@@ -108,6 +126,12 @@
   gap: 12px;
 }
 
+html[lang="ar"] .float-live-chat-badge,
+html.rtl .float-live-chat-badge {
+  left: auto;
+  right: -15px;
+}
+
 .chat-headset-icon {
   width: 38px;
   height: 38px;
@@ -118,6 +142,12 @@
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
+}
+
+.chat-img-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .badge-small-title {
@@ -171,6 +201,12 @@
   justify-content: center;
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
+}
+
+.custom-card-img-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .contact-icon-circle.cyan-icon {
@@ -252,6 +288,13 @@
   font-size: 1.8rem;
 }
 
+.custom-social-img-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .soc-name {
   display: block;
   font-size: 1rem;
@@ -307,6 +350,12 @@
   justify-content: center;
   font-size: 1.4rem;
   margin-bottom: 1.75rem;
+}
+
+.custom-faq-img-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .faq-card h3 {

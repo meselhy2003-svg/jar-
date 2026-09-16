@@ -101,12 +101,7 @@ const TrialTasks: React.FC = () => {
                     onClick={() => handleOpenSubmission(task)}
                     title="Click to preview file"
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                      <polyline points="14 2 14 8 20 8"></polyline>
-                      <line x1="16" y1="13" x2="8" y2="13"></line>
-                      <line x1="16" y1="17" x2="8" y2="17"></line>
-                    </svg>
+                    <img src="/pdf-icon.png" alt="PDF" style={{ width: '16px', height: '16px', objectFit: 'contain', verticalAlign: 'middle', marginInlineEnd: '4px' }} />
                     <span>{task.filename}</span>
                   </div>
 
@@ -156,10 +151,7 @@ const TrialTasks: React.FC = () => {
                 <p style={{ margin: '0 0 8px 0', fontWeight: 600, color: '#0f172a' }}>Attached Document:</p>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#ffffff', padding: '10px 14px', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" strokeWidth="2">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                      <polyline points="14 2 14 8 20 8"></polyline>
-                    </svg>
+                    <img src="/pdf-icon.png" alt="PDF" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
                     <span style={{ fontWeight: 500, color: '#0f172a' }}>{selectedTask.filename}</span>
                   </div>
                   <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>PDF &bull; 2.4 MB</span>

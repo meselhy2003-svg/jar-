@@ -25,7 +25,8 @@ const StudentDashboard = () => {
             
             <div className="hero-action-row">
               <Link to="/book-session" className="btn-primary upload-cta-btn">
-                ☁️ Upload Files
+                <img src="/pdf-icon.png" alt="Upload" style={{ width: '1.1em', height: '1.1em', verticalAlign: 'middle', marginInlineEnd: '8px', objectFit: 'contain' }} />
+                Upload Files
               </Link>
               <button 
                 onClick={() => setIsPlayingVideo(true)}
@@ -37,9 +38,15 @@ const StudentDashboard = () => {
 
             <div className="social-proof-row">
               <div className="avatar-group">
-                <span className="avatar-dot a1">👤</span>
-                <span className="avatar-dot a2">👩‍🎓</span>
-                <span className="avatar-dot a3">👨‍🎓</span>
+                <span className="avatar-dot a1">
+                  <img src="/contact-icons/team1.png" alt="Student 1" className="social-proof-avatar-img" />
+                </span>
+                <span className="avatar-dot a2">
+                  <img src="/contact-icons/team2.png" alt="Student 2" className="social-proof-avatar-img" />
+                </span>
+                <span className="avatar-dot a3">
+                  <img src="/contact-icons/team3.png" alt="Student 3" className="social-proof-avatar-img" />
+                </span>
               </div>
               <span className="proof-text">
                 Joined by <strong>12,000+</strong> ambitious students
@@ -47,22 +54,14 @@ const StudentDashboard = () => {
             </div>
           </div>
 
-          {/* Right Column: Students Photo Card with Floating Verified Badge & Play Overlay */}
+          {/* Right Column: Students Photo Card with Floating Verified Badge */}
           <div className="student-hero-graphic">
-            <div className="student-photo-card" onClick={() => setIsPlayingVideo(true)} style={{ cursor: 'pointer' }}>
+            <div className="student-photo-card">
               <img 
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" 
                 alt="Students Studying Together" 
                 className="students-desk-img"
               />
-
-              {/* Center Play Button Overlay */}
-              <div className="hero-play-button-overlay">
-                <div className="big-play-btn-pulse">
-                  <span>▶</span>
-                </div>
-                <span className="play-overlay-label">How to use JAR Academy</span>
-              </div>
 
               {/* Floating Verified Badge */}
               <div className="verified-badge-overlay">
@@ -84,45 +83,29 @@ const StudentDashboard = () => {
         <div className="student-cards-grid">
           {/* Card 1 */}
           <div className="student-white-card card">
-            <div className="card-soft-icon icon-cyan">☁️</div>
+            <div className="card-soft-icon icon-cyan">
+              <img src="/pdf-icon.png" alt="Upload" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+            </div>
             <h3>Upload Any Material</h3>
             <p>Upload your lecture notes, difficult assignments, or specific topics directly for expert review.</p>
           </div>
 
           {/* Card 2 */}
           <div className="student-white-card card">
-            <div className="card-soft-icon icon-blue">🔍</div>
+            <div className="card-soft-icon icon-blue">
+              <img src="/student-dash-icons/Icon.png" alt="Choose an Instructor" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+            </div>
             <h3>Choose an Instructor</h3>
             <p>Select from top-rated, subject-matter expert tutors ready to guide you step-by-step.</p>
           </div>
 
           {/* Card 3 */}
           <div className="student-white-card card">
-            <div className="card-soft-icon icon-light">📊</div>
+            <div className="card-soft-icon icon-light">
+              <img src="/student-dash-icons/Icon (17).png" alt="Get Explanation" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+            </div>
             <h3>Get Explanation</h3>
             <p>Receive detailed live sessions or high-definition recorded videos tailored to your needs.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Embedded "How to Use This Website" Video Section */}
-      <section className="website-guide-video-section container">
-        <div className="guide-video-card">
-          <div className="guide-video-header text-center">
-            <span className="guide-tag">TUTORIAL GUIDE</span>
-            <h2>How to Use JAR Academy</h2>
-            <p>Watch this quick step-by-step video to learn how to request explanations, submit assignments, and talk with expert tutors.</p>
-          </div>
-
-          <div className="guide-video-player-box">
-            <video 
-              controls 
-              poster="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
-              className="dashboard-explainer-video"
-            >
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
           </div>
         </div>
       </section>

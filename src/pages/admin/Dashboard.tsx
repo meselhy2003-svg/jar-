@@ -137,7 +137,8 @@ const Dashboard = () => {
           </div>
 
           <button onClick={handleGenerateReport} className="btn-primary generate-report-btn">
-            📄 Generate Report
+            <img src="/pdf-icon.png" alt="PDF" style={{ width: '1em', height: '1em', verticalAlign: 'middle', marginInlineEnd: '6px' }} />
+            Generate Report
           </button>
         </div>
       </div>
@@ -278,7 +279,9 @@ const Dashboard = () => {
           </div>
 
           <div className="shortcut-tile card" onClick={() => navigate('/admin/orders')}>
-            <span className="tile-icon">📄</span>
+            <span className="tile-icon">
+              <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
+            </span>
             <span>Manage Orders</span>
           </div>
 

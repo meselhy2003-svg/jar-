@@ -290,7 +290,9 @@ const StudentWallet = () => {
               </div>
 
               <div className="tx-ref-row" style={{ marginTop: '2rem' }}>
-                <span className="ref-ic">📄</span>
+                <span className="ref-ic">
+                  <img src="/pdf-icon.png" alt="PDF" style={{ width: '1em', height: '1em', verticalAlign: 'middle' }} />
+                </span>
                 <span>Reference ID: <strong>TXN-00293847-JAR</strong></span>
               </div>
             </div>

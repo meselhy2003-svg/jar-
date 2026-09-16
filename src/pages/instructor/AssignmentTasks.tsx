@@ -165,10 +165,7 @@ const AssignmentTasks: React.FC = () => {
                   {/* File Attachment Chip */}
                   <div className="resource-chip-box">
                     <div className="pdf-icon-mini">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                      </svg>
+                      <img src="/pdf-icon.png" alt="PDF" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
                     </div>
                     <div className="chip-file-meta">
                       <h4 className="chip-file-name">{task.filename}</h4>
@@ -259,10 +256,7 @@ const AssignmentTasks: React.FC = () => {
             </div>
 
             <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', margin: '20px 0', textAlign: 'center' }}>
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#0284c7" strokeWidth="1.8" style={{ marginBottom: '10px' }}>
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-              </svg>
+              <img src="/pdf-icon.png" alt="PDF" style={{ width: '44px', height: '44px', objectFit: 'contain', marginBottom: '10px' }} />
               <h4 style={{ margin: '0 0 6px 0', color: '#0f172a' }}>{previewFile.filename}</h4>
               <p style={{ margin: 0, color: '#64748b', fontSize: '0.875rem' }}>{previewFile.fileMeta}</p>
             </div>

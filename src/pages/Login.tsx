@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
 import './Login.css';
 import { instructorLogin, studentLogin, type UserRole } from '../api/auth';
 
@@ -14,6 +15,7 @@ const Login = ({ isInstructor = false }: LoginProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setAuthUser, login } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,16 +65,16 @@ const Login = ({ isInstructor = false }: LoginProps) => {
               alt="Auth Illustration"
               className="auth-img"
             />
-            <h3>{isInstructor ? "Instructor Portal" : "Student Portal"}</h3>
-            <p>{isInstructor ? "Manage your sessions, answer student questions, and earn." : "Access your registered courses, book sessions, and review material."}</p>
+            <h3>{isInstructor ? t('login.instructorTitle', 'Instructor Portal') : t('login.studentTitle', 'Student Portal')}</h3>
+            <p>{isInstructor ? t('instructor.heroSub', 'Manage your sessions, answer student questions, and earn.') : t('students.heroSub', 'Access your registered courses, book sessions, and review material.')}</p>
           </div>
         </div>
 
         {/* Right Dark Navy Form Card */}
         <div className="auth-form-side dark-card">
           <div className="auth-header">
-            <h2>{isInstructor ? "Instructor Login" : "Student Login"}</h2>
-            <p style={{ color: 'var(--text-muted)' }}>Enter your credentials to access your account.</p>
+            <h2>{isInstructor ? t('login.instructorTitle', 'Instructor Login') : t('login.studentTitle', 'Student Login')}</h2>
+            <p style={{ color: 'var(--text-muted)' }}>{t('login.sub', 'Enter your credentials to access your account.')}</p>
           </div>
 
           {error && (
@@ -83,11 +85,11 @@ const Login = ({ isInstructor = false }: LoginProps) => {
 
           <form className="auth-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="email">Email Address</label>
+              <label htmlFor="email">{t('login.email', 'Email Address')}</label>
               <input
                 type="email"
                 id="email"
-                placeholder={isInstructor ? "instructor@jaracademy.com" : "student@jaracademy.com (or admin@...)"}
+                placeholder={isInstructor ? "instructor@jaracademy.com" : "student@jaracademy.com"}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -95,7 +97,7 @@ const Login = ({ isInstructor = false }: LoginProps) => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">{t('login.password', 'Password')}</label>
               <input
                 type="password"
                 id="password"
@@ -109,18 +111,20 @@ const Login = ({ isInstructor = false }: LoginProps) => {
             <div className="form-options">
               <label className="checkbox-container">
                 <input type="checkbox" />
-                Remember me
+                {t('login.rememberMe', 'Remember me')}
               </label>
-              <Link to="/forgot-password" className="forgot-password">Forgot Password?</Link>
+              <Link to="/forgot-password" className="forgot-password">
+                {t('login.forgotPassword', 'Forgot Password?')}
+              </Link>
             </div>
 
             <button type="submit" className="btn-primary auth-submit" disabled={isLoading}>
-              {isLoading ? 'Logging in...' : 'Log In'}
+              {isLoading ? t('login.loading', 'Logging in...') : t('login.submit', 'Log In')}
             </button>
           </form>
 
           <div className="auth-footer">
-            <p>Don't have an account? <Link to="/signup">Sign up here</Link></p>
+            <p>{t('login.noAccount', "Don't have an account?")} <Link to="/signup">{t('login.signUpHere', 'Sign up here')}</Link></p>
           </div>
         </div>
       </div>

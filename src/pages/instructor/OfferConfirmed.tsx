@@ -73,7 +73,6 @@ const OfferConfirmed = () => {
           <h3>Collaboration</h3>
           <p>Direct channel opened for project-specific queries.</p>
         </div>
-      </div>
     </div>
   );
 };

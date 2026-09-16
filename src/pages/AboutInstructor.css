@@ -27,10 +27,16 @@
 
 .hero-instructor-title {
   font-size: 4.2rem;
-  line-height: 1.08;
+  line-height: 1.25;
   letter-spacing: -0.03em;
   margin-bottom: 1.75rem;
   color: var(--text-primary);
+}
+
+.hero-instructor-title .highlight-cyan {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--primary-color);
 }
 
 .hero-instructor-sub {
