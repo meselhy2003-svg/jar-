@@ -124,6 +124,7 @@
   background: #52B6DF;
   color: #FFFFFF;
   box-shadow: 0 2px 8px rgba(82, 182, 223, 0.35);
+}
 
 .nav-bell-badge {
   position: absolute;
@@ -301,7 +302,6 @@ html[dir="rtl"] .notifications-popup {
 
 .notif-footer-link:hover {
   text-decoration: underline;
->>>>>>> 56a9b28 (Add multi-language support (AR/EN), LanguageSwitcher, updated page designs, icons and assets)
 }
 
 .my-profile-dark-pill {

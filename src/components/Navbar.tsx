@@ -258,6 +258,11 @@ const Navbar = () => {
               <button className="btn-secondary logout-btn-sm" onClick={handleLogout}>
                 {t('nav.logOut', 'Log Out')}
               </button>
+            </>
+          ) : (
+            <Link to="/get-started" className="btn-primary">
+              {t('nav.getStarted', 'Get Started')}
+            </Link>
           )}
         </div>
       </div>
