@@ -10,7 +10,7 @@
   grid-template-columns: 1.1fr 1fr;
   gap: 4rem;
   align-items: center;
-  margin-bottom: 12rem !important;
+  margin-bottom: 5rem !important;
   padding-top: 2rem;
 }
 
@@ -69,10 +69,10 @@
 
 /* 2. Get Your Material Explained */
 .material-explained-section {
-  padding-top: 10rem !important;
-  padding-bottom: 10rem !important;
-  margin-top: 8rem !important;
-  margin-bottom: 12rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .material-explained-section h2 {
@@ -169,9 +169,9 @@
 /* 3. Assignment Dark Section */
 .assignment-dark-section {
   background: linear-gradient(135deg, #1E293B, #0F172A);
-  padding: 6rem 0;
-  margin-top: 12rem !important;
-  margin-bottom: 12rem !important;
+  padding: 5rem 0;
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
   color: white;
 }
 
@@ -280,10 +280,10 @@ html.rtl .asgn-icon-circle {
 
 /* 4. Seamless Platform Experience */
 .seamless-section {
-  padding-top: 10rem !important;
-  padding-bottom: 10rem !important;
-  margin-top: 12rem !important;
-  margin-bottom: 12rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .seamless-grid {
@@ -376,9 +376,9 @@ html.rtl .asgn-icon-circle {
 
 /* 5. Cyan Banner CTA */
 .works-cta-section {
-  padding-top: 8rem !important;
-  padding-bottom: 8rem !important;
-  margin-top: 12rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 4rem !important;
+  margin-top: 5rem !important;
 }
 
 .cyan-cta-banner {
@@ -430,9 +430,9 @@ html.rtl .asgn-icon-circle {
   .assignment-dark-section,
   .seamless-section,
   .works-cta-section {
-    margin-top: 6rem !important;
-    margin-bottom: 6rem !important;
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+    margin-top: 3.5rem !important;
+    margin-bottom: 3.5rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }

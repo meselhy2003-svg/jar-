@@ -10,7 +10,7 @@
   grid-template-columns: 1.1fr 1fr;
   gap: 4rem;
   align-items: center;
-  margin-bottom: 12rem !important;
+  margin-bottom: 5rem !important;
   padding-top: 2rem;
 }
 
@@ -148,8 +148,8 @@
 
 /* 2. Why JAR ACADEMY Section */
 .challenges-section {
-  margin-bottom: 12rem !important;
-  padding-bottom: 8rem !important;
+  margin-bottom: 5rem !important;
+  padding-bottom: 0 !important;
   text-align: left !important;
 }
 
@@ -226,10 +226,10 @@
   text-align: left !important;
 }
 
-/* 3. The Path to Clarity Section - Massive Bottom Spacing */
+/* 3. The Path to Clarity Section */
 .clarity-section {
-  padding-bottom: 10rem !important;
-  margin-bottom: 12rem !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 5rem !important;
   text-align: left !important;
 }
 
@@ -294,10 +294,10 @@
   text-align: left !important;
 }
 
-/* 4. Dark CTA Banner Section - Guaranteed Separation */
+/* 4. Dark CTA Banner Section */
 .students-cta-section {
-  margin-top: 12rem !important;
-  margin-bottom: 8rem !important;
+  margin-top: 5rem !important;
+  margin-bottom: 4rem !important;
   padding: 0 !important;
 }
 
@@ -342,8 +342,8 @@
   .challenges-section,
   .clarity-section,
   .students-cta-section {
-    margin-top: 6rem !important;
-    margin-bottom: 6rem !important;
-    padding-bottom: 6rem !important;
+    margin-top: 3.5rem !important;
+    margin-bottom: 3.5rem !important;
+    padding-bottom: 0 !important;
   }
 }

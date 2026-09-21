@@ -10,7 +10,7 @@
   grid-template-columns: 1.1fr 1fr;
   gap: 4rem;
   align-items: center;
-  margin-bottom: 10rem !important;
+  margin-bottom: 5rem !important;
   padding-top: 2rem;
 }
 
@@ -163,10 +163,10 @@ html.rtl .float-live-chat-badge {
   color: #0F172A;
 }
 
-/* 2. Two Dark Contact Cards - Massive Separation */
+/* 2. Two Dark Contact Cards */
 .two-cards-section {
-  padding-bottom: 10rem !important;
-  margin-bottom: 12rem !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 5rem !important;
 }
 
 .two-cards-grid {
@@ -233,12 +233,12 @@ html.rtl .float-live-chat-badge {
   margin: 0;
 }
 
-/* 3. Connect With Us - Massive Spacing & Separation */
+/* 3. Connect With Us */
 .connect-social-section {
-  padding-top: 10rem !important;
-  padding-bottom: 10rem !important;
-  margin-top: 12rem !important;
-  margin-bottom: 12rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .connect-social-section h2 {
@@ -308,10 +308,10 @@ html.rtl .float-live-chat-badge {
 
 /* 4. Frequently Asked Questions */
 .contact-faq-section {
-  padding-top: 10rem !important;
-  padding-bottom: 10rem !important;
-  margin-top: 12rem !important;
-  margin-bottom: 12rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .contact-faq-section h2 {
@@ -373,9 +373,9 @@ html.rtl .float-live-chat-badge {
 
 /* 5. Dark Banner CTA */
 .contact-cta-section {
-  padding-top: 8rem !important;
-  padding-bottom: 8rem !important;
-  margin-top: 12rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 4rem !important;
+  margin-top: 5rem !important;
 }
 
 .contact-cta-banner {
@@ -420,9 +420,9 @@ html.rtl .float-live-chat-badge {
   .connect-social-section,
   .contact-faq-section,
   .contact-cta-section {
-    margin-top: 6rem !important;
-    margin-bottom: 6rem !important;
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+    margin-top: 3.5rem !important;
+    margin-bottom: 3.5rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }

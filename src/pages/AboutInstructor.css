@@ -10,7 +10,7 @@
   grid-template-columns: 1.1fr 1fr;
   gap: 4rem;
   align-items: center;
-  margin-bottom: 12rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .badge-network {
@@ -117,10 +117,10 @@
   color: var(--text-secondary);
 }
 
-/* 2. Why Teach Section - Massive Bottom Spacing */
+/* 2. Why Teach Section */
 .why-teach-section {
-  padding-bottom: 10rem !important;
-  margin-bottom: 8rem !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 5rem !important;
   text-align: left !important;
 }
 
@@ -183,12 +183,12 @@
   text-align: left !important;
 }
 
-/* 3. How It Works (For Instructor) - Massive Top & Bottom Spacing */
+/* 3. How It Works (For Instructor) */
 .how-instructor-section {
-  padding-top: 10rem !important;
-  padding-bottom: 10rem !important;
-  margin-top: 8rem !important;
-  margin-bottom: 8rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
   text-align: left !important;
 }
 
@@ -251,10 +251,10 @@
 
 /* 4. Manage Sessions Dark Section */
 .manage-section {
-  padding-top: 10rem !important;
-  padding-bottom: 10rem !important;
-  margin-top: 8rem !important;
-  margin-bottom: 8rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .manage-dark-banner {
@@ -376,10 +376,10 @@
 
 /* 5. Cyan Banner CTA */
 .instructor-cta-section {
-  padding-top: 10rem !important;
-  padding-bottom: 8rem !important;
-  margin-top: 8rem !important;
-  margin-bottom: 8rem !important;
+  padding-top: 0 !important;
+  padding-bottom: 4rem !important;
+  margin-top: 5rem !important;
+  margin-bottom: 4rem !important;
 }
 
 .cyan-cta-banner {
@@ -425,9 +425,9 @@
   .how-instructor-section,
   .manage-section,
   .instructor-cta-section {
-    margin-bottom: 6rem !important;
-    margin-top: 6rem !important;
-    padding-top: 6rem !important;
-    padding-bottom: 6rem !important;
+    margin-bottom: 3.5rem !important;
+    margin-top: 3.5rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }
