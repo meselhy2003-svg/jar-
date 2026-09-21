@@ -1,13 +1,13 @@
 .student-dashboard-page {
   background: #FFFFFF;
-  padding-bottom: 6rem;
+  padding-bottom: 3rem;
 }
 
 /* 1. Dark Navy Full-Width Edge-to-Edge Hero Box */
 .student-hero-dark-wrapper {
   background: #0F172A;
   color: white;
-  padding: 8rem 0 9.5rem;
+  padding: 4.5rem 0 4.5rem;
   width: 100%;
 }
 
@@ -380,7 +380,7 @@
 
 /* 2. Clean White Section Below Hero */
 .student-white-section {
-  padding: 9.5rem 0 9rem;
+  padding: 4.5rem 0 4.5rem;
 }
 
 .student-cards-grid {
@@ -465,7 +465,7 @@ html[dir="rtl"] .student-white-card {
 
 /* Embedded Video Section */
 .student-video-section {
-  padding: 9rem 0 11rem;
+  padding: 4.5rem 0 5rem;
 }
 
 .video-section-header {
