@@ -200,9 +200,16 @@
   margin-bottom: 2rem;
 }
 
-.icon-box-peach { background: #FFEDD5; color: #C2410C; }
-.icon-box-pink { background: #FCE7F3; color: #DB2777; }
+.icon-box-peach,
+.icon-box-pink,
 .icon-box-blue { background: #E0F2FE; color: var(--primary-color); }
+
+.challenge-icon-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(48%) sepia(89%) saturate(1750%) hue-rotate(170deg) brightness(97%) contrast(98%);
+}
 
 .challenge-card h3 {
   font-size: 1.4rem;

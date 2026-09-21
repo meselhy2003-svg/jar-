@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import './BookSession.css';
 
 type FlowStep = 
   | 'start_choice'            // Step 1: Choose How You Want to Start
   | 'trial_material'          // Step 2: Upload Your Trial Material
-  | 'direct_options'          // Upload Your Files (2 top, 1 bottom centered - Screenshot 2)
+  | 'direct_options'          // Upload Your Files (2 top, 1 bottom centered)
   | 'plan_selection'          // Choose Your Explanation Plan
   | 'subscription_details'    // Explanation Subscription (500 SAR / 15 Hr)
   | 'payment_success'         // Payment completed successfully
@@ -74,11 +74,11 @@ const BookSession = () => {
 
           <div className="flow-title-wrap text-center">
             <h1 className="flow-main-title">
-              Choose How You Want <br />
-              <span className="cyan-highlight-text">to Start</span>
+              {t('book.chooseStartTitle1', 'Choose How You Want')} <br />
+              <span className="cyan-highlight-text">{t('book.chooseStartTitle2', 'to Start')}</span>
             </h1>
             <p className="flow-subtitle">
-              You can try a trial session with an instructor or book a session directly.
+              {t('book.chooseStartSub', 'You can try a trial session with an instructor or book a session directly.')}
             </p>
           </div>
 
@@ -86,17 +86,19 @@ const BookSession = () => {
             {/* Card 1: Trial Session */}
             <div className="flow-dark-choice-card">
               <div className="dark-card-icon-box">
-                <span className="card-icon-symbol">▶</span>
+                <span className="card-icon-symbol">
+                  <img src="/landing-icons/Icon (2).png" className="book-card-icon-img" alt="Trial Session" />
+                </span>
               </div>
-              <h2>Trial Session</h2>
+              <h2>{t('book.trialSession', 'Trial Session')}</h2>
               <p>
-                Choose an instructor and start with a trial explanation session to see if they fit your needs.
+                {t('book.trialDesc', 'Choose an instructor and start with a trial explanation session to see if they fit your needs.')}
               </p>
               <button 
                 onClick={() => setStep('trial_material')} 
                 className="btn-primary choice-cta-btn"
               >
-                Start Trial
+                {t('book.startTrial', 'Start Trial')}
               </button>
             </div>
 
@@ -104,24 +106,24 @@ const BookSession = () => {
             <div className="flow-dark-choice-card">
               <div className="dark-card-icon-box">
                 <span className="card-icon-symbol">
-                  <img src="/pdf-icon.png" alt="PDF" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+                  <img src="/landing-icons/Icon (5).png" className="book-card-icon-img" alt="Direct Booking" />
                 </span>
               </div>
-              <h2>Direct Booking</h2>
+              <h2>{t('book.directBooking', 'Direct Booking')}</h2>
               <p>
-                Upload your lecture or material and book an explanation session directly with your preferred tutor.
+                {t('book.directDesc', 'Upload your lecture or material and book an explanation session directly with your preferred tutor.')}
               </p>
               <button 
                 onClick={() => setStep('direct_options')} 
                 className="btn-primary choice-cta-btn"
               >
-                Book Now
+                {t('book.bookNow', 'Book Now')}
               </button>
             </div>
           </div>
 
           <p className="flow-bottom-help text-center">
-            ⚙️ Not sure which one to choose? <span className="help-link" onClick={() => navigate('/contact')}>Chat with support</span>
+            {t('book.notSure', '⚙️ Not sure which one to choose?')} <span className="help-link" onClick={() => navigate('/contact')}>{t('book.chatSupport', 'Chat with support')}</span>
           </p>
         </div>
       )}
@@ -133,14 +135,14 @@ const BookSession = () => {
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => setStep('start_choice')} className="back-link-btn">
-              &larr; Back
+              {t('orders.back', '← Back')}
             </button>
           </div>
 
           <div className="flow-title-wrap text-center">
-            <h1 className="flow-main-title">Upload Your Trial Material</h1>
+            <h1 className="flow-main-title">{t('book.uploadTrialMaterial', 'Upload Your Trial Material')}</h1>
             <p className="flow-subtitle">
-              Upload a small sample from the material you want explained during the trial session.
+              {t('book.uploadTrialSub', 'Upload a small sample from the material you want explained during the trial session.')}
             </p>
           </div>
 
@@ -148,20 +150,20 @@ const BookSession = () => {
             <form onSubmit={handleTrialSubmit} className="subject-request-form">
               <div className="form-card-header">
                 <span className="header-doc-icon">
-                  <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain', verticalAlign: 'middle' }} />
+                  <img src="/landing-icons/Icon (5).png" className="book-header-icon-img" alt="Document" />
                 </span>
-                <h2>Subject Request</h2>
+                <h2>{t('book.subjectRequest', 'Subject Request')}</h2>
               </div>
 
               {/* Dashed Drag & Drop Box */}
               <div className="materials-upload-group">
-                <label className="input-group-label">MATERIALS</label>
+                <label className="input-group-label">{t('book.materials', 'MATERIALS')}</label>
                 <div className="dashed-dropzone">
                   <span className="drop-cloud-icon">
-                    <img src="/pdf-icon.png" alt="Upload" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                    <img src="/landing-icons/Icon (9).png" className="book-drop-icon-img" alt="Upload" />
                   </span>
-                  <strong>Drag-and-drop area for files</strong>
-                  <span className="drop-subtext">Upload PDF, DOC/DOCX, or Images</span>
+                  <strong>{t('book.dragDropFiles', 'Drag-and-drop area for files')}</strong>
+                  <span className="drop-subtext">{t('book.uploadSupportTypes', 'Upload PDF, DOC/DOCX, or Images')}</span>
 
                   <input 
                     type="file" 
@@ -170,17 +172,17 @@ const BookSession = () => {
                     style={{ display: 'none' }} 
                   />
                   <label htmlFor="trial-file-input" className="btn-primary browse-files-btn">
-                    {fileName ? `Selected: ${fileName}` : 'Browse Files'}
+                    {fileName ? `Selected: ${fileName}` : t('book.browseFiles', 'Browse Files')}
                   </label>
                 </div>
               </div>
 
               {/* Subject Name Input */}
               <div className="form-input-group">
-                <label className="input-group-label">SUBJECT NAME</label>
+                <label className="input-group-label">{t('book.subjectName', 'SUBJECT NAME')}</label>
                 <input 
                   type="text" 
-                  placeholder="e.g., Mathematics, Physics"
+                  placeholder={t('book.subjectPlaceholder', 'e.g., Mathematics, Physics')}
                   value={subjectName}
                   onChange={(e) => setSubjectName(e.target.value)}
                   required
@@ -189,7 +191,7 @@ const BookSession = () => {
 
               {/* Trial Deadline Input */}
               <div className="form-input-group">
-                <label className="input-group-label">TRIAL DEADLINE</label>
+                <label className="input-group-label">{t('book.trialDeadline', 'TRIAL DEADLINE')}</label>
                 <input 
                   type="date" 
                   value={deadline}
@@ -200,10 +202,10 @@ const BookSession = () => {
 
               {/* Description Input */}
               <div className="form-input-group">
-                <label className="input-group-label">DESCRIPTION</label>
+                <label className="input-group-label">{t('book.description', 'DESCRIPTION')}</label>
                 <textarea 
                   rows={4}
-                  placeholder="What specific questions or difficult points should we cover?"
+                  placeholder={t('book.descPlaceholder', 'What specific questions or difficult points should we cover?')}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   required
@@ -212,16 +214,16 @@ const BookSession = () => {
 
               {/* Add Another Subject Button */}
               <button type="button" className="add-another-subject-btn">
-                ⊕ Add Another Subject
+                {t('book.addAnotherSubject', '⊕ Add Another Subject')}
               </button>
 
               {/* Submit Button */}
               <button type="submit" className="btn-dark submit-trial-btn">
-                SUBMIT TRIAL REQUEST
+                {t('book.submitTrialBtn', 'SUBMIT TRIAL REQUEST')}
               </button>
 
               <p className="terms-caption text-center">
-                By submitting, you agree to our terms of service regarding trial sessions.
+                {t('book.termsNotice', 'By submitting, you agree to our terms of service regarding trial sessions.')}
               </p>
             </form>
           </div>
@@ -229,20 +231,20 @@ const BookSession = () => {
       )}
 
       {/* -------------------------------------------------------------
-          STEP 3: Upload Your Files (Exact Pic 2 Layout: 2 top, 1 bottom)
+          STEP 3: Upload Your Files
          ------------------------------------------------------------- */}
       {step === 'direct_options' && (
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => setStep('start_choice')} className="back-link-btn">
-              &larr; Back
+              {t('orders.back', '← Back')}
             </button>
           </div>
 
           <div className="flow-title-wrap text-center">
-            <h1 className="flow-main-title">Upload Your Files</h1>
+            <h1 className="flow-main-title">{t('book.uploadYourFiles', 'Upload Your Files')}</h1>
             <p className="flow-subtitle">
-              Choose what type of file you want to upload to your workspace.
+              {t('book.uploadYourFilesSub', 'Choose what type of file you want to upload to your workspace.')}
             </p>
           </div>
 
@@ -252,34 +254,38 @@ const BookSession = () => {
               {/* Card 1: Lecture Upload (explanation by video) */}
               <div className="flow-dark-choice-card direct-rect-card">
                 <div className="dark-card-icon-box rect-icon-box">
-                  <span className="card-icon-symbol">📹</span>
+                  <span className="card-icon-symbol">
+                    <img src="/landing-icons/Icon (5).png" className="book-card-icon-img" alt="Lecture Video" />
+                  </span>
                 </div>
-                <h2>Lecture Upload <br />(explantion by video)</h2>
+                <h2>{t('book.lectureUploadVideo', 'Lecture Upload (explanation by video)')}</h2>
                 <p>
-                  Share your knowledge. Upload video lessons, PDF textbooks, or presentation slides.
+                  {t('book.lectureUploadVideoDesc', 'Share your knowledge. Upload video lessons, PDF textbooks, or presentation slides.')}
                 </p>
                 <button 
                   onClick={() => setStep('plan_selection')} 
                   className="btn-primary choice-rect-btn"
                 >
-                  Get Started
+                  {t('book.getStarted', 'Get Started')}
                 </button>
               </div>
 
               {/* Card 2: Lecture Upload (explanation by live) */}
               <div className="flow-dark-choice-card direct-rect-card">
                 <div className="dark-card-icon-box rect-icon-box">
-                  <span className="card-icon-symbol">📹</span>
+                  <span className="card-icon-symbol">
+                    <img src="/landing-icons/Icon (3).png" className="book-card-icon-img" alt="Lecture Live" />
+                  </span>
                 </div>
-                <h2>Lecture Upload <br />(explantion by live )</h2>
+                <h2>{t('book.lectureUploadLive', 'Lecture Upload (explanation by live)')}</h2>
                 <p>
-                  Share your knowledge. Upload video lessons, PDF textbooks, or presentation slides.
+                  {t('book.lectureUploadLiveDesc', 'Share your knowledge. Upload video lessons, PDF textbooks, or presentation slides.')}
                 </p>
                 <button 
                   onClick={() => setStep('live_explanation_form')} 
                   className="btn-primary choice-rect-btn"
                 >
-                  Get Started
+                  {t('book.getStarted', 'Get Started')}
                 </button>
               </div>
             </div>
@@ -288,24 +294,26 @@ const BookSession = () => {
             <div className="bottom-one-card-row">
               <div className="flow-dark-choice-card direct-rect-card">
                 <div className="dark-card-icon-box rect-icon-box">
-                  <span className="card-icon-symbol">📋</span>
+                  <span className="card-icon-symbol">
+                    <img src="/landing-icons/Icon.png" className="book-card-icon-img" alt="Assignment Upload" />
+                  </span>
                 </div>
-                <h2>Assignment Upload</h2>
+                <h2>{t('book.assignmentUpload', 'Assignment Upload')}</h2>
                 <p>
-                  Submit your work. Upload project documents, checklists, or research papers.
+                  {t('book.assignmentUploadDesc', 'Submit your work. Upload project documents, checklists, or research papers.')}
                 </p>
                 <button 
                   onClick={() => setStep('assignment_upload_form')} 
                   className="btn-primary choice-rect-btn"
                 >
-                  Get started
+                  {t('book.getStarted', 'Get Started')}
                 </button>
               </div>
             </div>
           </div>
 
           <p className="flow-bottom-help text-center" style={{ marginTop: '3rem' }}>
-            ⚙️ Supported formats: MP4, PDF, DOCX, ZIP (Max 500MB)
+            {t('book.supportedFormats', '⚙️ Supported formats: MP4, PDF, DOCX, ZIP (Max 500MB)')}
           </p>
         </div>
       )}
@@ -317,14 +325,14 @@ const BookSession = () => {
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => setStep('direct_options')} className="back-link-btn">
-              &larr; Back
+              {t('orders.back', '← Back')}
             </button>
           </div>
 
           <div className="flow-title-wrap text-center">
-            <h1 className="flow-main-title">Upload Assignment</h1>
+            <h1 className="flow-main-title">{t('book.uploadAssignment', 'Upload Assignment')}</h1>
             <p className="flow-subtitle">
-              Upload your assignment and set your requirements for instructors. Our experts will review it promptly.
+              {t('book.uploadAssignmentSub', 'Upload your assignment and set your requirements for instructors. Our experts will review it promptly.')}
             </p>
           </div>
 
@@ -333,9 +341,11 @@ const BookSession = () => {
               {/* Dashed Drag & Drop Box */}
               <div className="materials-upload-group">
                 <div className="dashed-dropzone assignment-dropzone">
-                  <span className="drop-cloud-icon">↑</span>
-                  <strong>Drag & Drop your assignment file here or click to upload</strong>
-                  <span className="drop-subtext">SUPPORTED: PDF, DOC, PPT, IMAGES, ZIP</span>
+                  <span className="drop-cloud-icon">
+                    <img src="/landing-icons/Icon (9).png" className="book-drop-icon-img" alt="Upload" />
+                  </span>
+                  <strong>{t('book.dragDropAssignment', 'Drag & Drop your assignment file here or click to upload')}</strong>
+                  <span className="drop-subtext">{t('book.asgnSupportTypes', 'SUPPORTED: PDF, DOC, PPT, IMAGES, ZIP')}</span>
 
                   <input 
                     type="file" 
@@ -344,7 +354,7 @@ const BookSession = () => {
                     style={{ display: 'none' }} 
                   />
                   <label htmlFor="asgn-file-input" className="btn-primary browse-files-btn">
-                    {fileName ? `Selected: ${fileName}` : 'Select File'}
+                    {fileName ? `Selected: ${fileName}` : t('book.selectFile', 'Select File')}
                   </label>
                 </div>
               </div>
@@ -352,11 +362,11 @@ const BookSession = () => {
               {/* Price & Deadline 2-Column Grid */}
               <div className="form-two-cols-grid">
                 <div className="form-input-group">
-                  <label className="input-group-label">SET YOUR PRICE (SAR) , (NOT LESS THAN 60 SAR)</label>
+                  <label className="input-group-label">{t('book.setPriceLabel', 'SET YOUR PRICE (SAR) , (NOT LESS THAN 60 SAR)')}</label>
                   <input 
                     type="number" 
                     min="60"
-                    placeholder="💵 e.g. 100"
+                    placeholder={t('book.pricePlaceholder', '💵 e.g. 100')}
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                     required
@@ -364,7 +374,7 @@ const BookSession = () => {
                 </div>
 
                 <div className="form-input-group">
-                  <label className="input-group-label">SELECT DEADLINE</label>
+                  <label className="input-group-label">{t('book.selectDeadline', 'SELECT DEADLINE')}</label>
                   <input 
                     type="date" 
                     value={deadline}
@@ -376,10 +386,10 @@ const BookSession = () => {
 
               {/* Description Input */}
               <div className="form-input-group">
-                <label className="input-group-label">ASSIGNMENT DESCRIPTION</label>
+                <label className="input-group-label">{t('book.asgnDescLabel', 'ASSIGNMENT DESCRIPTION')}</label>
                 <textarea 
                   rows={4}
-                  placeholder="Describe your assignment requirements in detail..."
+                  placeholder={t('book.asgnDescPlaceholder', 'Describe your assignment requirements in detail...')}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   required
@@ -388,7 +398,7 @@ const BookSession = () => {
 
               {/* Submit Assignment Button */}
               <button type="submit" className="btn-primary submit-asgn-cyan-btn">
-                🚀 Submit Assignment
+                {t('book.submitAsgnBtn', '🚀 Submit Assignment')}
               </button>
             </form>
           </div>
@@ -396,19 +406,25 @@ const BookSession = () => {
           {/* 3 Bottom Feature Cards */}
           <div className="three-features-grid text-center">
             <div className="feature-dark-card">
-              <span className="feat-icon">🛡️</span>
-              <h3>Secure Payment</h3>
-              <p>ENCRYPTED TRANSACTIONS</p>
+              <span className="feat-icon">
+                <img src="/landing-icons/Icon (8).png" className="book-feat-icon-img" alt="Secure Payment" />
+              </span>
+              <h3>{t('book.securePayment', 'Secure Payment')}</h3>
+              <p>{t('book.encryptedTrans', 'ENCRYPTED TRANSACTIONS')}</p>
             </div>
             <div className="feature-dark-card">
-              <span className="feat-icon">⚡</span>
-              <h3>Fast Delivery</h3>
-              <p>MEET EVERY DEADLINE</p>
+              <span className="feat-icon">
+                <img src="/landing-icons/Icon (4).png" className="book-feat-icon-img" alt="Fast Delivery" />
+              </span>
+              <h3>{t('book.fastDelivery', 'Fast Delivery')}</h3>
+              <p>{t('book.meetDeadline', 'MEET EVERY DEADLINE')}</p>
             </div>
             <div className="feature-dark-card">
-              <span className="feat-icon">🎖️</span>
-              <h3>Top Quality</h3>
-              <p>VERIFIED INSTRUCTORS</p>
+              <span className="feat-icon">
+                <img src="/landing-icons/Icon (10).png" className="book-feat-icon-img" alt="Top Quality" />
+              </span>
+              <h3>{t('book.topQuality', 'Top Quality')}</h3>
+              <p>{t('book.verifiedInstructors', 'VERIFIED INSTRUCTORS')}</p>
             </div>
           </div>
         </div>
@@ -423,11 +439,11 @@ const BookSession = () => {
             <div className="top-right-toast-card">
               <div className="toast-header-row">
                 <span className="toast-check-icon">✓</span>
-                <strong className="toast-caps-title">ASSIGNMENT UPLOADED SUCCESSFULLY</strong>
+                <strong className="toast-caps-title">{t('book.asgnSuccessTitle', 'ASSIGNMENT UPLOADED SUCCESSFULLY')}</strong>
                 <button onClick={() => setShowToast(false)} className="toast-close-btn">&times;</button>
               </div>
               <p className="toast-body-text">
-                Your assignment has been uploaded successfully and added to My Orders.
+                {t('book.asgnSuccessSub', 'Your assignment has been uploaded successfully and added to My Orders.')}
               </p>
               <span className="toast-timestamp">Just now</span>
             </div>
@@ -439,26 +455,25 @@ const BookSession = () => {
             </div>
 
             <h1 className="success-main-title">
-              Assignment Uploaded <br />
-              Successfully
+              {t('book.asgnSuccessTitle', 'Assignment Uploaded Successfully')}
             </h1>
 
             <p className="success-subtext">
-              Your assignment has been uploaded and is now visible to instructors. We'll notify you once it's reviewed.
+              {t('book.asgnSuccessSub', 'Your assignment has been uploaded and is now visible to instructors. We\'ll notify you once it\'s reviewed.')}
             </p>
 
             <button 
               onClick={() => navigate('/orders')} 
               className="btn-primary go-to-orders-btn"
             >
-              Go to My Orders &rarr;
+              {t('book.goToOrders', 'Go to My Orders →')}
             </button>
 
             <div className="dark-next-steps-banner">
               <span className="info-circle-icon">ℹ️</span>
               <div className="banner-text-wrap">
-                <strong>What happens next?</strong>
-                <p>Your instructor will be notified of your submission. You can track progress in the dashboard.</p>
+                <strong>{t('book.whatNext', 'What happens next?')}</strong>
+                <p>{t('book.whatNextSub', 'Your instructor will be notified of your submission. You can track progress in the dashboard.')}</p>
               </div>
             </div>
           </div>
@@ -472,14 +487,14 @@ const BookSession = () => {
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => setStep('direct_options')} className="back-link-btn">
-              &larr; Back
+              {t('orders.back', '← Back')}
             </button>
           </div>
 
           <div className="flow-title-wrap text-center">
-            <h1 className="flow-main-title">Choose Your Explanation Plan</h1>
+            <h1 className="flow-main-title">{t('book.choosePlanTitle', 'Choose Your Explanation Plan')}</h1>
             <p className="flow-subtitle">
-              Select how you want your lecture to be explained. We offer flexible options to suit your academic needs.
+              {t('book.choosePlanSub', 'Select how you want your lecture to be explained. We offer flexible options to suit your academic needs.')}
             </p>
           </div>
 
@@ -487,45 +502,49 @@ const BookSession = () => {
             {/* Plan 1: Hourly Explanation */}
             <div className="flow-dark-choice-card">
               <div className="dark-card-icon-box">
-                <span className="card-icon-symbol">🕒</span>
+                <span className="card-icon-symbol">
+                  <img src="/landing-icons/Icon (2).png" className="book-card-icon-img" alt="Hourly Plan" />
+                </span>
               </div>
-              <h2>Hourly Explanation</h2>
+              <h2>{t('book.hourlyPlanTitle', 'Hourly Explanation')}</h2>
               <p>
-                Get your lecture explained and pay by the hour. Perfect for quick clarifications or specific topic deep-dives.
+                {t('book.hourlyPlanDesc', 'Get your lecture explained and pay by the hour. Perfect for quick clarifications or specific topic deep-dives.')}
               </p>
               <button 
                 onClick={() => setStep('lecture_material_form')} 
                 className="btn-primary choice-cta-btn"
               >
-                Choose Plan
+                {t('book.choosePlanBtn', 'Choose Plan')}
               </button>
             </div>
 
             {/* Plan 2: Package 15-Hour */}
             <div className="flow-dark-choice-card relative-card">
-              <span className="most-popular-badge">MOST POPULAR</span>
+              <span className="most-popular-badge">{t('book.mostPopular', 'MOST POPULAR')}</span>
               <div className="dark-card-icon-box">
-                <span className="card-icon-symbol">📅</span>
+                <span className="card-icon-symbol">
+                  <img src="/landing-icons/Icon (8).png" className="book-card-icon-img" alt="Package Plan" />
+                </span>
               </div>
-              <h2>package <br />(15-hour by 500 SAR)</h2>
+              <h2>{t('book.package15hTitle', 'package (15-hour by 500 SAR)')}</h2>
               <p>
-                Get continuous help with your lectures during the whole package. Ideal for consistent academic support.
+                {t('book.package15hDesc', 'Get continuous help with your lectures during the whole package. Ideal for consistent academic support.')}
               </p>
               <button 
                 onClick={() => setStep('subscription_details')} 
                 className="btn-primary choice-cta-btn"
               >
-                Choose Plan
+                {t('book.choosePlanBtn', 'Choose Plan')}
               </button>
             </div>
           </div>
 
           {/* Bottom Trust Badges */}
           <div className="trust-badges-row text-center">
-            <span>✓ Expert Tutors</span>
-            <span>🛡️ Secure Payment</span>
-            <span>🎧 24/7 Support</span>
-            <span>🔄 Recorded Sessions</span>
+            <span><img src="/landing-icons/Icon (10).png" className="trust-badge-icon-img" alt="" /> {t('book.expertTutors', 'Expert Tutors')}</span>
+            <span><img src="/landing-icons/Icon (8).png" className="trust-badge-icon-img" alt="" /> {t('book.securePayBadge', 'Secure Payment')}</span>
+            <span><img src="/landing-icons/Icon (6).png" className="trust-badge-icon-img" alt="" /> {t('book.support247Badge', '24/7 Support')}</span>
+            <span><img src="/landing-icons/Icon (11).png" className="trust-badge-icon-img" alt="" /> {t('book.recordedSessionsBadge', 'Recorded Sessions')}</span>
           </div>
         </div>
       )}
@@ -537,32 +556,32 @@ const BookSession = () => {
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => setStep('plan_selection')} className="back-link-btn">
-              &larr; Back
+              {t('orders.back', '← Back')}
             </button>
           </div>
 
           <div className="flow-title-wrap text-center" style={{ marginBottom: '3rem' }}>
-            <h1 className="flow-main-title">Explanation Subscription</h1>
+            <h1 className="flow-main-title">{t('book.subTitle', 'Explanation Subscription')}</h1>
           </div>
 
           <div className="subscription-card-box">
-            <span className="current-sel-tag">CURRENT SELECTION</span>
-            <h2>Packaging Plan</h2>
+            <span className="current-sel-tag">{t('book.currentSel', 'CURRENT SELECTION')}</span>
+            <h2>{t('book.packagePlanName', 'Packaging Plan')}</h2>
             <div className="sub-price-row">
               <span className="price-num">500</span>
-              <span className="price-unit">SAR / 15 Hour</span>
+              <span className="price-unit">{t('book.sarPer15h', 'SAR / 15 Hour')}</span>
             </div>
             <p className="sub-check-desc">
-              ✓ You can upload lecture materials and request explanations from instructors during the subscription (15 HOURS)
+              {t('book.subDesc', '✓ You can upload lecture materials and request explanations from instructors during the subscription (15 HOURS)')}
             </p>
           </div>
 
           <div className="subscription-actions-row">
             <button onClick={handlePayment} className="btn-primary pay-now-btn">
-              Payment
+              {t('book.paymentBtn', 'Payment')}
             </button>
             <button onClick={() => navigate('/contact')} className="btn-outline-white contact-us-sub-btn">
-              Contact Us 💬
+              {t('book.contactUsBtn', 'Contact Us 💬')}
             </button>
           </div>
         </div>
@@ -578,7 +597,7 @@ const BookSession = () => {
               <div className="toast-header-row">
                 <span className="toast-check-icon">✓</span>
                 <strong className="toast-caps-title">
-                  500 SAR HAS BEEN WITHDRAWN FROM YOUR WALLET AND YOU ARE NOW SUBSCRIBED TO THE 15-HOUR PACKAGE.
+                  {t('book.paySuccessToast', '500 SAR HAS BEEN WITHDRAWN FROM YOUR WALLET AND YOU ARE NOW SUBSCRIBED TO THE 15-HOUR PACKAGE.')}
                 </strong>
                 <button onClick={() => setShowToast(false)} className="toast-close-btn">&times;</button>
               </div>
@@ -591,19 +610,18 @@ const BookSession = () => {
             </div>
 
             <h1 className="success-main-title">
-              Payment completed <br />
-              successfully
+              {t('book.paySuccessTitle', 'Payment completed successfully')}
             </h1>
 
             <p className="success-subtext">
-              You now have 15 hours of recorded explanations that you can use immediately. We wish you all success and excellence.
+              {t('book.paySuccessSub', 'You now have 15 hours of recorded explanations that you can use immediately. We wish you all success and excellence.')}
             </p>
 
             <button 
               onClick={() => setStep('lecture_material_form')} 
               className="btn-primary go-to-orders-btn"
             >
-              Go to upload file &rarr;
+              {t('book.goToUploadFile', 'Go to upload file →')}
             </button>
           </div>
         </div>
@@ -616,17 +634,17 @@ const BookSession = () => {
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => setStep('direct_options')} className="back-link-btn">
-              &larr; Back
+              {t('orders.back', '← Back')}
             </button>
           </div>
 
           <div className="flow-title-wrap text-center">
             <h1 className="flow-main-title">
-              Upload Your Trial Material For <br />
-              <span className="cyan-highlight-text">Explaintion By Live</span>
+              {t('book.liveExplanationTitle1', 'Upload Your Trial Material For')} <br />
+              <span className="cyan-highlight-text">{t('book.liveExplanationTitle2', 'Explanation By Live')}</span>
             </h1>
             <p className="flow-subtitle">
-              Upload a small sample from the material you want explained during the trial session.
+              {t('book.uploadTrialSub', 'Upload a small sample from the material you want explained during the trial session.')}
             </p>
           </div>
 
@@ -634,20 +652,20 @@ const BookSession = () => {
             <form onSubmit={handleTrialSubmit} className="subject-request-form">
               <div className="form-card-header">
                 <span className="header-doc-icon">
-                  <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain', verticalAlign: 'middle' }} />
+                  <img src="/landing-icons/Icon (5).png" className="book-header-icon-img" alt="Document" />
                 </span>
-                <h2>Subject Request</h2>
+                <h2>{t('book.subjectRequest', 'Subject Request')}</h2>
               </div>
 
               {/* Dashed Drag & Drop Box */}
               <div className="materials-upload-group">
-                <label className="input-group-label">MATERIALS</label>
+                <label className="input-group-label">{t('book.materials', 'MATERIALS')}</label>
                 <div className="dashed-dropzone">
                   <span className="drop-cloud-icon">
-                    <img src="/pdf-icon.png" alt="Upload" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                    <img src="/landing-icons/Icon (9).png" className="book-drop-icon-img" alt="Upload" />
                   </span>
-                  <strong>Drag-and-drop area for files</strong>
-                  <span className="drop-subtext">Upload PDF, DOC/DOCX, or Images</span>
+                  <strong>{t('book.dragDropFiles', 'Drag-and-drop area for files')}</strong>
+                  <span className="drop-subtext">{t('book.uploadSupportTypes', 'Upload PDF, DOC/DOCX, or Images')}</span>
 
                   <input 
                     type="file" 
@@ -656,17 +674,17 @@ const BookSession = () => {
                     style={{ display: 'none' }} 
                   />
                   <label htmlFor="live-file-input" className="btn-primary browse-files-btn">
-                    {fileName ? `Selected: ${fileName}` : 'Browse Files'}
+                    {fileName ? `Selected: ${fileName}` : t('book.browseFiles', 'Browse Files')}
                   </label>
                 </div>
               </div>
 
               {/* Subject Name Input */}
               <div className="form-input-group">
-                <label className="input-group-label">SUBJECT NAME</label>
+                <label className="input-group-label">{t('book.subjectName', 'SUBJECT NAME')}</label>
                 <input 
                   type="text" 
-                  placeholder="e.g., Mathematics, Physics"
+                  placeholder={t('book.subjectPlaceholder', 'e.g., Mathematics, Physics')}
                   value={subjectName}
                   onChange={(e) => setSubjectName(e.target.value)}
                   required
@@ -675,7 +693,7 @@ const BookSession = () => {
 
               {/* Trial Deadline Input */}
               <div className="form-input-group">
-                <label className="input-group-label">TRIAL DEADLINE</label>
+                <label className="input-group-label">{t('book.trialDeadline', 'TRIAL DEADLINE')}</label>
                 <input 
                   type="date" 
                   value={deadline}
@@ -686,10 +704,10 @@ const BookSession = () => {
 
               {/* Description Input */}
               <div className="form-input-group">
-                <label className="input-group-label">DESCRIPTION</label>
+                <label className="input-group-label">{t('book.description', 'DESCRIPTION')}</label>
                 <textarea 
                   rows={4}
-                  placeholder="What specific questions or difficult points should we cover?"
+                  placeholder={t('book.descPlaceholder', 'What specific questions or difficult points should we cover?')}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   required
@@ -698,16 +716,16 @@ const BookSession = () => {
 
               {/* Add Another Subject Button */}
               <button type="button" className="add-another-subject-btn">
-                ⊕ Add Another Subject
+                {t('book.addAnotherSubject', '⊕ Add Another Subject')}
               </button>
 
               {/* Submit Button */}
               <button type="submit" className="btn-dark submit-trial-btn">
-                SUBMIT TRIAL REQUEST
+                {t('book.submitTrialBtn', 'SUBMIT TRIAL REQUEST')}
               </button>
 
               <p className="terms-caption text-center">
-                By submitting, you agree to our terms of service regarding trial sessions.
+                {t('book.termsNotice', 'By submitting, you agree to our terms of service regarding trial sessions.')}
               </p>
             </form>
           </div>
@@ -721,14 +739,14 @@ const BookSession = () => {
         <div className="flow-step-container">
           <div className="flow-header-nav">
             <button onClick={() => setStep('direct_options')} className="back-link-btn">
-              &larr; Back
+              {t('orders.back', '← Back')}
             </button>
           </div>
 
           <div className="flow-title-wrap text-center">
-            <h1 className="flow-main-title">Upload Your Lecture Material</h1>
+            <h1 className="flow-main-title">{t('book.lectureMaterialTitle', 'Upload Your Lecture Material')}</h1>
             <p className="flow-subtitle">
-              Upload the files related to the lecture you want explained.
+              {t('book.lectureMaterialSub', 'Upload the files related to the lecture you want explained.')}
             </p>
           </div>
 
@@ -736,20 +754,20 @@ const BookSession = () => {
             <form onSubmit={handleLectureSubmit} className="subject-request-form">
               <div className="form-card-header">
                 <span className="header-doc-icon">
-                  <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain', verticalAlign: 'middle' }} />
+                  <img src="/landing-icons/Icon (5).png" className="book-header-icon-img" alt="Document" />
                 </span>
-                <h2>Subject Request</h2>
+                <h2>{t('book.subjectRequest', 'Subject Request')}</h2>
               </div>
 
               {/* Dashed Drag & Drop Box */}
               <div className="materials-upload-group">
-                <label className="input-group-label">LECTURE FILES</label>
+                <label className="input-group-label">{t('book.lectureFilesLabel', 'LECTURE FILES')}</label>
                 <div className="dashed-dropzone">
                   <span className="drop-cloud-icon">
-                    <img src="/pdf-icon.png" alt="Upload" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                    <img src="/landing-icons/Icon (9).png" className="book-drop-icon-img" alt="Upload" />
                   </span>
-                  <strong>Drag-and-drop area for files</strong>
-                  <span className="drop-subtext">Upload PDF, DOC/DOCX, or Images</span>
+                  <strong>{t('book.dragDropFiles', 'Drag-and-drop area for files')}</strong>
+                  <span className="drop-subtext">{t('book.uploadSupportTypes', 'Upload PDF, DOC/DOCX, or Images')}</span>
 
                   <input 
                     type="file" 
@@ -758,17 +776,17 @@ const BookSession = () => {
                     style={{ display: 'none' }} 
                   />
                   <label htmlFor="lecture-file-input" className="btn-primary browse-files-btn">
-                    {fileName ? `Selected: ${fileName}` : 'Browse Files'}
+                    {fileName ? `Selected: ${fileName}` : t('book.browseFiles', 'Browse Files')}
                   </label>
                 </div>
               </div>
 
               {/* Subject Name Input */}
               <div className="form-input-group">
-                <label className="input-group-label">SUBJECT NAME</label>
+                <label className="input-group-label">{t('book.subjectName', 'SUBJECT NAME')}</label>
                 <input 
                   type="text" 
-                  placeholder="e.g., Mathematics, Physics"
+                  placeholder={t('book.subjectPlaceholder', 'e.g., Mathematics, Physics')}
                   value={subjectName}
                   onChange={(e) => setSubjectName(e.target.value)}
                   required
@@ -777,7 +795,7 @@ const BookSession = () => {
 
               {/* Explanation Deadline Input */}
               <div className="form-input-group">
-                <label className="input-group-label">EXPLANATION DEADLINE</label>
+                <label className="input-group-label">{t('book.explanationDeadline', 'EXPLANATION DEADLINE')}</label>
                 <input 
                   type="date" 
                   value={deadline}
@@ -788,10 +806,10 @@ const BookSession = () => {
 
               {/* Description Input */}
               <div className="form-input-group">
-                <label className="input-group-label">DESCRIPTION</label>
+                <label className="input-group-label">{t('book.description', 'DESCRIPTION')}</label>
                 <textarea 
                   rows={4}
-                  placeholder="What specific questions or difficult points should we cover?"
+                  placeholder={t('book.descPlaceholder', 'What specific questions or difficult points should we cover?')}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   required
@@ -800,16 +818,16 @@ const BookSession = () => {
 
               {/* Add Another Subject Button */}
               <button type="button" className="add-another-subject-btn">
-                ⊕ Add Another Subject
+                {t('book.addAnotherSubject', '⊕ Add Another Subject')}
               </button>
 
               {/* Submit Button */}
               <button type="submit" className="btn-dark submit-trial-btn">
-                SUBMIT BOOKING REQUEST
+                {t('book.submitBookingRequest', 'SUBMIT BOOKING REQUEST')}
               </button>
 
               <p className="terms-caption text-center">
-                By submitting, you agree to our terms of service regarding trial sessions.
+                {t('book.termsNotice', 'By submitting, you agree to our terms of service regarding trial sessions.')}
               </p>
             </form>
           </div>
@@ -825,11 +843,11 @@ const BookSession = () => {
             <div className="top-right-toast-card">
               <div className="toast-header-row">
                 <span className="toast-check-icon">✓</span>
-                <strong>Trial request uploaded successfully</strong>
+                <strong>{t('book.trialSuccessTitle', 'Trial request uploaded successfully')}</strong>
                 <button onClick={() => setShowToast(false)} className="toast-close-btn">&times;</button>
               </div>
               <p className="toast-body-text">
-                Your request has been added to My Orders. It will be shown to multiple instructors. Please wait for their response.
+                {t('book.trialSuccessSub', 'Your request has been added to My Orders. It will be shown to multiple instructors. Please wait for their response.')}
               </p>
             </div>
           )}
@@ -840,26 +858,25 @@ const BookSession = () => {
             </div>
 
             <h1 className="success-main-title">
-              Your Trial Request Has Been <br />
-              Submitted Successfully
+              {t('book.trialSuccessTitle', 'Your Trial Request Has Been Submitted Successfully')}
             </h1>
 
             <p className="success-subtext">
-              Your request has been added to <Link to="/orders" className="cyan-orders-link">My Orders</Link> and will be reviewed by multiple instructors. Please wait for instructors to respond.
+              {t('book.trialSuccessSub', 'Your request has been added to My Orders and will be reviewed by multiple instructors.')}
             </p>
 
             <button 
               onClick={() => navigate('/orders')} 
               className="btn-primary go-to-orders-btn"
             >
-              Go to My Orders &rarr;
+              {t('book.goToOrders', 'Go to My Orders →')}
             </button>
 
             <div className="dark-next-steps-banner">
               <span className="info-circle-icon">ℹ️</span>
               <div className="banner-text-wrap">
-                <strong>What happens next?</strong>
-                <p>Your instructor will be notified of your submission. You can track progress in the dashboard.</p>
+                <strong>{t('book.whatNext', 'What happens next?')}</strong>
+                <p>{t('book.whatNextSub', 'Your instructor will be notified of your submission. You can track progress in the dashboard.')}</p>
               </div>
             </div>
           </div>
@@ -875,11 +892,11 @@ const BookSession = () => {
             <div className="top-right-toast-card">
               <div className="toast-header-row">
                 <span className="toast-check-icon">✓</span>
-                <strong className="toast-caps-title">LECTURE MATERIALS UPLOADED SUCCESSFULLY</strong>
+                <strong className="toast-caps-title">{t('book.lectureSuccessTitle', 'LECTURE MATERIALS UPLOADED SUCCESSFULLY')}</strong>
                 <button onClick={() => setShowToast(false)} className="toast-close-btn">&times;</button>
               </div>
               <p className="toast-body-text">
-                Your request has been added to My Orders. It will be shown to multiple instructors. Please wait for their response.
+                {t('book.lectureSuccessSub', 'Your request has been added to My Orders. It will be shown to multiple instructors. Please wait for their response.')}
               </p>
             </div>
           )}
@@ -890,26 +907,25 @@ const BookSession = () => {
             </div>
 
             <h1 className="success-main-title">
-              Lecture Materials Uploaded <br />
-              Successfully
+              {t('book.lectureSuccessTitle', 'Lecture Materials Uploaded Successfully')}
             </h1>
 
             <p className="success-subtext">
-              Your request has been added to <Link to="/orders" className="cyan-orders-link">My Orders</Link>. Your lecture will be shown to multiple instructors, and you will receive their offers soon.
+              {t('book.lectureSuccessSub', 'Your request has been added to My Orders. Your lecture will be shown to multiple instructors, and you will receive their offers soon.')}
             </p>
 
             <button 
               onClick={() => navigate('/orders')} 
               className="btn-primary go-to-orders-btn"
             >
-              Go to My Orders &rarr;
+              {t('book.goToOrders', 'Go to My Orders →')}
             </button>
 
             <div className="dark-next-steps-banner">
               <span className="info-circle-icon">ℹ️</span>
               <div className="banner-text-wrap">
-                <strong>What happens next?</strong>
-                <p>Your instructor will be notified of your submission. You can track progress in the dashboard.</p>
+                <strong>{t('book.whatNext', 'What happens next?')}</strong>
+                <p>{t('book.whatNextSub', 'Your instructor will be notified of your submission. You can track progress in the dashboard.')}</p>
               </div>
             </div>
           </div>

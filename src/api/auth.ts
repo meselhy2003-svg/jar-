@@ -74,13 +74,26 @@ export const studentSignup = async (
   if (payload.country) formData.append('country', payload.country);
   if (payload.StudentIdImage) formData.append('StudentIdImage', payload.StudentIdImage);
 
-  const res = await axios.post(`${BASE_URL}/auth/students/signup`, formData, {
-    withCredentials: true,
-  });
+  try {
+    const res = await axios.post(`${BASE_URL}/auth/students/signup`, formData, {
+      withCredentials: true,
+    });
 
-  if (res.data.message !== 'Signup Student successful')
-    throw new Error(res?.data?.message ?? 'Sign up failed. Please try again.');
-  return res.data;
+    if (res.data.message !== 'Signup Student successful')
+      throw new Error(res?.data?.message ?? 'Sign up failed. Please try again.');
+    return res.data;
+  } catch (err: unknown) {
+    if (axios.isAxiosError(err)) {
+      const serverMsg = err.response?.data?.message || err.response?.data?.error;
+      if (serverMsg) {
+        throw new Error(serverMsg);
+      }
+      if (err.response?.status === 503) {
+        throw new Error('Service is temporarily unavailable or Student ID image is required. Please attach your image and try again.');
+      }
+    }
+    throw err;
+  }
 };
 
 // ─── Instructor Auth ──────────────────────────────────────────────────────────

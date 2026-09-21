@@ -162,6 +162,13 @@
   margin-bottom: 2rem;
 }
 
+.why-icon-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(48%) sepia(89%) saturate(1750%) hue-rotate(170deg) brightness(97%) contrast(98%);
+}
+
 .why-card h3 {
   font-size: 1.4rem;
   margin-bottom: 1rem;

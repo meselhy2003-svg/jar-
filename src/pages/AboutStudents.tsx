@@ -66,7 +66,9 @@ const AboutStudents = () => {
 
         <div className="challenges-grid">
           <div className="challenge-card card">
-            <div className="icon-box-peach">🎨</div>
+            <div className="icon-box-blue">
+              <img src="/landing-icons/Icon (1).png" alt="Confusing Lectures" className="challenge-icon-img" />
+            </div>
             <h3>{t('students.confusingTitle', 'Confusing Lectures')}</h3>
             <p>
               {t('students.confusingSub', 'Some topics are difficult to understand alone, especially when classroom environments move too fast.')}
@@ -74,7 +76,9 @@ const AboutStudents = () => {
           </div>
 
           <div className="challenge-card card">
-            <div className="icon-box-pink">⏰</div>
+            <div className="icon-box-blue">
+              <img src="/landing-icons/Icon (2).png" alt="Assignment Pressure" className="challenge-icon-img" />
+            </div>
             <h3>{t('students.pressureTitle', 'Assignment Pressure')}</h3>
             <p>
               {t('students.pressureSub', 'Deadlines and complex assignments can be stressful. We help break down the problem so you can tackle it with confidence.')}
@@ -82,7 +86,9 @@ const AboutStudents = () => {
           </div>
 
           <div className="challenge-card card">
-            <div className="icon-box-blue">ℹ️</div>
+            <div className="icon-box-blue">
+              <img src="/landing-icons/Icon (3).png" alt="No Direct Help" className="challenge-icon-img" />
+            </div>
             <h3>{t('students.noHelpTitle', 'No Direct Help')}</h3>
             <p>
               {t('students.noHelpSub', 'Sometimes there is no one available to explain properly. Our expert instructors fill that gap whenever you need them.')}

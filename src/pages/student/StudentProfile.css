@@ -1,0 +1,907 @@
+/* ==========================================
+   Student Profile Pages Styles
+   Matches pixel-perfect design of 4 mockups
+   ========================================== */
+
+.student-profile-page {
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+  background-color: #F8FAFC;
+  min-height: calc(100vh - 80px);
+}
+
+.student-profile-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Header & Nav */
+.profile-header-nav {
+  margin-bottom: 1.5rem;
+}
+
+.back-link-btn {
+  background: none;
+  border: none;
+  color: #64748B;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.back-link-btn:hover {
+  color: #38BDF8;
+}
+
+.profile-title-section {
+  margin-bottom: 2.5rem;
+}
+
+.profile-main-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 0.4rem 0;
+  letter-spacing: -0.02em;
+}
+
+.profile-subtitle {
+  color: #64748B;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Cards Base */
+.profile-white-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 2.25rem 2.5rem;
+  border: 1px solid #F1F5F9;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+  margin-bottom: 2rem;
+}
+
+/* ------------------------------------------
+   MAIN PROFILE VIEW (Image 1)
+   ------------------------------------------ */
+.profile-info-header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.profile-user-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile-avatar-wrapper {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #F1F5F9;
+  flex-shrink: 0;
+  border: 3px solid #E2E8F0;
+}
+
+.profile-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-user-details h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 0.5rem 0;
+}
+
+.user-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748B;
+  font-size: 0.92rem;
+  margin-bottom: 0.35rem;
+}
+
+.user-meta-item:last-child {
+  margin-bottom: 0;
+}
+
+.meta-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  color: #94A3B8;
+  opacity: 0.8;
+}
+
+.btn-edit-profile {
+  background: #FFFFFF;
+  color: #0F172A;
+  border: 1.5px solid #0F172A;
+  border-radius: 12px;
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-edit-profile:hover {
+  background: #0F172A;
+  color: #FFFFFF;
+}
+
+/* Wallet Card (Image 1) */
+.wallet-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.wallet-card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+}
+
+.wallet-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #E0F2FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0284C7;
+  font-size: 1.1rem;
+}
+
+.wallet-inner-bg-box {
+  background: #F8FAFC;
+  border-radius: 16px;
+  padding: 2rem 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.wallet-balance-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.wallet-balance-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #94A3B8;
+  margin-bottom: 0.4rem;
+}
+
+.wallet-balance-amount {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #0F172A;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.wallet-balance-amount span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #475569;
+  margin-left: 0.35rem;
+}
+
+[dir="rtl"] .wallet-balance-amount span {
+  margin-left: 0;
+  margin-right: 0.35rem;
+}
+
+.wallet-subtext {
+  color: #64748B;
+  font-size: 0.88rem;
+  margin: 0;
+  max-width: 340px;
+}
+
+.btn-recharge-wallet {
+  background: #54B6E5;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(56, 189, 248, 0.25);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-recharge-wallet:hover {
+  background: #00A8E8;
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------
+   EDIT PROFILE VIEW (Image 2)
+   ------------------------------------------ */
+.avatar-edit-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem;
+}
+
+.avatar-edit-photo-wrap {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  margin-bottom: 0.85rem;
+}
+
+.avatar-edit-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #E2E8F0;
+}
+
+.camera-badge-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: #475569;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+.camera-badge-btn:hover {
+  background: #F1F5F9;
+}
+
+.change-photo-btn {
+  background: none;
+  border: none;
+  color: #38BDF8;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.change-photo-btn:hover {
+  text-decoration: underline;
+}
+
+.form-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #475569;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.form-section-title .section-icon {
+  font-size: 1rem;
+}
+
+.edit-profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field-group label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.form-input-styled,
+.form-select-styled {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #E2E8F0;
+  background: #FFFFFF;
+  font-size: 0.95rem;
+  color: #0F172A;
+  font-weight: 500;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.form-input-styled:focus,
+.form-select-styled:focus {
+  border-color: #38BDF8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.password-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrap input {
+  padding-right: 42px;
+}
+
+[dir="rtl"] .password-input-wrap input {
+  padding-right: 16px;
+  padding-left: 42px;
+}
+
+.password-eye-btn {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+[dir="rtl"] .password-eye-btn {
+  right: auto;
+  left: 14px;
+}
+
+.password-eye-btn:hover {
+  color: #475569;
+}
+
+/* University ID Drag & Drop (Image 2) */
+.uni-id-dropzone-box {
+  background: #1E293B;
+  border-radius: 20px;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.2);
+}
+
+.uni-id-circle-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.uni-id-dropzone-box strong {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+}
+
+.uni-id-dropzone-box .drop-types-text {
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: #94A3B8;
+  margin-bottom: 1.75rem;
+}
+
+.btn-select-file-cyan {
+  background: #54B6E5;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(56, 189, 248, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-select-file-cyan:hover {
+  background: #00A8E8;
+}
+
+/* Bottom Form Buttons */
+.edit-form-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-cancel-grey {
+  background: #FFFFFF;
+  color: #475569;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 12px;
+  padding: 12px 32px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel-grey:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+}
+
+.btn-save-changes-cyan {
+  background: #54B6E5;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 32px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(56, 189, 248, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-save-changes-cyan:hover {
+  background: #00A8E8;
+}
+
+/* ------------------------------------------
+   RECHARGE WALLET VIEW (Image 3)
+   ------------------------------------------ */
+.recharge-balance-card {
+  background: #F8FAFC;
+  border-radius: 16px;
+  padding: 2.25rem;
+  text-align: center;
+  border: 1px solid #E2E8F0;
+  margin-bottom: 2rem;
+}
+
+.recharge-balance-card .label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #94A3B8;
+  margin-bottom: 0.5rem;
+}
+
+.recharge-balance-card .amount {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #0F172A;
+  line-height: 1;
+}
+
+.recharge-balance-card .amount span {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #475569;
+  margin-left: 0.4rem;
+}
+
+[dir="rtl"] .recharge-balance-card .amount span {
+  margin-left: 0;
+  margin-right: 0.4rem;
+}
+
+.transfer-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.transfer-card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+}
+
+.transfer-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.transfer-info-item .item-label {
+  font-size: 0.8rem;
+  color: #94A3B8;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.transfer-info-item .item-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.iban-box-row {
+  margin-bottom: 1.75rem;
+}
+
+.iban-box-row .item-label {
+  font-size: 0.8rem;
+  color: #94A3B8;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.iban-input-copy-container {
+  background: #F8FAFC;
+  border-radius: 12px;
+  padding: 12px 18px;
+  border: 1px dashed #CBD5E1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iban-code-text {
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: 0.12em;
+}
+
+.btn-copy-iban {
+  background: none;
+  border: none;
+  color: #38BDF8;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.btn-copy-iban:hover {
+  background: #E0F2FE;
+}
+
+.transfer-notice-box {
+  background: #EFF6FF;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: #1D4ED8;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.45;
+  border: 1px solid #DBEAFE;
+}
+
+.notice-icon-clock {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* Upload Receipt Box (Image 3) */
+.receipt-dropzone-dark {
+  background: #1E293B;
+  border-radius: 20px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  padding: 3.5rem 2rem;
+  text-align: center;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.receipt-dropzone-dark:hover {
+  border-color: #38BDF8;
+}
+
+.receipt-cloud-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.receipt-dropzone-dark strong {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.4rem;
+}
+
+.receipt-dropzone-dark .accept-types-text {
+  font-size: 0.8rem;
+  color: #94A3B8;
+}
+
+.btn-submit-proof-full {
+  width: 100%;
+  background: #54B6E5;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(56, 189, 248, 0.3);
+  transition: all 0.2s ease;
+  margin-top: 1.5rem;
+}
+
+.btn-submit-proof-full:hover {
+  background: #00A8E8;
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------
+   PAYMENT RECEIPT SUBMITTED VIEW (Image 4)
+   ------------------------------------------ */
+.submitted-page-wrapper {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-right-toast-banner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #0F172A;
+  color: #FFFFFF;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.25);
+  max-width: 380px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideInDown 0.3s ease;
+}
+
+[dir="rtl"] .top-right-toast-banner {
+  right: auto;
+  left: 0;
+}
+
+.toast-info-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.2);
+  color: #38BDF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.toast-banner-text {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #E2E8F0;
+}
+
+.submitted-dark-card {
+  background: #1E293B;
+  border-radius: 24px;
+  padding: 4rem 3.5rem;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.3);
+  margin-top: 2rem;
+}
+
+.submitted-clock-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.12);
+  color: #38BDF8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin: 0 auto 2rem auto;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.submitted-main-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+}
+
+.submitted-subtext {
+  font-size: 1.05rem;
+  color: #94A3B8;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+
+.submitted-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.submitted-time-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  color: #94A3B8;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.submitted-time-notice .shield-icon {
+  font-size: 1rem;
+  color: #64748B;
+}
+
+.btn-back-to-profile-cyan {
+  margin-top: 2.5rem;
+  background: #54B6E5;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 32px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(56, 189, 248, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-back-to-profile-cyan:hover {
+  background: #00A8E8;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Custom Profile Icons Styling */
+.profile-icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.camera-badge-icon-img {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+}
+
+.section-header-icon-img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.password-eye-icon-img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  opacity: 0.6;
+}
+
+.password-eye-btn:hover .password-eye-icon-img {
+  opacity: 1;
+}
+
+.notice-clock-icon-img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.drop-cloud-icon-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.submitted-clock-icon-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* Responsive Grid */
+@media (max-width: 640px) {
+  .edit-profile-grid,
+  .transfer-grid-row {
+    grid-template-columns: 1fr;
+  }
+  .profile-info-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wallet-inner-bg-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

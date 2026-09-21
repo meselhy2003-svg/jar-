@@ -238,6 +238,25 @@ html.rtl .step-num-faint {
   margin-bottom: 1.5rem;
 }
 
+.exp-icon-img,
+.asgn-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.exp-icon-box .exp-icon-img {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(89%) saturate(1750%) hue-rotate(170deg) brightness(97%) contrast(98%);
+}
+
+.cyan-highlight-card .exp-icon-img {
+  filter: brightness(0) invert(1);
+}
+
+.asgn-icon-circle .asgn-icon-img {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(29%) saturate(2250%) hue-rotate(170deg) brightness(101%) contrast(96%);
+}
+
 html[lang="ar"] .asgn-icon-circle,
 html.rtl .asgn-icon-circle {
   margin-left: 0;

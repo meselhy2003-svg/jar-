@@ -26,7 +26,7 @@ const HowItWorks = () => {
               {t('home.getStarted', 'Get Started Now')}
             </Link>
             <a href="#video-demo" className="btn-secondary">
-              📺 {t('home.watchDemo', 'Watch Demo')}
+              {t('home.watchDemo', 'Watch Demo')}
             </a>
           </div>
         </div>
@@ -49,14 +49,18 @@ const HowItWorks = () => {
         <div className="explained-cards-grid">
           {/* 1. Navigate */}
           <div className="explained-card card">
-            <div className="exp-icon-box">🅰️</div>
+            <div className="exp-icon-box">
+              <img src="/landing-icons/Icon (4).png" alt="Navigate" className="exp-icon-img" />
+            </div>
             <h3>{t('how.navigateTitle', '1. Navigate')}</h3>
             <p>{t('how.navigateSub', 'Go to the explanation section on our platform dashboard.')}</p>
           </div>
 
           {/* 2. Choose Plan */}
           <div className="explained-card card">
-            <div className="exp-icon-box">💳</div>
+            <div className="exp-icon-box">
+              <img src="/landing-icons/Icon (8).png" alt="Choose Plan" className="exp-icon-img" />
+            </div>
             <h3>{t('how.choosePlanTitle', '2. Choose Plan')}</h3>
             <p>{t('how.choosePlanSub', 'Select from flexible hourly, monthly, or term-based plans.')}</p>
           </div>
@@ -64,7 +68,7 @@ const HowItWorks = () => {
           {/* 3. Upload */}
           <div className="explained-card card">
             <div className="exp-icon-box">
-              <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
+              <img src="/landing-icons/Icon (5).png" alt="Upload" className="exp-icon-img" />
             </div>
             <h3>{t('how.uploadTitle', '3. Upload')}</h3>
             <p>{t('how.uploadSub', 'Request a trial or upload your PDF, lecture notes, or specific topics directly.')}</p>
@@ -72,7 +76,9 @@ const HowItWorks = () => {
 
           {/* 4. Connect (Cyan Card) */}
           <div className="explained-card cyan-highlight-card">
-            <div className="exp-icon-box-white">👥</div>
+            <div className="exp-icon-box-white">
+              <img src="/landing-icons/Icon (3).png" alt="Connect" className="exp-icon-img" />
+            </div>
             <h3>{t('how.connectTitle', '4. Connect')}</h3>
             <p>{t('how.connectSub', 'Instantly connect with an expert instructor and start your personalized session.')}</p>
           </div>
@@ -90,28 +96,36 @@ const HowItWorks = () => {
           <div className="assignment-steps-grid">
             <div className="assignment-step-item">
               <span className="step-num-faint">01</span>
-              <div className="asgn-icon-circle">☁️</div>
+              <div className="asgn-icon-circle">
+                <img src="/landing-icons/Icon (9).png" alt="Upload" className="asgn-icon-img" />
+              </div>
               <h3>{t('how.asgnStep1Title', 'Upload')}</h3>
               <p>{t('how.asgnStep1Sub', 'Securely upload your assignment files to our encrypted portal.')}</p>
             </div>
 
             <div className="assignment-step-item">
               <span className="step-num-faint">02</span>
-              <div className="asgn-icon-circle">📝</div>
+              <div className="asgn-icon-circle">
+                <img src="/landing-icons/Icon.png" alt="Describe" className="asgn-icon-img" />
+              </div>
               <h3>{t('how.asgnStep2Title', 'Describe')}</h3>
               <p>{t('how.asgnStep2Sub', 'Add details and set your price offer for the task requirements.')}</p>
             </div>
 
             <div className="assignment-step-item">
               <span className="step-num-faint">03</span>
-              <div className="asgn-icon-circle">🔄</div>
+              <div className="asgn-icon-circle">
+                <img src="/landing-icons/Icon (11).png" alt="Review" className="asgn-icon-img" />
+              </div>
               <h3>{t('how.asgnStep3Title', 'Review')}</h3>
               <p>{t('how.asgnStep3Sub', 'Qualified instructors review and accept your specific request.')}</p>
             </div>
 
             <div className="assignment-step-item">
               <span className="step-num-faint">04</span>
-              <div className="asgn-icon-circle">✅</div>
+              <div className="asgn-icon-circle">
+                <img src="/landing-icons/Icon (10).png" alt="Complete" className="asgn-icon-img" />
+              </div>
               <h3>{t('how.asgnStep4Title', 'Complete')}</h3>
               <p>{t('how.asgnStep4Sub', 'Receive your high-quality solution directly in your account.')}</p>
             </div>

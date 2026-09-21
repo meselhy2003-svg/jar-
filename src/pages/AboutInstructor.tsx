@@ -62,7 +62,9 @@ const AboutInstructor = () => {
 
         <div className="why-teach-grid">
           <div className="why-card card">
-            <div className="why-icon-box">⏰</div>
+            <div className="why-icon-box">
+              <img src="/landing-icons/Icon (2).png" alt="Flexible Teaching" className="why-icon-img" />
+            </div>
             <h3>{t('instructor.flexibleTitle', 'Flexible Teaching')}</h3>
             <p>
               {t('instructor.flexibleSub', 'Explain topics anytime with live or recorded sessions. Work around your own schedule.')}
@@ -70,7 +72,9 @@ const AboutInstructor = () => {
           </div>
 
           <div className="why-card card">
-            <div className="why-icon-box">💬</div>
+            <div className="why-icon-box">
+              <img src="/landing-icons/Icon (6).png" alt="Earn From Your Knowledge" className="why-icon-img" />
+            </div>
             <h3>{t('instructor.earnTitle', 'Earn From Your Knowledge')}</h3>
             <p>
               {t('instructor.earnSub', 'Get paid for helping students understand their material. Competitive rates and fast payouts.')}
@@ -78,7 +82,9 @@ const AboutInstructor = () => {
           </div>
 
           <div className="why-card card">
-            <div className="why-icon-box">🌍</div>
+            <div className="why-icon-box">
+              <img src="/landing-icons/Icon (7).png" alt="Global Students" className="why-icon-img" />
+            </div>
             <h3>{t('instructor.globalTitle', 'Global Students')}</h3>
             <p>
               {t('instructor.globalSub', 'Help students from different universities and fields around the globe from your home.')}

@@ -27,6 +27,7 @@ import Legal from './pages/Legal';
 
 // Student Portal Pages
 import StudentDashboard from './pages/StudentDashboard';
+import StudentPortalProfile from './pages/student/StudentProfile';
 import SessionRoom from './pages/student/SessionRoom';
 import MyAssignments from './pages/student/MyAssignments';
 import EnterAssignment from './pages/student/EnterAssignment';
@@ -127,6 +128,8 @@ function App() {
                   <Route path="/my-orders" element={<StudentOrders />} />
                   <Route path="/book-session" element={<BookSession />} />
                   <Route path="/student/dashboard" element={<StudentDashboard />} />
+                  <Route path="/student/profile" element={<StudentPortalProfile />} />
+                  <Route path="/profile" element={<StudentPortalProfile />} />
                   <Route path="/session-room" element={<SessionRoom />} />
                   <Route path="/session-room/:sessionId" element={<SessionRoom />} />
                   <Route path="/my-assignments" element={<MyAssignments />} />
