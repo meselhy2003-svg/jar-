@@ -3,6 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import { CourseProvider } from './context/CourseContext';
 import { InstructorProvider } from './context/InstructorContext';
 import { LanguageProvider } from './context/LanguageContext';
+import { RequestProvider } from './context/RequestContext';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -95,7 +96,8 @@ function App() {
       <CourseProvider>
         <InstructorProvider>
           <AuthProvider>
-            <Router>
+            <RequestProvider>
+              <Router>
               <Routes>
                 {/* Dedicated Admin Login Page */}
                 <Route path="/admin-login" element={<AdminLogin />} />
@@ -200,7 +202,8 @@ function App() {
                 </Route>
               </Routes>
             </Router>
-          </AuthProvider>
+          </RequestProvider>
+        </AuthProvider>
         </InstructorProvider>
       </CourseProvider>
     </LanguageProvider>

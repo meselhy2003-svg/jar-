@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useInstructor } from '../../context/InstructorContext';
+import { useRequests } from '../../context/RequestContext';
 import './ExplainTasks.css';
 
 type ExplainTaskType = 'video' | 'live';
@@ -123,6 +125,50 @@ const formatFileSize = (fileSize: number) => {
 const ExplainTasks: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ExplainTaskType>('video');
   const [expandedTasks, setExpandedTasks] = useState<Record<string, boolean>>({});
+
+  const navigate = useNavigate();
+  const hourlyRate = 200;
+  const { profile, submitNewOffer } = useInstructor();
+  const { getRequestsByCategory, submitOffer } = useRequests();
+
+  const dynamicVideo = getRequestsByCategory('explain-video');
+  const dynamicLive = getRequestsByCategory('explain-live');
+
+  const combinedTasks: ExplainTask[] = useMemo(() => {
+    const dynamic: ExplainTask[] = [
+      ...dynamicVideo.map((v) => ({
+        id: v.id,
+        type: 'video' as ExplainTaskType,
+        studentName: v.studentName,
+        postedAt: 'Just now',
+        title: v.title || v.subject,
+        attachments: [
+          buildMockAttachment('att-dyn-1', v.filename, 250000, 'pdf'),
+        ],
+        deadline: v.deadline,
+        estimatedHours: 3,
+        hourlyRate: 200,
+      })),
+      ...dynamicLive.map((l) => ({
+        id: l.id,
+        type: 'live' as ExplainTaskType,
+        studentName: l.studentName,
+        postedAt: 'Just now',
+        title: l.title || l.subject,
+        attachments: [
+          buildMockAttachment('att-dyn-2', l.filename, 220000, 'pdf'),
+        ],
+        deadline: l.deadline,
+        estimatedHours: 4,
+        hourlyRate: 200,
+      })),
+    ];
+    return [
+      ...dynamic,
+      ...mockTasks.filter((m) => !dynamic.some((d) => d.id === m.id)),
+    ];
+  }, [dynamicVideo, dynamicLive]);
+
   const [taskHours, setTaskHours] = useState<Record<string, number>>(() =>
     mockTasks.reduce<Record<string, number>>((acc, task) => {
       acc[task.id] = task.estimatedHours;
@@ -130,13 +176,43 @@ const ExplainTasks: React.FC = () => {
     }, {})
   );
 
-  const navigate = useNavigate();
-  const hourlyRate = 200;
-
   const filteredTasks = useMemo(
-    () => mockTasks.filter((task) => task.type === activeTab),
-    [activeTab]
+    () => combinedTasks.filter((task) => task.type === activeTab),
+    [activeTab, combinedTasks]
   );
+
+  const handleConfirmOffer = (task: ExplainTask, hours: number, totalPrice: number) => {
+    submitNewOffer({
+      category: task.type === 'video' ? 'explain-video' : 'explain-live',
+      studentName: task.studentName,
+      title: task.title,
+      subject: task.title,
+      description: `Explanation session (${hours} hours).`,
+      deadline: task.deadline,
+      estimatedHours: hours,
+      hourlyRate,
+      totalPrice,
+    });
+
+    submitOffer(task.id, {
+      instructorName: profile.fullName || 'Dr. Ahmed Mohamed',
+      estimatedHours: hours,
+      hourlyRate,
+      totalPrice,
+      currency: 'EGP',
+      notes: `Offer for ${hours} hours of comprehensive explanation.`,
+    });
+
+    navigate('/instructor/offer-confirmed', {
+      state: {
+        task,
+        estimatedHours: hours,
+        totalPrice,
+        hourlyRate,
+        showToast: true,
+      },
+    });
+  };
 
   const toggleAttachments = (taskId: string) => {
     setExpandedTasks((current) => ({
@@ -307,22 +383,12 @@ const ExplainTasks: React.FC = () => {
                     </div>
 
                     <button
-    className="proposal-confirm-btn"
-    type="button"
-    onClick={() =>
-        navigate("/instructor/offer-confirmed", {
-            state: {
-                task,
-                estimatedHours: taskHours[task.id],
-                totalPrice,
-                hourlyRate,
-                showToast: true,
-            },
-        })
-    }
->
-    Confirm Offer
-</button>
+                      className="proposal-confirm-btn"
+                      type="button"
+                      onClick={() => handleConfirmOffer(task, taskHours[task.id] || 3, totalPrice)}
+                    >
+                      Confirm Offer
+                    </button>
 </div>
                 </div>
               </div>

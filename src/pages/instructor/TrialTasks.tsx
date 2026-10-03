@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useRequests } from '../../context/RequestContext';
 import './TrialTasks.css';
 
 interface TrialTask {
@@ -9,6 +10,7 @@ interface TrialTask {
   deadline: string;
   description: string;
   filename: string;
+  isNew?: boolean;
 }
 
 const mockTrialTasks: TrialTask[] = [
@@ -40,7 +42,26 @@ const mockTrialTasks: TrialTask[] = [
 
 const TrialTasks: React.FC = () => {
   const navigate = useNavigate();
+  const { getRequestsByCategory } = useRequests();
   const [selectedTask, setSelectedTask] = useState<TrialTask | null>(null);
+
+  const dynamicTrialRequests = getRequestsByCategory('trial');
+
+  // Combine dynamic requests with existing mock tasks
+  const combinedTasks: TrialTask[] = [
+    ...dynamicTrialRequests.map((r) => ({
+      id: r.id,
+      studentName: r.studentName,
+      subject: r.subject,
+      deadline: r.deadline,
+      description: r.description,
+      filename: r.filename,
+      isNew: true,
+    })),
+    ...mockTrialTasks.filter(
+      (m) => !dynamicTrialRequests.some((d) => d.id === m.id)
+    ),
+  ];
 
   const handleOpenSubmission = (task: TrialTask) => {
     navigate(`/instructor/trial-submission/${task.id}`, { state: { task } });
@@ -74,11 +95,13 @@ const TrialTasks: React.FC = () => {
         <div className="trial-content-grid">
           {/* Left Column: Tasks List */}
           <div className="trial-tasks-list">
-            {mockTrialTasks.map((task) => (
+            {combinedTasks.map((task) => (
               <div className="trial-card" key={task.id}>
                 {/* Header Row */}
                 <div className="trial-card-header">
-                  <span className="trial-badge">TRIAL REQUEST</span>
+                  <span className="trial-badge" style={task.isNew ? { background: '#00D1FF', color: '#0F172A', fontWeight: 800 } : {}}>
+                    {task.isNew ? '★ NEW REQUEST' : 'TRIAL REQUEST'}
+                  </span>
                   <div className="trial-deadline">
                     <span className="trial-deadline-label">DEADLINE</span>
                     <span className="trial-deadline-value">{task.deadline}</span>

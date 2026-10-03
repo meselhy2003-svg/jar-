@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import { useInstructor } from '../../context/InstructorContext';
+import { useRequests } from '../../context/RequestContext';
 import './TrialSubmission.css';
 
 interface TrialTask {
@@ -78,7 +79,8 @@ const TrialSubmission: React.FC = () => {
     e.preventDefault();
   };
 
-  const { submitNewOffer } = useInstructor();
+  const { profile, submitNewOffer } = useInstructor();
+  const { submitOffer } = useRequests();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -94,6 +96,13 @@ const TrialSubmission: React.FC = () => {
       description: task.description,
       deadline: task.deadline,
       filename: task.filename,
+    });
+    submitOffer(task.id, {
+      instructorName: profile.fullName || 'Dr. Ahmed Mohamed',
+      submittedVideoName: selectedVideo.name,
+      notes: 'Trial explanation video submitted.',
+      totalPrice: 0,
+      currency: 'EGP',
     });
     setTimeout(() => {
       setIsSubmitting(false);

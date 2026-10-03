@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { useAuth } from '../context/AuthContext';
+import { useRequests } from '../context/RequestContext';
 import './BookSession.css';
 
 type FlowStep = 
@@ -20,6 +22,8 @@ type FlowStep =
 const BookSession = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
+  const { user } = useAuth();
+  const { addRequest } = useRequests();
   const [step, setStep] = useState<FlowStep>('start_choice');
   const [showToast, setShowToast] = useState(true);
 
@@ -38,23 +42,87 @@ const BookSession = () => {
 
   const handleTrialSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const studentName = user?.fullName || 'Ahmed Student';
+    addRequest({
+      category: 'trial',
+      title: subjectName ? `${subjectName} Trial` : 'Data Structures Trial',
+      subject: subjectName || 'Data Structures',
+      description: description || 'Need help understanding linked lists and doubly linked lists implementation in C++.',
+      deadline: deadline || '25 March 2026',
+      budget: 'Free Trial',
+      filename: fileName || 'trial_task_data_structures.pdf',
+      fileMeta: 'PDF Document • 1.8 MB',
+      allFiles: [fileName || 'trial_task_data_structures.pdf'],
+      studentId: user?._id || `std-${Date.now()}`,
+      studentName,
+      studentInitials: studentName.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase(),
+      studentEmail: user?.email || 'student@jaracademy.com',
+    });
     setShowToast(true);
     setStep('trial_success');
   };
 
   const handleLectureSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const studentName = user?.fullName || 'Ahmed Student';
+    addRequest({
+      category: 'explain-video',
+      title: subjectName ? `${subjectName} Explanation` : 'Need explanation for recursion and trees.',
+      subject: subjectName || 'Computer Science',
+      description: description || 'Provide clear explanation video on tree structures and recursion.',
+      deadline: deadline || '30 March 2026',
+      budget: price ? `${price} EGP` : '600 EGP',
+      filename: fileName || 'lecture_material.pdf',
+      fileMeta: 'PDF Document • 3.2 MB',
+      allFiles: [fileName || 'lecture_material.pdf'],
+      studentId: user?._id || `std-${Date.now()}`,
+      studentName,
+      studentInitials: studentName.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase(),
+      studentEmail: user?.email || 'student@jaracademy.com',
+    });
     setShowToast(true);
     setStep('lecture_success');
   };
 
   const handleAssignmentSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const studentName = user?.fullName || 'Ahmed Student';
+    addRequest({
+      category: 'assignment',
+      title: subjectName ? `${subjectName} Assignment` : 'Database Normalization & SQL Queries',
+      subject: subjectName || 'Database Systems',
+      description: description || 'Need help completing SQL queries and normalization tasks for a university project.',
+      deadline: deadline || '28 March 2026',
+      budget: price ? `${price} EGP` : '600 EGP',
+      filename: fileName || 'assignment.pdf',
+      fileMeta: 'PDF Document • 2.4 MB',
+      allFiles: [fileName || 'assignment.pdf'],
+      studentId: user?._id || `std-${Date.now()}`,
+      studentName,
+      studentInitials: studentName.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase(),
+      studentEmail: user?.email || 'student@jaracademy.com',
+    });
     setShowToast(true);
     setStep('assignment_success');
   };
 
   const handlePayment = () => {
+    const studentName = user?.fullName || 'Ahmed Student';
+    addRequest({
+      category: 'explain-live',
+      title: subjectName ? `${subjectName} Live Session` : 'Live Explanation Session',
+      subject: subjectName || 'Computer Science',
+      description: description || 'Live 1-on-1 tutoring session covering difficult concepts.',
+      deadline: deadline || '30 March 2026',
+      budget: price ? `${price} EGP` : '800 EGP',
+      filename: fileName || 'session_materials.pdf',
+      fileMeta: 'PDF Document • 2.1 MB',
+      allFiles: [fileName || 'session_materials.pdf'],
+      studentId: user?._id || `std-${Date.now()}`,
+      studentName,
+      studentInitials: studentName.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase(),
+      studentEmail: user?.email || 'student@jaracademy.com',
+    });
     setShowToast(true);
     setStep('payment_success');
   };

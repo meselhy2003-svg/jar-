@@ -54,6 +54,7 @@ export interface OfferData {
 
 export interface ProjectData {
   id: string;
+  requestId?: string;
   category: 'assignment' | 'explain-video' | 'explain-live';
   studentName: string;
   initials: string;

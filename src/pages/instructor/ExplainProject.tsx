@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useInstructor } from '../../context/InstructorContext';
 import './ExplainProject.css';
 
 interface AttachedMaterial {
@@ -9,6 +10,7 @@ interface AttachedMaterial {
 
 interface ExplainTask {
   id: string;
+  requestId?: string;
   initials: string;
   studentName: string;
   postedTime: string;
@@ -52,8 +54,31 @@ const mockExplainTasks: ExplainTask[] = [
 const ExplainProject: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { projects } = useInstructor();
   const initialTab = (location.state as any)?.tab ?? 'video';
   const [activeTab, setActiveTab] = useState<'video' | 'live'>(initialTab);
+
+  const categoryFilter = activeTab === 'video' ? 'explain-video' : 'explain-live';
+  const dynamicProjects: ExplainTask[] = projects
+    .filter((p) => p.category === categoryFilter)
+    .map((p) => ({
+      id: p.id,
+      requestId: p.requestId,
+      initials: p.initials || 'ST',
+      studentName: p.studentName,
+      postedTime: 'Just now',
+      title: p.title || p.subject,
+      materials: [
+        { id: 'm1', name: p.filename || 'PDF 1' },
+      ],
+      deadline: p.deadline,
+      budget: p.budget || '600 EGP',
+    }));
+
+  const activeExplainTasks = [
+    ...dynamicProjects,
+    ...mockExplainTasks.filter((m) => !dynamicProjects.some((d) => d.id === m.id)),
+  ];
 
   const handleUploadVideo = (task: ExplainTask) => {
     navigate('/instructor/upload-explain-video', { state: { task } });
@@ -109,7 +134,7 @@ const ExplainProject: React.FC = () => {
 
         {/* Cards */}
         <div className="exproj-cards">
-          {mockExplainTasks.map(task => (
+          {activeExplainTasks.map(task => (
             <div className="exproj-card" key={task.id}>
               
               <div className="exproj-card-main">

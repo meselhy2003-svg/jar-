@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useInstructor } from '../../context/InstructorContext';
+import { useRequests } from '../../context/RequestContext';
 import './AssignmentTasks.css';
 
 interface AssignmentTask {
@@ -13,6 +14,7 @@ interface AssignmentTask {
   deadline: string;
   filename: string;
   fileMeta: string;
+  isNew?: boolean;
 }
 
 const mockAssignments: AssignmentTask[] = [
@@ -53,6 +55,29 @@ const mockAssignments: AssignmentTask[] = [
 
 const AssignmentTasks: React.FC = () => {
   const navigate = useNavigate();
+  const { profile, submitNewOffer } = useInstructor();
+  const { getRequestsByCategory, submitOffer } = useRequests();
+
+  const dynamicAssignments = getRequestsByCategory('assignment');
+
+  const combinedAssignments: AssignmentTask[] = [
+    ...dynamicAssignments.map((d) => ({
+      id: d.id,
+      initials: d.studentInitials || 'ST',
+      studentName: d.studentName,
+      subject: d.subject,
+      description: d.description,
+      budget: d.budget || '600 EGP',
+      deadline: d.deadline,
+      filename: d.filename,
+      fileMeta: d.fileMeta || 'PDF Document • 2.5 MB',
+      isNew: true,
+    })),
+    ...mockAssignments.filter(
+      (m) => !dynamicAssignments.some((d) => d.id === m.id)
+    ),
+  ];
+
   const [selectedAssignment, setSelectedAssignment] = useState<AssignmentTask | null>(null);
   const [previewFile, setPreviewFile] = useState<AssignmentTask | null>(null);
   const [confirmedIds, setConfirmedIds] = useState<string[]>([]);
@@ -60,8 +85,6 @@ const AssignmentTasks: React.FC = () => {
   const handleConfirmClick = (task: AssignmentTask) => {
     setSelectedAssignment(task);
   };
-
-  const { submitNewOffer } = useInstructor();
 
   const handleFinalConfirm = () => {
     if (selectedAssignment) {
@@ -74,6 +97,20 @@ const AssignmentTasks: React.FC = () => {
         filename: selectedAssignment.filename,
         budget: selectedAssignment.budget,
       });
+
+      submitOffer(selectedAssignment.id, {
+        instructorName: profile.fullName || 'Dr. Ahmed Mohamed',
+        instructorInitials: (profile.fullName || 'Ahmed Mohamed')
+          .split(' ')
+          .map((n) => n[0])
+          .join('')
+          .slice(0, 2)
+          .toUpperCase(),
+        totalPrice: parseInt(selectedAssignment.budget) || 600,
+        currency: 'EGP',
+        notes: 'I will complete the assignment with thorough documentation and explanation.',
+      });
+
       setConfirmedIds((prev) => [...prev, selectedAssignment.id]);
       setSelectedAssignment(null);
       navigate('/instructor/assignment-confirmed', {
@@ -116,7 +153,7 @@ const AssignmentTasks: React.FC = () => {
 
         {/* Cards Stack */}
         <div className="assignment-cards-stack">
-          {mockAssignments.map((task) => {
+          {combinedAssignments.map((task) => {
             const isConfirmed = confirmedIds.includes(task.id);
 
             return (
@@ -132,7 +169,9 @@ const AssignmentTasks: React.FC = () => {
                       <span className="student-role-sub">Student</span>
                     </div>
                   </div>
-                  <span className="assignment-badge">ASSIGNMENT</span>
+                  <span className="assignment-badge" style={task.isNew ? { background: '#00D1FF', color: '#0F172A', fontWeight: 800 } : {}}>
+                    {task.isNew ? '★ NEW ASSIGNMENT' : 'ASSIGNMENT'}
+                  </span>
                 </div>
 
                 {/* Subject & Budget Row */}

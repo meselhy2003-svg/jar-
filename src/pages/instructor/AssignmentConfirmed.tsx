@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './AssignmentConfirmed.css';
 
 type FeatureCard = {
@@ -42,6 +42,7 @@ const featureCards: FeatureCard[] = [
 ];
 
 const AssignmentConfirmed: React.FC = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [showNotification, setShowNotification] = useState(false);
 
@@ -97,7 +98,11 @@ const AssignmentConfirmed: React.FC = () => {
             Your submission has been received and is now ready for the next stage of the project workflow.
           </p>
 
-          <button className="btn-confirm-assignment confirmation-primary-button" type="button">
+          <button
+            className="btn-confirm-assignment confirmation-primary-button"
+            type="button"
+            onClick={() => navigate('/instructor/projects')}
+          >
             <span>Go to My Project</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"></line>

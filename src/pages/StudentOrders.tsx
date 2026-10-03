@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { useRequests } from '../context/RequestContext';
 import './StudentOrders.css';
 
 type OrderFlowStep = 
@@ -38,11 +39,25 @@ interface ChatMessage {
 const StudentOrders = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
+  const { requests, approveOffer } = useRequests();
   const [step, setStep] = useState<OrderFlowStep>('orders_categories');
   const [selectedCategory, setSelectedCategory] = useState<'Trial' | 'Assignment' | 'Explain'>('Trial');
   const [activeSegment, setActiveSegment] = useState<'request' | 'offers'>('request');
   const [showToast, setShowToast] = useState(true);
   const [uploadedFileName, setUploadedFileName] = useState<string | null>(null);
+
+  const [selectedOffer, setSelectedOffer] = useState<{
+    reqId: string;
+    offerId: string;
+    instructorName: string;
+    subject: string;
+    hours: number;
+    rate: number;
+    total: number;
+    currency: string;
+  } | null>(null);
+
+  const [selectedAssignment, setSelectedAssignment] = useState<any | null>(null);
 
   // Live Chat State (Batch 8 Pic 3)
   const [chatInput, setChatInput] = useState('');
@@ -321,6 +336,60 @@ const StudentOrders = () => {
 
           {explainFilter === 'video' || activeSegment === 'request' ? (
             <div className="orders-items-list">
+              {/* Dynamic explain requests */}
+              {requests
+                .filter(
+                  (r) =>
+                    (explainFilter === 'all' ||
+                      (explainFilter === 'video'
+                        ? r.category === 'explain-video'
+                        : r.category === 'explain-live')) &&
+                    (r.category === 'explain-video' || r.category === 'explain-live')
+                )
+                .map((req) => (
+                  <div className="order-item-card card" key={req.id}>
+                    <div className="order-item-left">
+                      <div className="order-meta-row">
+                        <span className="order-date-text">
+                          ORDER DATE: {new Date(req.createdAt).toLocaleDateString().toUpperCase()}
+                        </span>
+                        <span
+                          className={
+                            req.status === 'in-progress' || req.status === 'approved' || req.status === 'delivered'
+                              ? 'order-approved-badge'
+                              : 'order-pending-badge'
+                          }
+                        >
+                          •{' '}
+                          {req.status === 'in-progress' || req.status === 'approved'
+                            ? 'Approved'
+                            : req.status === 'delivered'
+                            ? 'Delivered'
+                            : req.offers.length > 0
+                            ? `Offers Received (${req.offers.length})`
+                            : 'Pending'}
+                        </span>
+                      </div>
+                      <h2>{req.title || req.subject}</h2>
+                      <p className="order-status-sub">
+                        {req.subject} | Status: {req.status}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        if (req.category === 'explain-live') {
+                          setStep('hourly_trial_submissions_live');
+                        } else {
+                          setStep('instructor_offers');
+                        }
+                      }}
+                      className="btn-dark enter-order-dark-btn"
+                    >
+                      Enter Order
+                    </button>
+                  </div>
+                ))}
+
               {/* Item 1: Java Programming (Video Order) */}
               {(explainFilter === 'all' || explainFilter === 'video') && (
                 <div className="order-item-card card">
@@ -563,6 +632,45 @@ const StudentOrders = () => {
 
           {/* 3 Instructor Submissions List */}
           <div className="submissions-cards-list">
+            {/* Dynamic trial submissions for live explanation */}
+            {requests
+              .filter((r) => r.category === 'explain-live' && r.offers.length > 0)
+              .flatMap((r) => r.offers.map((off) => ({ ...off, reqId: r.id, reqSubject: r.subject })))
+              .map((sub) => (
+                <div className="submission-row-card card" key={sub.id} style={{ border: '2px solid #00E5FF' }}>
+                  <div className="sub-left-info">
+                    <h3>{sub.instructorName.toUpperCase()}</h3>
+                    <span className="sub-tag" style={{ background: '#00E5FF', color: '#0F172A', fontWeight: 700 }}>
+                      ★ NEW SUBMISSION
+                    </span>
+                    {sub.submittedVideoName && (
+                      <span style={{ fontSize: '0.8rem', color: '#94A3B8', marginTop: '4px', display: 'block' }}>
+                        📹 {sub.submittedVideoName}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="sub-video-container">
+                    <div className="video-player-placeholder">
+                      <div className="play-button-circle">▶</div>
+                      <span className="time-badge">05:00</span>
+                    </div>
+                  </div>
+
+                  <div className="sub-right-action">
+                    <button 
+                      onClick={() => {
+                        approveOffer(sub.reqId, sub.id);
+                        handleApproveSubmission(sub.instructorName);
+                      }} 
+                      className="btn-primary approve-cyan-btn"
+                    >
+                      APPROVE
+                    </button>
+                  </div>
+                </div>
+              ))}
+
             {/* Instructor 1: AHMED.F */}
             <div className="submission-row-card card">
               <div className="sub-left-info">
@@ -737,6 +845,59 @@ const StudentOrders = () => {
             <h2 className="available-offers-title">Available Offers</h2>
 
             <div className="instructor-offers-list">
+              {/* Dynamic instructor offers */}
+              {requests
+                .flatMap((r) => r.offers)
+                .map((offer) => (
+                  <div className="instructor-offer-card card" key={offer.id}>
+                    <div className="offer-left-avatar-wrap">
+                      <div className="avatar-circle-placeholder font-bold">
+                        {offer.instructorInitials || 'DR'}
+                      </div>
+                    </div>
+
+                    <div className="offer-mid-details">
+                      <div className="instructor-name-check-row">
+                        <h3>{offer.instructorName.toUpperCase()}</h3>
+                        <span className="blue-verified-check">☑</span>
+                      </div>
+                      <p className="calc-sub-text">
+                        {offer.notes || `Rate is calculated based on ${offer.hourlyRate || 50} ${offer.currency || 'SAR'} per hour.`}
+                      </p>
+                      <div className="est-total-pills-row">
+                        <span className="meta-time-pill">
+                          🕒 Estimated Time: {offer.estimatedHours || 3} Hours
+                        </span>
+                        <span className="meta-price-pill">
+                          💵 Total Price: {offer.totalPrice} {offer.currency || 'SAR'}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="offer-right-action">
+                      <button
+                        onClick={() => {
+                          const req = requests.find((r) => r.id === offer.requestId);
+                          setSelectedOffer({
+                            reqId: offer.requestId,
+                            offerId: offer.id,
+                            instructorName: offer.instructorName,
+                            subject: req?.subject || 'Java programming',
+                            hours: offer.estimatedHours || 3,
+                            rate: offer.hourlyRate || 50,
+                            total: offer.totalPrice,
+                            currency: offer.currency || 'SAR',
+                          });
+                          setStep('confirm_your_session_java');
+                        }}
+                        className="btn-primary select-offer-cyan-btn"
+                      >
+                        Select Offer
+                      </button>
+                    </div>
+                  </div>
+                ))}
+
               {/* Offer 1: AHMED.K */}
               <div className="instructor-offer-card card">
                 <div className="offer-left-avatar-wrap">
@@ -851,19 +1012,19 @@ const StudentOrders = () => {
               <div className="four-fields-grid-summary">
                 <div>
                   <span className="off-label">INSTRUCTOR</span>
-                  <strong className="off-val">Ahmed.k</strong>
+                  <strong className="off-val">{selectedOffer ? selectedOffer.instructorName : 'Ahmed.k'}</strong>
                 </div>
                 <div>
                   <span className="off-label">SUBJECT</span>
-                  <strong className="off-val">Java programming</strong>
+                  <strong className="off-val">{selectedOffer ? selectedOffer.subject : 'Java programming'}</strong>
                 </div>
                 <div>
                   <span className="off-label">HOURS</span>
-                  <strong className="off-val">3 Hours</strong>
+                  <strong className="off-val">{selectedOffer ? `${selectedOffer.hours} Hours` : '3 Hours'}</strong>
                 </div>
                 <div>
                   <span className="off-label">RATE</span>
-                  <strong className="off-val">50 SAR/hr</strong>
+                  <strong className="off-val">{selectedOffer ? `${selectedOffer.rate} ${selectedOffer.currency}/hr` : '50 SAR/hr'}</strong>
                 </div>
               </div>
 
@@ -871,13 +1032,24 @@ const StudentOrders = () => {
                 <span className="off-note">Note: This offer is based on your requested material.</span>
                 <div className="total-amount-display">
                   <span>Total Amount:</span>
-                  <strong>150 SAR</strong>
+                  <strong>{selectedOffer ? `${selectedOffer.total} ${selectedOffer.currency}` : '150 SAR'}</strong>
                 </div>
               </div>
             </div>
 
             <button 
-              onClick={() => { setShowToast(true); setStep('payment_successful_java_150'); }}
+              onClick={() => {
+                if (selectedOffer) {
+                  approveOffer(selectedOffer.reqId, selectedOffer.offerId);
+                } else {
+                  const pendingWithOffer = requests.find((r) => r.offers.length > 0 && r.status !== 'in-progress');
+                  if (pendingWithOffer && pendingWithOffer.offers[0]) {
+                    approveOffer(pendingWithOffer.id, pendingWithOffer.offers[0].id);
+                  }
+                }
+                setShowToast(true);
+                setStep('payment_successful_java_150');
+              }}
               className="btn-primary confirm-send-order-cyan-btn"
               style={{ marginTop: '2.5rem' }}
             >
@@ -900,7 +1072,9 @@ const StudentOrders = () => {
             <div className="top-right-toast-card">
               <div className="toast-header-row">
                 <span className="toast-check-icon">💳</span>
-                <strong className="toast-caps-title">150 SAR HAS BEEN DEDUCTED FROM YOUR WALLET.</strong>
+                <strong className="toast-caps-title">
+                  {selectedOffer ? `${selectedOffer.total} ${selectedOffer.currency}` : '150 SAR'} HAS BEEN DEDUCTED FROM YOUR WALLET.
+                </strong>
                 <button onClick={() => setShowToast(false)} className="toast-close-btn">&times;</button>
               </div>
             </div>
@@ -916,19 +1090,19 @@ const StudentOrders = () => {
             <div className="payment-details-table">
               <div className="table-row-item">
                 <span className="table-label">Instructor</span>
-                <strong className="table-val">Ahmed.k</strong>
+                <strong className="table-val">{selectedOffer ? selectedOffer.instructorName : 'Ahmed.k'}</strong>
               </div>
               <div className="table-row-item">
                 <span className="table-label">Subject</span>
-                <strong className="table-val">Java programming</strong>
+                <strong className="table-val">{selectedOffer ? selectedOffer.subject : 'Java programming'}</strong>
               </div>
               <div className="table-row-item">
                 <span className="table-label">Hours</span>
-                <strong className="table-val">3 Hours</strong>
+                <strong className="table-val">{selectedOffer ? `${selectedOffer.hours} Hours` : '3 Hours'}</strong>
               </div>
               <div className="table-row-item highlight-paid">
                 <span className="table-label">Total Paid</span>
-                <strong className="table-val cyan-text">150 SAR</strong>
+                <strong className="table-val cyan-text">{selectedOffer ? `${selectedOffer.total} ${selectedOffer.currency}` : '150 SAR'}</strong>
               </div>
             </div>
 
@@ -1030,6 +1204,48 @@ const StudentOrders = () => {
           </div>
 
           <div className="orders-items-list">
+            {/* Dynamic assignment requests */}
+            {requests
+              .filter((r) => r.category === 'assignment')
+              .map((req) => (
+                <div className="order-item-card card" key={req.id}>
+                  <div className="order-item-left">
+                    <div className="order-meta-row">
+                      <span className="order-date-text">
+                        {t('assignments.submittedOn', 'Submitted on:')}{' '}
+                        {new Date(req.createdAt).toLocaleDateString().toUpperCase()}
+                      </span>
+                      <span
+                        className={
+                          req.status === 'delivered'
+                            ? 'order-approved-badge'
+                            : 'asgn-status-pill processing'
+                        }
+                      >
+                        {req.status === 'delivered'
+                          ? t('common.completed', 'COMPLETED')
+                          : req.offers.length > 0
+                          ? 'OFFERS RECEIVED'
+                          : t('common.pending', 'PROCESSING')}
+                      </span>
+                    </div>
+                    <h2>{req.title || req.subject}</h2>
+                    <p className="order-status-sub">
+                      {req.subject} | Budget: {req.budget}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setSelectedAssignment(req);
+                      setStep('assignment_order_details');
+                    }}
+                    className="btn-dark enter-order-dark-btn"
+                  >
+                    {t('assignments.enterAssignment', 'Enter Assignment')}
+                  </button>
+                </div>
+              ))}
+
             {/* Item 1: Approved Assignment */}
             <div className="order-item-card card">
               <div className="order-item-left">
@@ -1041,7 +1257,10 @@ const StudentOrders = () => {
                 <p className="order-status-sub">{t('assignments.mathDept', 'Mathematics Department')}</p>
               </div>
               <button 
-                onClick={() => setStep('assignment_order_details')} 
+                onClick={() => {
+                  setSelectedAssignment(null);
+                  setStep('assignment_order_details');
+                }} 
                 className="btn-dark enter-order-dark-btn"
               >
                 {t('assignments.enterAssignment', 'Enter Assignment')}
@@ -1059,7 +1278,10 @@ const StudentOrders = () => {
                 <p className="order-status-sub">{t('assignments.physicsDept', 'Theoretical Physics 101')}</p>
               </div>
               <button 
-                onClick={() => setStep('assignment_order_details')} 
+                onClick={() => {
+                  setSelectedAssignment(null);
+                  setStep('assignment_order_details');
+                }} 
                 className="btn-outline enter-order-gray-btn"
               >
                 {t('assignments.enterAssignment', 'Enter Assignment')}
@@ -1094,34 +1316,36 @@ const StudentOrders = () => {
           <div className="assignment-details-gray-card">
             <div className="card-top-header-flex">
               <h3>Assignment Information</h3>
-              <span className="pending-offers-pill">Status: Pending Offers</span>
+              <span className="pending-offers-pill">
+                Status: {selectedAssignment ? (selectedAssignment.status === 'in-progress' ? 'IN PROGRESS' : selectedAssignment.offers?.length > 0 ? 'OFFERS RECEIVED' : 'PENDING OFFERS') : 'Status: Pending Offers'}
+              </span>
             </div>
 
             <div className="fields-grid-two-cols">
               <div className="asg-field-group">
                 <span className="asg-lbl">SUBJECT NAME</span>
-                <strong className="asg-val">Data Structures</strong>
+                <strong className="asg-val">{selectedAssignment ? selectedAssignment.subject : 'Data Structures'}</strong>
               </div>
 
               <div className="asg-field-group">
                 <span className="asg-lbl">DEADLINE</span>
-                <strong className="asg-val">📅 25 March 2026</strong>
+                <strong className="asg-val">{selectedAssignment ? `📅 ${selectedAssignment.deadline}` : '📅 25 March 2026'}</strong>
               </div>
 
               <div className="asg-field-group">
                 <span className="asg-lbl">ASSIGNMENT TITLE</span>
-                <strong className="asg-val">Linked List Implementation</strong>
+                <strong className="asg-val">{selectedAssignment ? (selectedAssignment.title || selectedAssignment.subject) : 'Linked List Implementation'}</strong>
               </div>
 
               <div className="asg-field-group">
                 <span className="asg-lbl">PRICE</span>
-                <strong className="asg-val cyan-txt font-bold">120 SAR</strong>
+                <strong className="asg-val cyan-txt font-bold">{selectedAssignment ? selectedAssignment.budget : '120 SAR'}</strong>
               </div>
 
               <div className="asg-field-group col-span-two">
                 <span className="asg-lbl">DESCRIPTION</span>
                 <p className="asg-desc-txt">
-                  Implement a linked list in Java with insert, delete, and search functions.
+                  {selectedAssignment ? selectedAssignment.description : 'Implement a linked list in Java with insert, delete, and search functions.'}
                 </p>
               </div>
 
@@ -1133,8 +1357,8 @@ const StudentOrders = () => {
                       <img src="/pdf-icon.png" alt="PDF" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
                     </span>
                     <div>
-                      <strong>assignment.pdf</strong>
-                      <span className="file-size-txt">2.4 MB</span>
+                      <strong>{selectedAssignment ? selectedAssignment.filename : 'assignment.pdf'}</strong>
+                      <span className="file-size-txt">{selectedAssignment ? selectedAssignment.fileMeta : '2.4 MB'}</span>
                     </div>
                   </div>
                   <span className="file-download-ico" title="Download File">📥</span>
@@ -1146,15 +1370,27 @@ const StudentOrders = () => {
           {/* Under Review Notice */}
           <div className="under-review-notice-row text-center" style={{ margin: '2rem 0' }}>
             <span className="clock-icon">🕒</span>
-            <span className="notice-text">Your request is currently under review. Instructors will submit their offers soon.</span>
+            <span className="notice-text">
+              {selectedAssignment && selectedAssignment.offers?.length > 0
+                ? `You have ${selectedAssignment.offers.length} offer(s) from instructors for this assignment.`
+                : 'Your request is currently under review. Instructors will submit their offers soon.'}
+            </span>
           </div>
 
           <div className="text-center">
             <button 
-              onClick={() => { setShowToast(true); setStep('payment_successful_120_asg'); }} 
+              onClick={() => {
+                if (selectedAssignment && selectedAssignment.offers?.length > 0) {
+                  approveOffer(selectedAssignment.id, selectedAssignment.offers[0].id);
+                }
+                setShowToast(true);
+                setStep('payment_successful_120_asg');
+              }} 
               className="btn-primary view-offer-cyan-btn"
             >
-              View Offer
+              {selectedAssignment && selectedAssignment.offers?.length > 0
+                ? `Accept Offer (${selectedAssignment.offers[0].totalPrice} ${selectedAssignment.offers[0].currency || 'SAR'})`
+                : 'View Offer'}
             </button>
           </div>
         </div>
@@ -1169,7 +1405,9 @@ const StudentOrders = () => {
             <div className="top-right-toast-card">
               <div className="toast-header-row">
                 <span className="toast-check-icon">💳</span>
-                <strong className="toast-caps-title">120 SAR HAS BEEN DEDUCTED FROM YOUR WALLET.</strong>
+                <strong className="toast-caps-title">
+                  {selectedAssignment?.offers?.[0]?.totalPrice ? `${selectedAssignment.offers[0].totalPrice} ${selectedAssignment.offers[0].currency || 'SAR'}` : '120 SAR'} HAS BEEN DEDUCTED FROM YOUR WALLET.
+                </strong>
                 <button onClick={() => setShowToast(false)} className="toast-close-btn">&times;</button>
               </div>
             </div>
@@ -1185,24 +1423,26 @@ const StudentOrders = () => {
             <div className="payment-details-table">
               <div className="table-row-item">
                 <span className="table-label">Instructor</span>
-                <strong className="table-val">Ahmed.k</strong>
+                <strong className="table-val">{selectedAssignment?.offers?.[0]?.instructorName || 'Eng. Markus'}</strong>
               </div>
               <div className="table-row-item">
                 <span className="table-label">Subject</span>
-                <strong className="table-val">Data Structeurs</strong>
+                <strong className="table-val">{selectedAssignment?.subject || 'Data Structures'}</strong>
               </div>
               <div className="table-row-item">
                 <span className="table-label">Deadline</span>
-                <strong className="table-val">25 March , 2026</strong>
+                <strong className="table-val">{selectedAssignment?.deadline || '25 March, 2026'}</strong>
               </div>
               <div className="table-row-item highlight-paid">
                 <span className="table-label">Total Paid</span>
-                <strong className="table-val cyan-text">120 SAR</strong>
+                <strong className="table-val cyan-text">
+                  {selectedAssignment?.offers?.[0]?.totalPrice ? `${selectedAssignment.offers[0].totalPrice} ${selectedAssignment.offers[0].currency || 'SAR'}` : '120 SAR'}
+                </strong>
               </div>
             </div>
 
             <button 
-              onClick={() => navigate('/assignments')} 
+              onClick={() => navigate('/my-assignments')} 
               className="btn-primary go-to-orders-btn"
               style={{ width: '100%', borderRadius: '12px' }}
             >
@@ -1266,6 +1506,45 @@ const StudentOrders = () => {
           {activeSegment === 'request' ? (
             /* Batch 1 Pic 2: Requests List */
             <div className="orders-items-list">
+              {/* Dynamic requests from student */}
+              {requests
+                .filter((r) => r.category === 'trial')
+                .map((req) => (
+                  <div className="order-item-card card" key={req.id}>
+                    <div className="order-item-left">
+                      <div className="order-meta-row">
+                        <span className="order-date-text">
+                          ORDER DATE: {new Date(req.createdAt).toLocaleDateString().toUpperCase()}
+                        </span>
+                        <span
+                          className={
+                            req.status === 'in-progress' || req.status === 'approved'
+                              ? 'order-approved-badge'
+                              : 'order-pending-badge'
+                          }
+                        >
+                          •{' '}
+                          {req.status === 'in-progress' || req.status === 'approved'
+                            ? 'Approved'
+                            : req.offers.length > 0
+                            ? `Offers Received (${req.offers.length})`
+                            : 'Pending'}
+                        </span>
+                      </div>
+                      <h2>{req.title || req.subject}</h2>
+                      <p className="order-status-sub">
+                        {req.subject} | Status: {req.status}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => setStep('hourly_trial_submissions')}
+                      className="btn-dark enter-order-dark-btn"
+                    >
+                      Enter Order
+                    </button>
+                  </div>
+                ))}
+
               {/* Order 1 */}
               <div className="order-item-card card">
                 <div className="order-item-left">
@@ -1391,6 +1670,45 @@ const StudentOrders = () => {
 
           {/* 3 Instructor Submissions List */}
           <div className="submissions-cards-list">
+            {/* Dynamic trial video submissions from instructors */}
+            {requests
+              .filter((r) => r.category === 'trial' && r.offers.length > 0)
+              .flatMap((r) => r.offers.map((off) => ({ ...off, reqId: r.id, reqSubject: r.subject })))
+              .map((sub) => (
+                <div className="submission-row-card card" key={sub.id} style={{ border: '2px solid #00E5FF' }}>
+                  <div className="sub-left-info">
+                    <h3>{sub.instructorName.toUpperCase()}</h3>
+                    <span className="sub-tag" style={{ background: '#00E5FF', color: '#0F172A', fontWeight: 700 }}>
+                      ★ NEW SUBMISSION
+                    </span>
+                    {sub.submittedVideoName && (
+                      <span style={{ fontSize: '0.8rem', color: '#94A3B8', marginTop: '4px', display: 'block' }}>
+                        📹 {sub.submittedVideoName}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="sub-video-container">
+                    <div className="video-player-placeholder">
+                      <div className="play-button-circle">▶</div>
+                      <span className="time-badge">05:00</span>
+                    </div>
+                  </div>
+
+                  <div className="sub-right-action">
+                    <button 
+                      onClick={() => {
+                        approveOffer(sub.reqId, sub.id);
+                        handleApproveSubmission(sub.instructorName);
+                      }} 
+                      className="btn-primary approve-cyan-btn"
+                    >
+                      APPROVE
+                    </button>
+                  </div>
+                </div>
+              ))}
+
             {/* Instructor 1: AHMED.F */}
             <div className="submission-row-card card">
               <div className="sub-left-info">

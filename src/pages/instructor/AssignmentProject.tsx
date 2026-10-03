@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useInstructor } from '../../context/InstructorContext';
+import { useRequests } from '../../context/RequestContext';
 import './AssignmentProject.css';
 
 interface ChatMessage {
@@ -12,6 +13,7 @@ interface ChatMessage {
 
 interface AssignmentTask {
   id: string;
+  requestId?: string;
   initials: string;
   studentName: string;
   subject: string;
@@ -49,11 +51,34 @@ const mockAssignments: AssignmentTask[] = [
 
 const AssignmentProject: React.FC = () => {
   const navigate = useNavigate();
+  const { projects, deliverProject: instructorDeliverProject } = useInstructor();
+  const { deliverProject: requestDeliverProject } = useRequests();
+
+  const dynamicProjects: AssignmentTask[] = projects
+    .filter((p) => p.category === 'assignment')
+    .map((p) => ({
+      id: p.id,
+      requestId: p.requestId,
+      initials: p.initials || 'ST',
+      studentName: p.studentName,
+      subject: p.subject,
+      description: p.description,
+      budget: p.budget || '600 EGP',
+      deadline: p.deadline,
+      filename: p.filename || 'assignment.pdf',
+      fileMeta: p.fileMeta || 'PDF Document • 2.5 MB',
+    }));
+
+  const activeAssignments: AssignmentTask[] = [
+    ...dynamicProjects,
+    ...mockAssignments.filter((m) => !dynamicProjects.some((d) => d.id === m.id)),
+  ];
+
   const [videoFiles, setVideoFiles] = useState<Record<string, File | null>>({});
   const [projectFiles, setProjectFiles] = useState<Record<string, File | null>>({});
   const [chatInputs, setChatInputs] = useState<Record<string, string>>({});
   const [chatMessages, setChatMessages] = useState<Record<string, ChatMessage[]>>(
-    Object.fromEntries(mockAssignments.map((a) => [a.id, []]))
+    Object.fromEntries(activeAssignments.map((a) => [a.id, []]))
   );
   const [previewFile, setPreviewFile] = useState<AssignmentTask | null>(null);
 
@@ -79,17 +104,24 @@ const AssignmentProject: React.FC = () => {
     setChatInputs((p) => ({ ...p, [id]: '' }));
   };
 
-  const { deliverProject } = useInstructor();
-
   const handleConfirm = (task: AssignmentTask) => {
     if (!videoFiles[task.id] && !projectFiles[task.id]) {
       alert('Please upload either an explanation video or a project file before confirming.');
       return;
     }
-    deliverProject(task.id, {
-      videoName: videoFiles[task.id]?.name,
-      projectName: projectFiles[task.id]?.name,
+    const solFile = projectFiles[task.id]?.name || 'Solved_Assignment.pdf';
+    const vidFile = videoFiles[task.id]?.name || 'Assignment_Explanation.mp4';
+
+    instructorDeliverProject(task.id, {
+      videoName: vidFile,
+      projectName: solFile,
     });
+
+    requestDeliverProject(task.requestId || task.id, {
+      solutionFile: solFile,
+      videoName: vidFile,
+    });
+
     navigate('/instructor/project-delivered', { state: { assignment: task } });
   };
 
@@ -122,7 +154,7 @@ const AssignmentProject: React.FC = () => {
         </div>
 
         {/* Assignment Cards */}
-        {mockAssignments.map((task) => (
+        {activeAssignments.map((task) => (
           <div className="aproj-card" key={task.id}>
 
             {/* ── Student Info Row ── */}

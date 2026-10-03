@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useInstructor } from '../context/InstructorContext';
+import { useRequests } from '../context/RequestContext';
 import { useLanguage } from '../context/LanguageContext';
 import JarAcademyLogo from './JarAcademyLogo';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -12,44 +13,15 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { isAuthenticated, user, logout } = useAuth();
   const { unreadCount: instructorUnreadCount } = useInstructor();
+  const {
+    studentNotifications,
+    unreadStudentNotifCount,
+    markAllStudentNotifsRead,
+    markStudentNotifRead,
+  } = useRequests();
   const { t } = useLanguage();
 
   const [showNotifPopup, setShowNotifPopup] = useState(false);
-  const [unreadCount, setUnreadCount] = useState(3);
-  const [notifications, setNotifications] = useState([
-    {
-      id: '1',
-      icon: '/pdf-icon.png',
-      title: 'Assignment Explanation Ready',
-      desc: 'Calculus II Homework explanation file is uploaded.',
-      time: '10 mins ago',
-      unread: true,
-    },
-    {
-      id: '2',
-      icon: '/student-dash-icons/Icon (17).png',
-      title: 'Upcoming Live Session',
-      desc: 'Organic Chemistry II session starts in 15 mins.',
-      time: '25 mins ago',
-      unread: true,
-    },
-    {
-      id: '3',
-      icon: '/student-dash-icons/my order.png',
-      title: 'Payment Confirmed',
-      desc: 'Receipt #84210 confirmed successfully.',
-      time: '2 hours ago',
-      unread: true,
-    },
-    {
-      id: '4',
-      icon: '/student-dash-icons/Icon (14).png',
-      title: 'New Offer Received',
-      desc: 'Eng. Markus accepted your Python request.',
-      time: '5 hours ago',
-      unread: false,
-    },
-  ]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -63,8 +35,15 @@ const Navbar = () => {
   }, [showNotifPopup]);
 
   const handleMarkAllRead = () => {
-    setNotifications(prev => prev.map(n => ({ ...n, unread: false })));
-    setUnreadCount(0);
+    markAllStudentNotifsRead();
+  };
+
+  const handleNotifClick = (id: string, link?: string) => {
+    markStudentNotifRead(id);
+    setShowNotifPopup(false);
+    if (link) {
+      navigate(link);
+    }
   };
 
   const toggleNotifPopup = () => {
@@ -204,7 +183,7 @@ const Navbar = () => {
                     onClick={toggleNotifPopup}
                   >
                     <img src="/student-dash-icons/Icon (15).png" alt="Notifications" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
-                    {unreadCount > 0 && <span className="nav-bell-badge">{unreadCount}</span>}
+                    {unreadStudentNotifCount > 0 && <span className="nav-bell-badge">{unreadStudentNotifCount}</span>}
                   </button>
 
                   {showNotifPopup && (
@@ -212,9 +191,9 @@ const Navbar = () => {
                       <div className="notif-popup-header">
                         <div className="notif-title-row">
                           <h3>{t('notif.title', 'Notifications')}</h3>
-                          {unreadCount > 0 && <span className="notif-count-badge">{unreadCount} New</span>}
+                          {unreadStudentNotifCount > 0 && <span className="notif-count-badge">{unreadStudentNotifCount} New</span>}
                         </div>
-                        {unreadCount > 0 && (
+                        {unreadStudentNotifCount > 0 && (
                           <button onClick={handleMarkAllRead} className="notif-mark-read-btn">
                             {t('notif.markRead', 'Mark all read')}
                           </button>
@@ -222,18 +201,29 @@ const Navbar = () => {
                       </div>
 
                       <div className="notif-popup-body">
-                        {notifications.map(notif => (
-                          <div key={notif.id} className={`notif-item ${notif.unread ? 'unread' : ''}`}>
-                            <div className="notif-icon-circle">
-                              <img src={notif.icon} alt={notif.title} style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
-                            </div>
-                            <div className="notif-content">
-                              <strong>{notif.title}</strong>
-                              <p>{notif.desc}</p>
-                              <span className="notif-time">{notif.time}</span>
-                            </div>
+                        {studentNotifications.length === 0 ? (
+                          <div style={{ padding: '24px 16px', textAlign: 'center', color: '#6B7280', fontSize: '0.88rem' }}>
+                            {t('notif.empty', 'No notifications yet')}
                           </div>
-                        ))}
+                        ) : (
+                          studentNotifications.map(notif => (
+                            <div
+                              key={notif.id}
+                              className={`notif-item ${notif.unread ? 'unread' : ''}`}
+                              onClick={() => handleNotifClick(notif.id, notif.link)}
+                              style={{ cursor: 'pointer' }}
+                            >
+                              <div className="notif-icon-circle">
+                                <img src={notif.icon || '/pdf-icon.png'} alt={notif.title} style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+                              </div>
+                              <div className="notif-content">
+                                <strong>{notif.title}</strong>
+                                <p>{notif.desc}</p>
+                                <span className="notif-time">{notif.time}</span>
+                              </div>
+                            </div>
+                          ))
+                        )}
                       </div>
 
                       <div className="notif-popup-footer">

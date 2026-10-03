@@ -1,24 +1,30 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import StudentHeader from '../../components/StudentHeader';
 import { useLanguage } from '../../context/LanguageContext';
+import { useRequests } from '../../context/RequestContext';
 import './EnterAssignment.css';
 
 const EnterAssignment = () => {
   const { t } = useLanguage();
+  const { assignmentId } = useParams<{ assignmentId?: string }>();
+  const { requests } = useRequests();
+
+  const targetReq = requests.find((r) => r.id === assignmentId);
+
   const [chatMessages, setChatMessages] = useState([
     {
       sender: 'tutor',
-      text: "Hi Ahmad, how is your assignment going? Is everything clear, or is there anything you didn't understand?"
+      text: "Hi Ahmad, how is your assignment going? Is everything clear, or is there anything you didn't understand?",
     },
     {
       sender: 'student',
-      text: "Hi Doctor, it's going great overall, thank you! 🙏 But there is one part I'm still a bit confused about."
+      text: "Hi Doctor, it's going great overall, thank you! 🙏 But there is one part I'm still a bit confused about.",
     },
     {
       sender: 'tutor',
-      text: "Alright, which part is that?"
-    }
+      text: 'Alright, which part is that?',
+    },
   ]);
   const [inputMsg, setInputMsg] = useState('');
 
@@ -29,16 +35,39 @@ const EnterAssignment = () => {
     setInputMsg('');
   };
 
+  const handleDownloadPdf = () => {
+    const solFileName =
+      targetReq?.deliveredSolutionFile || 'Solved_Assignment_Calculus.pdf';
+    const element = document.createElement('a');
+    const file = new Blob(
+      [`Official Solved Assignment Content\nCourse: ${targetReq?.subject || 'Mathematics'}\nStudent: ${targetReq?.studentName || 'Student'}\nFile: ${solFileName}`],
+      { type: 'text/plain' }
+    );
+    element.href = URL.createObjectURL(file);
+    element.download = solFileName;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
+
+  const title = targetReq?.title || 'Assignment Explanation';
+  const solvedFileName =
+    targetReq?.deliveredSolutionFile || 'Solved Assignment - Calculus Homework.pdf';
+
   return (
     <div className="enter-assignment-wrapper">
       <StudentHeader />
 
       <main className="container enter-assignment-container animate-fade-in">
-        <Link to="/my-assignments" className="back-link">{t('orders.back', '← Back')}</Link>
+        <Link to="/my-assignments" className="back-link">
+          {t('orders.back', '← Back')}
+        </Link>
 
         <div className="assignment-header-wrap">
-          <h1>Assignment Explanation</h1>
-          <p className="page-subtitle">Watch the explanation and download the solved assignment.</p>
+          <h1>{title}</h1>
+          <p className="page-subtitle">
+            Watch the explanation and download the solved assignment.
+          </p>
         </div>
 
         {/* 1. Video Player Container */}
@@ -60,19 +89,40 @@ const EnterAssignment = () => {
 
         {/* 2. Solved Assignment File Download Card */}
         <div className="solved-file-section">
-          <h3><img src="/pdf-icon.png" alt="PDF" style={{ width: '1.1em', height: '1.1em', verticalAlign: 'middle', marginInlineEnd: '6px' }} /> Solved Assignment File</h3>
+          <h3>
+            <img
+              src="/pdf-icon.png"
+              alt="PDF"
+              style={{
+                width: '1.1em',
+                height: '1.1em',
+                verticalAlign: 'middle',
+                marginInlineEnd: '6px',
+              }}
+            />{' '}
+            Solved Assignment File
+          </h3>
           <div className="card solved-file-card">
             <div className="file-info-left">
               <div className="pdf-icon-box">
-                <img src="/pdf-icon.png" alt="PDF" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
+                <img
+                  src="/pdf-icon.png"
+                  alt="PDF"
+                  style={{ width: '24px', height: '24px', objectFit: 'contain' }}
+                />
               </div>
               <div>
-                <h4 className="file-name">Solved Assignment - Calculus Homework</h4>
-                <p className="file-meta">PDF Document • 3.4 MB</p>
+                <h4 className="file-name">{solvedFileName}</h4>
+                <p className="file-meta">
+                  {targetReq?.fileMeta || 'PDF Document • 3.4 MB'}
+                </p>
               </div>
             </div>
 
-            <button className="btn-dark download-pdf-btn">
+            <button
+              className="btn-dark download-pdf-btn"
+              onClick={handleDownloadPdf}
+            >
               📥 Download PDF
             </button>
           </div>
@@ -87,17 +137,15 @@ const EnterAssignment = () => {
           <div className="chat-messages-container">
             {chatMessages.map((msg, index) => (
               <div key={index} className={`chat-message-row ${msg.sender}`}>
-                <div className="chat-message-bubble">
-                  {msg.text}
-                </div>
+                <div className="chat-message-bubble">{msg.text}</div>
               </div>
             ))}
           </div>
 
           <form className="chat-input-row" onSubmit={handleSend}>
-            <input 
-              type="text" 
-              placeholder="Type a message..." 
+            <input
+              type="text"
+              placeholder="Type a message..."
               value={inputMsg}
               onChange={(e) => setInputMsg(e.target.value)}
             />

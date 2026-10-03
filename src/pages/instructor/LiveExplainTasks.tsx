@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
+import { useRequests } from "../../context/RequestContext";
 import "./LiveExplainTasks.css";
 
 type LiveTask = {
-    id: number;
+    id: string | number;
     studentName: string;
     postedTime: string;
     subject: string;
     description: string;
     deadline: string;
     fileName: string;
+    isNew?: boolean;
 };
 
 const liveTasks: LiveTask[] = [
@@ -46,6 +48,22 @@ const liveTasks: LiveTask[] = [
 
 const LiveExplainTasks = () => {
     const navigate = useNavigate();
+    const { getRequestsByCategory } = useRequests();
+
+    const dynamicLive = getRequestsByCategory('explain-live');
+    const combinedLiveTasks: LiveTask[] = [
+        ...dynamicLive.map((d) => ({
+            id: d.id,
+            studentName: d.studentName,
+            postedTime: "Just now",
+            subject: d.subject,
+            description: d.description,
+            deadline: d.deadline,
+            fileName: d.filename,
+            isNew: true,
+        })),
+        ...liveTasks.filter((m) => !dynamicLive.some((d) => d.id === String(m.id))),
+    ];
 
     return (
         <div className="live-explain-page">
@@ -90,7 +108,7 @@ const LiveExplainTasks = () => {
 
                     <div className="live-task-list">
 
-                        {liveTasks.map((task) => (
+                        {combinedLiveTasks.map((task) => (
                             <div
                                 className="live-task-card"
                                 key={task.id}
@@ -98,8 +116,8 @@ const LiveExplainTasks = () => {
 
                                 <div className="live-task-top">
 
-                                    <span className="live-trial-badge">
-                                        TRIAL REQUEST
+                                    <span className="live-trial-badge" style={task.isNew ? { background: '#00D1FF', color: '#0F172A', fontWeight: 800 } : {}}>
+                                        {task.isNew ? '★ NEW REQUEST' : 'TRIAL REQUEST'}
                                     </span>
 
                                     <div className="live-task-deadline">

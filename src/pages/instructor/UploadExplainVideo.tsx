@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useInstructor } from '../../context/InstructorContext';
+import { useRequests } from '../../context/RequestContext';
 import './UploadExplainVideo.css';
 
 interface AttachedMaterial {
@@ -17,6 +18,7 @@ interface ChatMessage {
 
 interface ExplainTask {
   id: string;
+  requestId?: string;
   initials: string;
   studentName: string;
   postedTime: string;
@@ -69,16 +71,20 @@ const UploadExplainVideo: React.FC = () => {
     setChatInput('');
   };
 
-  const { deliverProject } = useInstructor();
+  const { deliverProject: instructorDeliverProject } = useInstructor();
+  const { deliverProject: requestDeliverProject } = useRequests();
 
   const handleConfirm = () => {
     if (!videoFile) {
       alert("Please upload a video before confirming.");
       return;
     }
-    deliverProject(task.id, {
+    instructorDeliverProject(task.id, {
       videoName: videoFile.name,
       projectName: lessonName || task.title,
+    });
+    requestDeliverProject(task.requestId || task.id, {
+      videoName: videoFile.name,
     });
     navigate('/instructor/project-delivered', { state: { assignment: task } });
   };

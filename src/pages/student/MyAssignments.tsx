@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
+import { useRequests } from '../../context/RequestContext';
 import './MyAssignments.css';
 
 interface AssignmentItem {
   id: string;
-  titleKey: string;
+  titleKey?: string;
   defaultTitle: string;
-  deptKey: string;
+  deptKey?: string;
   defaultDept: string;
   submittedDate: string;
   status: 'COMPLETED' | 'PROCESSING';
@@ -64,7 +65,26 @@ const ASSIGNMENTS_DATA: AssignmentItem[] = [
 const MyAssignments = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
+  const { requests } = useRequests();
   const [currentPage, setCurrentPage] = useState(1);
+
+  const dynamicAssignments: AssignmentItem[] = requests
+    .filter((r) => r.category === 'assignment')
+    .map((r) => ({
+      id: r.id,
+      defaultTitle: r.title || r.subject,
+      defaultDept: r.subject || 'Computer Science Department',
+      submittedDate: new Date(r.createdAt).toLocaleDateString([], {
+        month: 'short',
+        day: 'numeric',
+      }),
+      status: r.status === 'delivered' ? 'COMPLETED' : 'PROCESSING',
+    }));
+
+  const allAssignments: AssignmentItem[] = [
+    ...dynamicAssignments,
+    ...ASSIGNMENTS_DATA.filter((a) => !dynamicAssignments.some((d) => d.id === a.id)),
+  ];
 
   return (
     <div className="my-assignments-page container animate-fade-in">
@@ -80,7 +100,7 @@ const MyAssignments = () => {
 
       {/* Assignments List */}
       <div className="assignments-list-container">
-        {ASSIGNMENTS_DATA.map((item) => (
+        {allAssignments.map((item) => (
           <div key={item.id} className="my-assignment-card card">
             <div className="assignment-card-left">
               <div className="status-submitted-row">
@@ -92,10 +112,12 @@ const MyAssignments = () => {
                 </span>
               </div>
 
-              <h2 className="assignment-item-title">{t(item.titleKey, item.defaultTitle)}</h2>
+              <h2 className="assignment-item-title">
+                {item.titleKey ? t(item.titleKey, item.defaultTitle) : item.defaultTitle}
+              </h2>
               
               <p className="department-tag">
-                🏷️ {t(item.deptKey, item.defaultDept)}
+                🏷️ {item.deptKey ? t(item.deptKey, item.defaultDept) : item.defaultDept}
               </p>
             </div>
 
